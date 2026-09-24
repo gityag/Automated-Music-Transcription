@@ -1,0 +1,34 @@
+audio:
+  sample_rate: 16000
+cqt:
+  fmin_midi: 21
+  n_bins: 88
+  bins_per_octave: 12
+  hop_length: 256
+labels:
+  pitch_low: 21
+  pitch_high: 108
+  extend_with_sustain_pedal: true
+  sustain_pedal_threshold: 64
+split:
+  train_hours: 45.0
+  val_hours: 5.0
+  seed: 21
+model:
+  name: cnn_baseline
+  conv_channels:
+  - 32
+  - 32
+  - 64
+  - 64
+  dropout: 0.25
+  onset_head: false
+train:
+  epochs: 30
+  batch_size: 16
+  learning_rate: 0.001
+  seed: 21
+  device: auto
+eval:
+  onset_tolerance_seconds: 0.05
+  offset_ratio: 0.2

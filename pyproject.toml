@@ -1,0 +1,28 @@
+[project]
+name = "amt"
+version = "0.1.0"
+description = "Automated piano music transcription: CQT front end + CNN, evaluated with note-level metrics."
+requires-python = ">=3.10"
+dependencies = [
+    "numpy>=1.24",
+    "scipy>=1.10",
+    "librosa>=0.10",
+    "pretty_midi>=0.2.10",
+    "soundfile>=0.12",
+    "mir_eval>=0.7",
+    "PyYAML>=6.0",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=7.0", "pytest-cov"]
+train = ["torch>=2.1"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+
+[tool.setuptools.packages.find]
+include = ["amt*"]
+
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"

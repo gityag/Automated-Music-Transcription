@@ -1,5 +1,13 @@
 # Automated Music Transcription
 
+> **Status: under active rebuild.** The scripts described below
+> (`create_dataset.py`, `models.py`, etc.) are the original prototype and
+> are being replaced by a tested `amt/` package -- see
+> [`docs/PROGRESS.md`](docs/PROGRESS.md) for what's done and what's next,
+> and [`docs/decisions/`](docs/decisions/README.md) for the reasoning
+> behind each change. This README will be rewritten with real
+> benchmark results once that work is complete.
+
 This project is an implementation of an Automated Music Transcription (AMT) system. The goal of AMT is to convert an audio recording of a musical performance into a symbolic notation, such as a MIDI file. This implementation uses a deep learning approach to transcribe piano music from audio files.
 
 ## Features

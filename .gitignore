@@ -1,7 +1,16 @@
-/__pycache__
+__pycache__/
+*.egg-info/
+.pytest_cache/
 /model_checkpoints
 /tensorboard_logs
 /.ipynb_checkpoints
+
+# Large/derived data: never commit audio, cached features, or datasets.
+/data/
+*.wav
+*.npy
+*.npz
+*.pkl
 
 
 
