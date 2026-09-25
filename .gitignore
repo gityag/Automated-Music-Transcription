@@ -11,7 +11,10 @@ __pycache__/
 *.npy
 *.npz
 *.pkl
-
+.DS_Store
+SMD-piano_v2.zip
+SMD-piano_v2/
+rough.py
 
 
 

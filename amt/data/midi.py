@@ -123,7 +123,7 @@ def _interval_containing(
 
 def notes_to_piano_roll(
     notes: list[Note],
-    duration: float,
+    n_frames: int,
     fs: int,
     pitch_low: int,
     pitch_high: int,
@@ -136,7 +136,6 @@ def notes_to_piano_roll(
     input and target end up on different time grids.
     """
     n_pitches = pitch_high - pitch_low + 1
-    n_frames = int(np.ceil(duration * fs))
     frame_roll = np.zeros((n_pitches, n_frames), dtype=np.float32)
     onset_roll = np.zeros((n_pitches, n_frames), dtype=np.float32)
 
@@ -144,8 +143,9 @@ def notes_to_piano_roll(
         if not (pitch_low <= note.pitch <= pitch_high):
             continue  # outside the modeled range (rare at the extremes)
         row = note.pitch - pitch_low
-        start_frame = max(0, int(np.floor(note.start * fs)))
-        end_frame = min(n_frames, int(np.ceil(note.end * fs)))
+        start_frame = min( max(0, int(np.floor(note.start * fs))), n_frames - 1) # clipping to [0, n_frames-1] to avoid indexing errors
+        end = min(note.end, n_frames/fs)  # clip to audio length | duration = n_frames/fs
+        end_frame = min(n_frames, int(np.ceil(end * fs)))
         if end_frame <= start_frame:
             end_frame = min(n_frames, start_frame + 1)  # keep very short notes visible
         frame_roll[row, start_frame:end_frame] = 1.0

@@ -97,7 +97,7 @@ def test_repeated_notes_are_not_merged():
 def test_piano_roll_shape_and_onset_alignment():
     notes = [Note(pitch=21, start=0.0, end=0.5, velocity=100)]
     frame_roll, onset_roll = notes_to_piano_roll(
-        notes, duration=1.0, fs=100, pitch_low=21, pitch_high=108
+        notes, n_frames=100, fs=100, pitch_low=21, pitch_high=108
     )
     assert frame_roll.shape == (88, 100)
     assert onset_roll.shape == (88, 100)
@@ -113,7 +113,7 @@ def test_piano_roll_no_false_gap_on_held_note():
     # A note spanning the whole duration should have zero gaps.
     notes = [Note(pitch=60, start=0.0, end=1.0, velocity=100)]
     frame_roll, _ = notes_to_piano_roll(
-        notes, duration=1.0, fs=100, pitch_low=21, pitch_high=108
+        notes, n_frames = 100, fs=100, pitch_low=21, pitch_high=108
     )
     row = 60 - 21
     assert np.all(frame_roll[row, :] == 1.0)
@@ -122,7 +122,17 @@ def test_piano_roll_no_false_gap_on_held_note():
 def test_piano_roll_ignores_out_of_range_pitch():
     notes = [Note(pitch=10, start=0.0, end=0.5, velocity=100)]  # below A0
     frame_roll, onset_roll = notes_to_piano_roll(
-        notes, duration=1.0, fs=100, pitch_low=21, pitch_high=108
+        notes, n_frames = 100, fs=100, pitch_low=21, pitch_high=108
     )
     assert frame_roll.sum() == 0.0
     assert onset_roll.sum() == 0.0
+
+def test_piano_roll_clips_note_starting_at_or_past_end():
+# A note starting exactly at (or past) the last valid frame should
+# be clipped into the last frame, not index out of bounds.
+    notes = [Note(pitch=60, start=2, end=2.1, velocity=100)]
+    frame_roll, onset_roll = notes_to_piano_roll(
+    notes, n_frames=100, fs=100, pitch_low=21, pitch_high=108
+    )
+    row = 60 - 21
+    assert onset_roll[row, 99] == 1.0 # onset landed in the last valid frame
