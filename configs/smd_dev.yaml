@@ -1,0 +1,4 @@
+split:
+  train_hours: 2.5
+  val_hours: 1.0
+  seed: 21
