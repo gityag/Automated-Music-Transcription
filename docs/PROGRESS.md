@@ -115,3 +115,45 @@ This is the argument for why the validation script exists as a
 standing artifact, not a one-off scratch check.
 
 ---
+
+## Shared process_song() function + feature caching
+
+**Goal:** eliminate duplicated pipeline logic between scripts (the
+original sin behind Friday's two bugs shipping unnoticed for a while),
+and stop recomputing each song's CQT/labels from scratch on every use.
+
+**Built:**
+- `amt/data/dataset.py` -- new module holding:
+  - `SongFeatures`, a frozen dataclass (`stem`, `cqt`, `frame_roll`,
+    `onset_roll`) bundling one song's inputs and targets together.
+  - `process_song(wav_path, midi_path, cfg) -> SongFeatures`, extracted
+    directly from `scripts/validate_smd.py`'s inline loop body -- same
+    load -> CQT -> sustain-pedal-extend -> piano-roll sequence, now
+    called from one place instead of copy-pasted per script.
+- `scripts/validate_smd.py` refactored to call `process_song()` instead
+  of inlining the pipeline. Re-run against all 50 SMD pairs after the
+  refactor: identical shapes to Friday's fixed run, confirming the
+  extraction changed nothing about behavior.
+- `scripts/cache_smd_features.py` -- runs `process_song()` over all 50
+  SMD pairs and saves each song's `cqt`, `frame_roll`, `onset_roll`,
+  and `stem` to a compressed `.npz` under `data/processed/smd/` (not
+  committed -- derived data, covered by `.gitignore`'s `/data/` rule).
+
+**Verified:**
+- `validate_smd.py` post-refactor: 50/50 `ok`, shapes match pre-refactor
+  exactly.
+- `cache_smd_features.py`: 50/50 `ok`; `ls data/processed/smd | wc -l`
+  confirms 50 files actually written to disk (not just 50 successful
+  print statements); spot-checked one `.npz` by reloading it and
+  confirming `cqt`/`frame_roll`/`onset_roll` shapes and `stem` match.
+
+**Design note:** a plain Python string (`stem`) saved via
+`np.savez_compressed` round-trips as a 0-d `numpy.ndarray`, not a
+`str` -- needs `str(loaded["stem"])` to get a real string back. Minor
+gotcha, not a problem for how `stem` is used here (filenames/bookkeeping
+only), but worth remembering if metadata needs grow later.
+
+**Not yet done:** song-level train/val/test splitting, and the
+`mir_eval`-based evaluation module. These are next.
+
+---
