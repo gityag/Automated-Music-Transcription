@@ -157,3 +157,59 @@ only), but worth remembering if metadata needs grow later.
 `mir_eval`-based evaluation module. These are next.
 
 ---
+
+## Song-level splitting: group_durations + song_level_split
+
+**Goal:** build a leak-free train/val/test split that groups whole
+musical works together, rather than splitting by individual stem --
+the same class of leak the original project's segment-level split had,
+one level up.
+
+**Built:**
+- `group_durations()` and `song_level_split()`, added to
+  `amt/data/dataset.py` alongside `SongFeatures`/`process_song()`.
+  Given a stem->duration mapping and a stem->group mapping,
+  `song_level_split()` shuffles whole *groups* (seeded via a dedicated
+  `random.Random(cfg.split.seed)` instance, not the global `random`
+  module, so an unrelated `random.*` call elsewhere can't disturb
+  reproducibility) and greedily assigns them to train until
+  `cfg.split.train_hours` is reached, then val until
+  `cfg.split.val_hours`, with the remainder as test.
+- `configs/smd_dev.yaml` -- small hour targets (`train_hours: 2.5`,
+  `val_hours: 1.0`) for exercising the split on SMD locally. SMD's
+  total ~4.7 hours is far below the MAESTRO-scale defaults
+  (`train_hours: 45`); running the split with default config puts all
+  of SMD into "train" with empty val/test -- not a bug, confirmed by
+  testing it, just the wrong config for SMD's scale.
+- `scripts/split_smd.py` -- builds per-stem durations cheaply via
+  `librosa.get_duration(path=...)` (no full audio load needed) and
+  runs the real split on SMD.
+
+**Verified:**
+- `pytest tests/` -- 22 passed, including two new tests in
+  `tests/test_dataset.py`: one builds synthetic multi-stem groups and
+  asserts every stem in a group lands in the same split (the actual
+  leak-prevention guarantee), the other asserts the same seed produces
+  an identical split across two calls.
+- `scripts/split_smd.py` on real SMD data with `smd_dev.yaml`: 29
+  train / 12 val / 9 test stems, hours close to the 2.5/1.0 targets,
+  "No leaks found" confirmed by inspection.
+
+**Known simplification, not fixed now (documented, not silent):**
+SMD's stem->group rule is "each stem is its own group" -- it does
+*not* group multi-movement sonatas (e.g. `Beethoven_Op027No1-01/-02/-03`)
+together. A naive "split on first hyphen" alternative was tested; it
+correctly grouped multi-movement sonatas but incorrectly merged
+Chopin's Op. 28 (24 independent preludes) into one giant group.
+Decided not worth solving precisely for SMD, since SMD's role here is
+dev sandbox + later cross-dataset test, not where reported numbers
+come from -- MAESTRO is, and MAESTRO already ships an official
+work-level train/val/test split in its own metadata CSV, sidestepping
+this ambiguity entirely. `song_level_split()` itself is written
+generically (it consumes a group->stems mapping, not filename-parsing
+logic), so it will be reused unchanged once MAESTRO's official split
+column is wired in as the grouping source.
+
+**Not yet done:** the `mir_eval`-based evaluation module. Next.
+
+---
