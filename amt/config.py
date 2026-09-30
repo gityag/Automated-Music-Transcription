@@ -53,7 +53,7 @@ class LabelConfig:
     # and how MAESTRO-based baselines (e.g. Onsets & Frames) define the
     # frame target. Must be applied identically at train and eval time.
     extend_with_sustain_pedal: bool = True
-    thresholdsustain_pedal_: int = 64  # CC64 value counted as "held"
+    sustain_pedal_threshold: int = 64  # CC64 value counted as "held"
 
 
 @dataclass
