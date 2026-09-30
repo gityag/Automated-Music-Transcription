@@ -138,3 +138,35 @@ def test_note_metrics_wrong_pitch_does_not_match():
     est = [Note(pitch=61, start=0.0, end=0.5, velocity=100)]  # one semitone off
     m = note_metrics(ref, est)
     assert m.onset_f1 == 0.0
+
+def test_note_metrics_per_pitch_matches_global_mir_eval():
+    import mir_eval
+    from amt.evaluation.metrics import _notes_to_mir_eval_format
+
+    rng = np.random.default_rng(0)
+    for _ in range(5):
+        ref = []
+        for _ in range(150):
+            s = float(rng.uniform(0, 20))
+            ref.append(Note(int(rng.integers(40, 70)), s, s + float(rng.uniform(0.1, 1.5)), 100))
+        est = []
+        for n in ref:
+            if rng.random() < 0.7:
+                s = n.start + float(rng.normal(0, 0.04))
+                est.append(Note(n.pitch, s, max(s + 0.05, n.end + float(rng.normal(0, 0.1))), 100))
+        for _ in range(60):
+            s = float(rng.uniform(0, 20))
+            est.append(Note(int(rng.integers(40, 70)), s, s + 0.3, 100))
+
+        ri, rp = _notes_to_mir_eval_format(ref)
+        ei, ep = _notes_to_mir_eval_format(est)
+        p0, r0, f0, _ = mir_eval.transcription.precision_recall_f1_overlap(ri, rp, ei, ep, offset_ratio=None)
+        p1, r1, f1, _ = mir_eval.transcription.precision_recall_f1_overlap(ri, rp, ei, ep, offset_ratio=0.2)
+
+        m = note_metrics(ref, est)
+        assert m.onset_precision == pytest.approx(p0)
+        assert m.onset_recall == pytest.approx(r0)
+        assert m.onset_f1 == pytest.approx(f0)
+        assert m.onset_offset_precision == pytest.approx(p1)
+        assert m.onset_offset_recall == pytest.approx(r1)
+        assert m.onset_offset_f1 == pytest.approx(f1)

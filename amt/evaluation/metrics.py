@@ -99,6 +99,10 @@ def _notes_to_mir_eval_format(notes: list[Note]) -> tuple[np.ndarray, np.ndarray
     return intervals, pitches_hz
 
 
+def _f1(p: float, r: float) -> float:
+    return 2 * p * r / (p + r) if (p + r) > 0 else 0.0
+
+
 def note_metrics(
     ref_notes: list[Note],
     est_notes: list[Note],
@@ -107,44 +111,70 @@ def note_metrics(
     pitch_tolerance_cents: float = 50.0,
 ) -> NoteMetrics:
     """
-    Onset-only and onset+offset precision/recall/F1, via
-    mir_eval.transcription.precision_recall_f1_overlap.
+    Onset-only and onset+offset precision/recall/F1, equivalent to
+    mir_eval.transcription.precision_recall_f1_overlap but computed
+    per pitch.
+
+    Why per pitch: a note can only match a note of (nearly) the same
+    pitch, and MIDI pitches are 100 cents apart, so with
+    pitch_tolerance_cents < 100 the bipartite matching decomposes
+    exactly into independent per-pitch problems. Summing matched
+    counts over pitches and computing P/R/F1 from the totals gives the
+    same numbers as one global matching, at a fraction of the cost --
+    which removes the need for any note-count cap (mir_eval's global
+    matching is what used to blow up on dense or over-triggering
+    predictions).
 
     onset_tolerance: seconds a predicted onset may differ from the
-    reference and still count as a match (mir_eval/AMT-literature
-    default: 50ms).
+    reference (AMT-literature default: 50 ms).
     offset_ratio: for the onset+offset metric, the predicted offset
-    must fall within max(offset_ratio * ref_duration, 0.05s) of the
-    reference offset (mir_eval's standard rule). Passing
-    offset_ratio=None to mir_eval disables the offset requirement
-    entirely, giving the onset-only metric.
-    pitch_tolerance_cents: how close (in cents) an estimated pitch must
-    be to the reference to count as the same note. 50 cents = a quarter
-    semitone; exact MIDI-pitch-derived Hz values match at 0 cents, so
-    this only matters once real (non-quantized) pitch estimates are
-    involved.
+    must fall within max(offset_ratio * ref_duration, 0.05 s) of the
+    reference offset. Onset-only is computed with offset_ratio=None.
     """
-    ref_intervals, ref_pitches = _notes_to_mir_eval_format(ref_notes)
-    est_intervals, est_pitches = _notes_to_mir_eval_format(est_notes)
+    if pitch_tolerance_cents >= 100.0:
+        raise ValueError(
+            "per-pitch decomposition is only exact for pitch_tolerance_cents < 100"
+        )
 
-    onset_p, onset_r, onset_f1, _ = mir_eval.transcription.precision_recall_f1_overlap(
-        ref_intervals, ref_pitches, est_intervals, est_pitches,
-        onset_tolerance=onset_tolerance,
-        pitch_tolerance=pitch_tolerance_cents,
-        offset_ratio=None,
-    )
-    oo_p, oo_r, oo_f1, _ = mir_eval.transcription.precision_recall_f1_overlap(
-        ref_intervals, ref_pitches, est_intervals, est_pitches,
-        onset_tolerance=onset_tolerance,
-        pitch_tolerance=pitch_tolerance_cents,
-        offset_ratio=offset_ratio,
-    )
+    n_ref, n_est = len(ref_notes), len(est_notes)
+    if n_ref == 0 or n_est == 0:
+        return NoteMetrics(0.0, 0.0, 0.0, 0.0, 0.0, 0.0)
 
+    ref_by_pitch: dict[int, list[Note]] = {}
+    est_by_pitch: dict[int, list[Note]] = {}
+    for n in ref_notes:
+        ref_by_pitch.setdefault(n.pitch, []).append(n)
+    for n in est_notes:
+        est_by_pitch.setdefault(n.pitch, []).append(n)
+
+    onset_matches = 0
+    oo_matches = 0
+    for pitch, refs in ref_by_pitch.items():
+        ests = est_by_pitch.get(pitch)
+        if not ests:
+            continue
+        ref_int, ref_p = _notes_to_mir_eval_format(refs)
+        est_int, est_p = _notes_to_mir_eval_format(ests)
+        onset_matches += len(mir_eval.transcription.match_notes(
+            ref_int, ref_p, est_int, est_p,
+            onset_tolerance=onset_tolerance,
+            pitch_tolerance=pitch_tolerance_cents,
+            offset_ratio=None,
+        ))
+        oo_matches += len(mir_eval.transcription.match_notes(
+            ref_int, ref_p, est_int, est_p,
+            onset_tolerance=onset_tolerance,
+            pitch_tolerance=pitch_tolerance_cents,
+            offset_ratio=offset_ratio,
+        ))
+
+    onset_p, onset_r = onset_matches / n_est, onset_matches / n_ref
+    oo_p, oo_r = oo_matches / n_est, oo_matches / n_ref
     return NoteMetrics(
-        onset_precision=float(onset_p),
-        onset_recall=float(onset_r),
-        onset_f1=float(onset_f1),
-        onset_offset_precision=float(oo_p),
-        onset_offset_recall=float(oo_r),
-        onset_offset_f1=float(oo_f1),
+        onset_precision=onset_p,
+        onset_recall=onset_r,
+        onset_f1=_f1(onset_p, onset_r),
+        onset_offset_precision=oo_p,
+        onset_offset_recall=oo_r,
+        onset_offset_f1=_f1(oo_p, oo_r),
     )
