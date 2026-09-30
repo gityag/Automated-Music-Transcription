@@ -19,18 +19,18 @@
   },
   "spectral_peak": {
     "frame": {
-      "precision": 0.08226281759413907,
-      "recall": 0.9461651028475764,
-      "f1": 0.14853269831701688
+      "precision": 0.10185205288825205,
+      "recall": 0.9463113277349814,
+      "f1": 0.18019020399505628
     },
     "note": {
-      "onset_precision": 0.010090844982910742,
-      "onset_recall": 0.0938227969491543,
-      "onset_f1": 0.018164686149447686,
-      "onset_offset_precision": 0.0010266101474637722,
-      "onset_offset_recall": 0.009359114342560768,
-      "onset_offset_f1": 0.0018441442059250808
+      "onset_precision": 0.017578330037305922,
+      "onset_recall": 0.20005007033093083,
+      "onset_f1": 0.03203825206745488,
+      "onset_offset_precision": 0.0023315397578567544,
+      "onset_offset_recall": 0.027618578803940363,
+      "onset_offset_f1": 0.004263613561992075
     },
-    "n_songs_scored_for_notes": 3
+    "n_songs_scored_for_notes": 50
   }
 }

@@ -6,6 +6,7 @@ from __future__ import annotations
 import pretty_midi
 import numpy as np
 import pytest
+from amt.data.midi import dedupe_notes
 
 from amt.data.midi import (
     Note,
@@ -166,3 +167,18 @@ def test_decode_empty_roll_gives_no_notes():
     onset_roll = np.zeros((88, 100), dtype=np.float32)
     decoded = piano_roll_to_notes(frame_roll, onset_roll, fs=100, pitch_low=21)
     assert decoded == []
+
+def test_dedupe_removes_exact_duplicates_keeps_longest():
+    notes = [
+        Note(60, 1.0, 1.5, 100),
+        Note(60, 1.0, 2.0, 100),
+        Note(64, 1.0, 1.5, 100),
+    ]
+    out = dedupe_notes(notes)
+    assert len(out) == 2
+    assert next(n for n in out if n.pitch == 60).end == 2.0
+
+
+def test_dedupe_keeps_genuine_restrikes():
+    notes = [Note(60, 0.0, 0.2, 100), Note(60, 0.25, 0.45, 100), Note(60, 0.5, 0.7, 100)]
+    assert len(dedupe_notes(notes)) == 3

@@ -5,7 +5,7 @@ from amt.data.dataset import group_durations, song_level_split
 
 cfg = Config.from_yaml("configs/smd_dev.yaml")
 midi_dir = Path("data/smd/midi")
-wav_dir = Path("data/smd/midi_wav_22050_mono")
+wav_dir = Path("data/smd/wav_22050_mono")
 
 midi_stems = {p.stem for p in midi_dir.glob("*.mid")}
 wav_stems = {p.stem for p in wav_dir.glob("*.wav")}
