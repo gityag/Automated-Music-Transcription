@@ -86,6 +86,7 @@ class TrainConfig:
     learning_rate: float = 1e-3
     seed: int = 21
     device: str = "auto"         # "auto" resolves to cuda > mps > cpu at runtime
+    segment_frames: int = 256 
 
 
 @dataclass
