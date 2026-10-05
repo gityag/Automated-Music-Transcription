@@ -23,6 +23,27 @@ import torch.nn.functional as F
 from amt.data.cache import Piece, SegmentSampler, compute_norm_stats
 from amt.models.cnn import build_model, predict_piece
 
+# Onsets are extremely sparse (~0.3% of cells), and with plain BCE an onset
+# head can collapse to "never fires" early in training (observed: max
+# probability 0.006 after 160 steps). Two standard remedies:
+#  - weight positive cells more in the onset loss;
+#  - widen each onset target to +-ONSET_DILATE frames (16 ms each), which
+#    is far inside the 50 ms scoring tolerance and makes the target
+#    learnable; the decoder's peak-picking recovers a single onset.
+ONSET_POS_WEIGHT = 10.0
+ONSET_DILATE = 1
+
+
+def dilate_onsets(y: torch.Tensor, k: int = ONSET_DILATE) -> torch.Tensor:
+    """Max-filter the onset target along time (last dim) by +-k frames."""
+    if k <= 0:
+        return y
+    out = y
+    for s in range(1, k + 1):
+        out = torch.maximum(out, F.pad(y, (s, 0))[..., : y.shape[-1]])   # shift right
+        out = torch.maximum(out, F.pad(y, (0, s))[..., s:])              # shift left
+    return out
+
 
 def pick_device(name: str = "auto") -> torch.device:
     if name != "auto":
@@ -109,7 +130,9 @@ def train(
                 frame_logits, onset_logits = model(x)
                 loss = F.binary_cross_entropy_with_logits(frame_logits.float(), yf)
                 if onset_logits is not None:
-                    loss = loss + F.binary_cross_entropy_with_logits(onset_logits.float(), yo)
+                    loss = loss + F.binary_cross_entropy_with_logits(
+                        onset_logits.float(), dilate_onsets(yo),
+                        pos_weight=torch.tensor(ONSET_POS_WEIGHT, device=device))
             opt.zero_grad(set_to_none=True)
             scaler.scale(loss).backward()
             scaler.step(opt)

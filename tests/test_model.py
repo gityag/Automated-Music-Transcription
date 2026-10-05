@@ -13,7 +13,7 @@ torch = pytest.importorskip("torch")
 from amt.config import Config
 from amt.data.cache import Piece, SegmentSampler, compute_norm_stats
 from amt.models.cnn import FrameCNN, build_model, predict_piece
-from amt.training.loop import evaluate_frames, train
+from amt.training.loop import dilate_onsets, evaluate_frames, train
 
 
 def _synthetic_piece(n_frames=500, seed=0, stem="s"):
@@ -106,3 +106,39 @@ def test_training_resumes_from_checkpoint(tmp_path):
     train(cfg, train_p, val_p, tmp_path, epochs=1, steps_per_epoch=5, log=lambda *_: None)
     out = train(cfg, train_p, val_p, tmp_path, epochs=2, steps_per_epoch=5, log=lambda *_: None)
     assert [h["epoch"] for h in out["history"]] == [1, 2]
+
+
+def test_dilate_onsets_widens_by_one_frame_each_side():
+    y = torch.zeros(1, 1, 10)
+    y[0, 0, 4] = 1
+    assert dilate_onsets(y)[0, 0].tolist() == [0, 0, 0, 1, 1, 1, 0, 0, 0, 0]
+    assert dilate_onsets(y, k=0).equal(y)
+
+
+def test_onset_head_does_not_collapse_and_yields_notes(tmp_path):
+    # Regression: with plain BCE the onset head collapsed to "never fires"
+    # (max probability 0.006), giving note F1 of exactly 0 despite a good
+    # frame head. pos_weight + target dilation must prevent that.
+    from amt.data.midi import piano_roll_to_notes
+    from amt.evaluation.decode import score_predictions
+
+    cfg = Config()
+    cfg.model.conv_channels = [8, 8, 8, 8]
+    cfg.model.onset_head = True
+    cfg.train.batch_size = 8
+    cfg.train.segment_frames = 96
+    cfg.train.learning_rate = 3e-3
+    cfg.train.device = "cpu"
+    train_p = [_synthetic_piece(n_frames=1500, seed=i, stem=f"t{i}") for i in range(10)]
+    val = _synthetic_piece(n_frames=800, seed=99, stem="v")
+    notes = piano_roll_to_notes(val.frame.astype(np.float32), val.onset.astype(np.float32), fs=62.5, pitch_low=21)
+    val.ref_pitches = np.array([n.pitch for n in notes])
+    val.ref_onsets = np.array([n.start for n in notes])
+    val.ref_offsets = np.array([n.end for n in notes])
+
+    train(cfg, train_p, [val], tmp_path, epochs=6, steps_per_epoch=40, log=lambda *_: None)
+    model = build_model(cfg)
+    model.load_state_dict(torch.load(tmp_path / "best.pt", weights_only=False)["model"])
+    frame, onset = predict_piece(model, val.cqt, device="cpu")
+    assert onset.max() > 0.5
+    assert score_predictions([val], [(frame, onset)])["note"]["onset_f1"] > 0.6
