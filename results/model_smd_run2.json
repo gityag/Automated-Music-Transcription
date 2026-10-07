@@ -1,0 +1,23 @@
+{
+  "n_pieces": 50,
+  "frame": {
+    "precision": 0.7527078445722963,
+    "recall": 0.8249927980458596,
+    "f1": 0.786053473714455
+  },
+  "note": {
+    "onset_precision": 0.8585875957771983,
+    "onset_recall": 0.9014954082567828,
+    "onset_f1": 0.8779425090134318,
+    "onset_offset_precision": 0.5950229581865335,
+    "onset_offset_recall": 0.6231990667437212,
+    "onset_offset_f1": 0.6076835680511055
+  },
+  "checkpoint": "/kaggle/input/notebooks/prayagmane/amt-train-run2/run2/best.pt",
+  "epoch": 10,
+  "frame_thr": 0.3,
+  "onset_thr": 0.7,
+  "min_frames": 3,
+  "onset_head": true,
+  "dir": "/kaggle/input/datasets/prayagmane/amt-smd-cache"
+}
