@@ -1,0 +1,23 @@
+{
+  "n_pieces": 177,
+  "frame": {
+    "precision": 0.7395171425469609,
+    "recall": 0.839652835962277,
+    "f1": 0.7844186583235998
+  },
+  "note": {
+    "onset_precision": 0.8736075072756241,
+    "onset_recall": 0.873822095588067,
+    "onset_f1": 0.8728825252045652,
+    "onset_offset_precision": 0.5826063050080429,
+    "onset_offset_recall": 0.5826641527905381,
+    "onset_offset_f1": 0.5821021205631355
+  },
+  "checkpoint": "/kaggle/input/notebooks/prayagmane/amt-train-run2/run2/best.pt",
+  "epoch": 10,
+  "frame_thr": 0.3,
+  "onset_thr": 0.7,
+  "min_frames": 3,
+  "onset_head": true,
+  "dir": "/kaggle/input/datasets/prayagmane/amt-maestro-cache/maestro/test"
+}
