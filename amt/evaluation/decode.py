@@ -62,10 +62,15 @@ def score_predictions(
     frame_thr: float = 0.5,
     onset_thr: float = 0.5,
     min_frames: int = 3,
+    per_piece: bool = False,
 ) -> dict:
     """Macro-average (over pieces) frame and note metrics, the same
     convention scripts/run_baselines.py uses, so the numbers are
-    directly comparable. Pieces must have been loaded with_notes=True."""
+    directly comparable. Pieces must have been loaded with_notes=True.
+
+    per_piece=True adds "per_piece": one {"stem", "frame", "note"} dict
+    per piece, which is what confidence intervals and paired comparisons
+    between models are computed from."""
     frame_scores, note_scores = [], []
     for piece, (fprob, oprob) in zip(pieces, preds):
         ref_notes = [
@@ -76,4 +81,8 @@ def score_predictions(
                                  onset_thr=onset_thr, min_frames=min_frames)
         frame_scores.append(vars(frame_metrics(piece.frame, (fprob >= frame_thr).astype(np.float32))))
         note_scores.append(vars(note_metrics(ref_notes, est_notes)))
-    return {"n_pieces": len(pieces), "frame": _macro(frame_scores), "note": _macro(note_scores)}
+    out = {"n_pieces": len(pieces), "frame": _macro(frame_scores), "note": _macro(note_scores)}
+    if per_piece:
+        out["per_piece"] = [{"stem": p.stem, "frame": fr, "note": nt}
+                            for p, fr, nt in zip(pieces, frame_scores, note_scores)]
+    return out

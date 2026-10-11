@@ -142,3 +142,36 @@ def test_onset_head_does_not_collapse_and_yields_notes(tmp_path):
     frame, onset = predict_piece(model, val.cqt, device="cpu")
     assert onset.max() > 0.5
     assert score_predictions([val], [(frame, onset)])["note"]["onset_f1"] > 0.6
+
+
+def test_checkpoint_selected_by_note_f1_when_val_has_notes(tmp_path):
+    from amt.data.midi import piano_roll_to_notes
+    cfg = Config()
+    cfg.model.conv_channels = [4, 4]
+    cfg.model.onset_head = True
+    cfg.train.batch_size = 4
+    cfg.train.segment_frames = 64
+    cfg.train.device = "cpu"
+    val = _synthetic_piece(seed=3, stem="v")
+    notes = piano_roll_to_notes(val.frame.astype(np.float32), val.onset.astype(np.float32), fs=62.5, pitch_low=21)
+    val.ref_pitches = np.array([n.pitch for n in notes])
+    val.ref_onsets = np.array([n.start for n in notes])
+    val.ref_offsets = np.array([n.end for n in notes])
+    out = train(cfg, [_synthetic_piece(seed=1)], [val], tmp_path, epochs=2, steps_per_epoch=5, log=lambda *_: None)
+    h = out["history"][-1]
+    assert h["select_metric"] == "note_onset_offset_f1"
+    assert h["val_note_onset_offset_f1"] is not None
+    ck = torch.load(tmp_path / "best.pt", weights_only=False)
+    assert ck["select_metric"] == "note_onset_offset_f1"
+    assert out["best_val_f1"] == pytest.approx(max(r["val_note_onset_offset_f1"] for r in out["history"]))
+
+
+def test_checkpoint_falls_back_to_frame_f1_without_notes(tmp_path):
+    cfg = Config()
+    cfg.model.conv_channels = [4, 4]
+    cfg.train.batch_size = 4
+    cfg.train.segment_frames = 64
+    cfg.train.device = "cpu"
+    out = train(cfg, [_synthetic_piece(seed=1)], [_synthetic_piece(seed=2)], tmp_path,
+                epochs=1, steps_per_epoch=5, log=lambda *_: None)
+    assert out["history"][-1]["select_metric"] == "frame_f1"

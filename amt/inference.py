@@ -50,6 +50,7 @@ def load_checkpoint(path: str | Path, device: str | None = None):
     dev = pick_device(device or cfg.train.device)
     model = build_model(cfg)
     model.load_state_dict(ck["model"])
+    model.ckpt_epoch = ck.get("epoch")  # for reporting
     return model.to(dev).eval(), cfg, dev
 
 

@@ -5,6 +5,11 @@ Optionally tunes the decoding thresholds on a separate (validation)
 folder first, then applies the chosen thresholds to the evaluation
 folder -- never tune on the data you report.
 
+The output JSON holds the macro averages, 95% bootstrap intervals over
+pieces ("ci"), and every piece's scores ("per_piece"), so two models
+scored on the same folder can later be compared piece by piece
+(scripts/compare_runs.py).
+
 Works on any folder of cached .npz files with the standard keys, e.g. a
 MAESTRO split folder or data/processed/smd.
 
@@ -17,24 +22,16 @@ Examples:
 from __future__ import annotations
 
 import argparse
-import dataclasses
 import itertools
 import json
 import random
 from pathlib import Path
 
-import torch
-
-from amt.config import Config, _resolve
 from amt.data.cache import load_piece
 from amt.evaluation.decode import score_predictions
-from amt.models.cnn import build_model, predict_piece
-from amt.training.loop import pick_device
-
-
-def config_from_dict(d: dict) -> Config:
-    kwargs = {f.name: _resolve(f.type, d[f.name]) for f in dataclasses.fields(Config) if f.name in d}
-    return Config(**kwargs)
+from amt.evaluation.stats import summarize
+from amt.inference import load_checkpoint
+from amt.models.cnn import predict_piece
 
 
 def load_pieces(folder: str, max_pieces: int | None, seed: int = 21):
@@ -65,16 +62,12 @@ def main() -> None:
     ap.add_argument("--out", default=None)
     args = ap.parse_args()
 
-    ck = torch.load(args.ckpt, map_location="cpu", weights_only=False)
-    cfg = config_from_dict(ck["config"])
-    device = pick_device(cfg.train.device)
-    model = build_model(cfg)
-    model.load_state_dict(ck["model"])
-    model.to(device).eval()
+    model, cfg, device = load_checkpoint(args.ckpt)
+    ck_epoch = model.ckpt_epoch
     fs = cfg.audio.sample_rate / cfg.cqt.hop_length
     common = dict(fs=fs, pitch_low=cfg.labels.pitch_low, min_frames=args.min_frames)
     has_onset = model.onset_out is not None
-    print(f"checkpoint epoch {ck.get('epoch')}, onset head: {has_onset}, device: {device}")
+    print(f"checkpoint epoch {ck_epoch}, onset head: {has_onset}, device: {device}")
 
     frame_thr, onset_thr = args.frame_thr, args.onset_thr
     tuning = []
@@ -101,16 +94,20 @@ def main() -> None:
 
     pieces = load_pieces(args.dir, args.max_pieces)
     preds = [predict_piece(model, p.cqt, device=device) for p in pieces]
-    result = score_predictions(pieces, preds, frame_thr=frame_thr, onset_thr=onset_thr, **common)
-    result.update({"checkpoint": args.ckpt, "epoch": ck.get("epoch"), "frame_thr": frame_thr,
+    result = score_predictions(pieces, preds, frame_thr=frame_thr, onset_thr=onset_thr,
+                               per_piece=True, **common)
+    result["ci"] = summarize(result["per_piece"])
+    result.update({"checkpoint": args.ckpt, "epoch": ck_epoch, "frame_thr": frame_thr,
                    "onset_thr": onset_thr, "min_frames": args.min_frames, "onset_head": has_onset,
                    "dir": args.dir, "tune_metric": args.tune_metric, "tuning": tuning})
 
-    f, n = result["frame"], result["note"]
-    print(f"\n{result['n_pieces']} pieces")
-    print(f"frame F1 {f['f1']:.3f} (P {f['precision']:.3f}, R {f['recall']:.3f})")
-    print(f"note onset F1 {n['onset_f1']:.3f} (P {n['onset_precision']:.3f}, R {n['onset_recall']:.3f})")
-    print(f"note onset+offset F1 {n['onset_offset_f1']:.3f}")
+    f, n, ci = result["frame"], result["note"], result["ci"]
+    span = lambda k: f"[{ci[k]['lo']:.3f}, {ci[k]['hi']:.3f}]"  # noqa: E731
+    print(f"\n{result['n_pieces']} pieces (95% CI over pieces in brackets)")
+    print(f"frame F1 {f['f1']:.3f} {span('frame_f1')} (P {f['precision']:.3f}, R {f['recall']:.3f})")
+    print(f"note onset F1 {n['onset_f1']:.3f} {span('note_onset_f1')} "
+          f"(P {n['onset_precision']:.3f}, R {n['onset_recall']:.3f})")
+    print(f"note onset+offset F1 {n['onset_offset_f1']:.3f} {span('note_onset_offset_f1')}")
     if args.out:
         Path(args.out).parent.mkdir(parents=True, exist_ok=True)
         Path(args.out).write_text(json.dumps(result, indent=2))

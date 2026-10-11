@@ -72,3 +72,21 @@ def test_perfect_predictions_score_one():
     assert res["frame"]["f1"] == pytest.approx(1.0)
     assert res["note"]["onset_f1"] == pytest.approx(1.0)
     assert res["note"]["onset_offset_f1"] == pytest.approx(1.0)
+
+
+def test_score_predictions_per_piece_matches_macro():
+    from types import SimpleNamespace
+    pieces, preds = [], []
+    for i, notes in enumerate([[Note(60, 0.2, 0.8, 100)], [Note(64, 0.5, 1.2, 100), Note(67, 0.1, 0.4, 100)]]):
+        frame, _ = _roll(notes)
+        pieces.append(SimpleNamespace(
+            stem=f"p{i}", frame=frame,
+            ref_pitches=np.array([n.pitch for n in notes]),
+            ref_onsets=np.array([n.start for n in notes]),
+            ref_offsets=np.array([n.end for n in notes])))
+        preds.append((frame, None))
+    out = score_predictions(pieces, preds, fs=FS, per_piece=True)
+    assert [p["stem"] for p in out["per_piece"]] == ["p0", "p1"]
+    mean_on = np.mean([p["note"]["onset_f1"] for p in out["per_piece"]])
+    assert out["note"]["onset_f1"] == pytest.approx(mean_on)
+    assert "per_piece" not in score_predictions(pieces, preds, fs=FS)

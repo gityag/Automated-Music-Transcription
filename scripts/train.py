@@ -8,6 +8,9 @@ Examples:
 
   # full run with the config's settings
   python scripts/train.py --cache /kaggle/working/maestro --out /kaggle/working/run1 --config configs/default.yaml
+
+  # seed repeat of the onset-head model
+  python scripts/train.py --cache $CACHE --out /kaggle/working/run2b --config configs/onset.yaml --epochs 10 --seed 22
 """
 from __future__ import annotations
 
@@ -28,13 +31,22 @@ def main() -> None:
     ap.add_argument("--epochs", type=int, default=None)
     ap.add_argument("--steps-per-epoch", type=int, default=None)
     ap.add_argument("--no-resume", action="store_true")
+    ap.add_argument("--seed", type=int, default=None,
+                    help="override train.seed (e.g. a seed repeat); the validation subset does not change")
     args = ap.parse_args()
 
     cfg = Config.from_yaml(args.config) if args.config else Config()
+    if args.seed is not None:
+        cfg.train.seed = args.seed
     fs = cfg.audio.sample_rate / cfg.cqt.hop_length
 
+    # The validation subset uses a FIXED seed (the split seed), not the
+    # training seed, so every run selects its checkpoint on the same pieces.
+    # Reference notes are loaded so checkpoints are chosen by note F1.
     train_pieces = load_split(args.cache, "train", max_hours=args.max_train_hours, seed=cfg.train.seed, fs=fs)
-    val_pieces = load_split(args.cache, "validation", max_pieces=args.max_val_pieces, seed=cfg.train.seed, fs=fs)
+    val_pieces = load_split(args.cache, "validation", max_pieces=args.max_val_pieces,
+                            seed=cfg.split.seed, with_notes=True, fs=fs)
+    print(f"seed {cfg.train.seed}, onset_head {cfg.model.onset_head}, conv {cfg.model.conv_channels}")
     print(f"loaded {len(train_pieces)} train pieces ({total_hours(train_pieces, fs):.1f} h), "
           f"{len(val_pieces)} val pieces ({total_hours(val_pieces, fs):.1f} h)")
 

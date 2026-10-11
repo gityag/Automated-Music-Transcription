@@ -5,9 +5,14 @@ An "epoch" here is a fixed number of random-window steps (by default one
 expected pass over the training audio), not a sweep of a dataset object,
 because training draws random windows from long pieces.
 
-Checkpoints are written every epoch (last.pt, plus best.pt by validation
-frame F1) and the loop resumes from last.pt, since Kaggle sessions can end
-at any time.
+Checkpoints are written every epoch (last.pt, plus best.pt) and the loop
+resumes from last.pt, since Kaggle sessions can end at any time.
+
+best.pt is chosen by validation note onset+offset F1 when the validation
+pieces carry reference notes (load them with with_notes=True), else by
+pooled frame F1. Notes are decoded at fixed thresholds (0.5/0.5) so the
+selection does not depend on a tuning step; thresholds are tuned later,
+on the chosen checkpoint, by scripts/evaluate_model.py.
 """
 from __future__ import annotations
 
@@ -21,6 +26,7 @@ import torch
 import torch.nn.functional as F
 
 from amt.data.cache import Piece, SegmentSampler, compute_norm_stats
+from amt.evaluation.decode import score_predictions
 from amt.models.cnn import build_model, predict_piece
 
 # Onsets are extremely sparse (~0.3% of cells), and with plain BCE an onset
@@ -70,6 +76,32 @@ def evaluate_frames(model, pieces: list[Piece], device, threshold: float = 0.5) 
     recall = tp / (tp + fn) if tp + fn else 0.0
     f1 = 2 * precision * recall / (precision + recall) if precision + recall else 0.0
     return {"precision": precision, "recall": recall, "f1": f1}
+
+
+def evaluate_val(model, pieces: list[Piece], device, frame_thr: float = 0.5,
+                 onset_thr: float = 0.5, fs: float = 62.5, pitch_low: int = 21) -> dict:
+    """Validation metrics used for checkpoint selection.
+
+    Always: pooled frame P/R/F1 (as evaluate_frames). When every piece has
+    reference notes: also macro-averaged note onset F1 and onset+offset F1,
+    and `select` = onset+offset F1; otherwise `select` = frame F1."""
+    preds = [predict_piece(model, p.cqt, device=device) for p in pieces]
+    tp = fp = fn = 0
+    for p, (fprob, _) in zip(pieces, preds):
+        pred, ref = fprob >= frame_thr, p.frame.astype(bool)
+        tp += int(np.sum(pred & ref))
+        fp += int(np.sum(pred & ~ref))
+        fn += int(np.sum(~pred & ref))
+    precision = tp / (tp + fp) if tp + fp else 0.0
+    recall = tp / (tp + fn) if tp + fn else 0.0
+    f1 = 2 * precision * recall / (precision + recall) if precision + recall else 0.0
+    out = {"precision": precision, "recall": recall, "f1": f1, "select": f1, "select_metric": "frame_f1"}
+    if pieces and all(p.ref_onsets is not None for p in pieces):
+        note = score_predictions(pieces, preds, fs=fs, pitch_low=pitch_low,
+                                 frame_thr=frame_thr, onset_thr=onset_thr)["note"]
+        out.update({"note_onset_f1": note["onset_f1"], "note_onset_offset_f1": note["onset_offset_f1"],
+                    "select": note["onset_offset_f1"], "select_metric": "note_onset_offset_f1"})
+    return out
 
 
 def train(
@@ -142,21 +174,29 @@ def train(
             if (step + 1) % 100 == 0:
                 log(f"  epoch {epoch+1} step {step+1}/{steps_per_epoch} loss {running/(step+1):.4f}")
 
-        val = evaluate_frames(model, val_pieces, device)
+        fs = cfg.audio.sample_rate / cfg.cqt.hop_length
+        val = evaluate_val(model, val_pieces, device, fs=fs, pitch_low=cfg.labels.pitch_low)
         row = {"epoch": epoch + 1, "train_loss": running / steps_per_epoch,
                "val_precision": val["precision"], "val_recall": val["recall"], "val_f1": val["f1"],
+               "val_note_onset_f1": val.get("note_onset_f1"),
+               "val_note_onset_offset_f1": val.get("note_onset_offset_f1"),
+               "select_metric": val["select_metric"],
                "seconds": time.time() - t0, "lr": sched.get_last_lr()[0]}
         history.append(row)
+        note_txt = (f"  note F1 {val['note_onset_f1']:.3f} on+off {val['note_onset_offset_f1']:.3f}"
+                    if "note_onset_f1" in val else "")
         log(f"epoch {epoch+1}/{epochs}  loss {row['train_loss']:.4f}  val P {val['precision']:.3f} "
-            f"R {val['recall']:.3f} F1 {val['f1']:.3f}  ({row['seconds']:.0f}s)")
+            f"R {val['recall']:.3f} F1 {val['f1']:.3f}{note_txt}  ({row['seconds']:.0f}s)")
 
-        if val["f1"] > best_f1:
-            best_f1 = val["f1"]
+        if val["select"] > best_f1:
+            best_f1 = val["select"]
             torch.save({"model": model.state_dict(), "config": asdict(cfg), "epoch": epoch + 1,
-                        "val_f1": best_f1}, out_dir / "best.pt")
+                        "val_select": best_f1, "select_metric": val["select_metric"]},
+                       out_dir / "best.pt")
         torch.save({"model": model.state_dict(), "opt": opt.state_dict(), "sched": sched.state_dict(),
                     "history": history, "best_f1": best_f1, "epoch": epoch + 1,
                     "config": asdict(cfg)}, last_path)
         (out_dir / "history.json").write_text(json.dumps(history, indent=1))
 
+    # best_val_f1 = best value of the selection metric (see evaluate_val)
     return {"best_val_f1": best_f1, "history": history}
