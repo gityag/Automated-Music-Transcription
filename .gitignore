@@ -18,3 +18,5 @@ rough.py
 
 
 
+out/
+models/*.pt
