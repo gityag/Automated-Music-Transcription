@@ -55,6 +55,10 @@ def main() -> None:
     ap.add_argument("--frame-thr", type=float, default=0.5)
     ap.add_argument("--onset-thr", type=float, default=0.5)
     ap.add_argument("--min-frames", type=int, default=3)
+    ap.add_argument("--grid-frame", default="0.1,0.2,0.3,0.4,0.5,0.6,0.7",
+                    help="comma-separated frame thresholds to try when tuning")
+    ap.add_argument("--grid-onset", default="0.3,0.4,0.5,0.6,0.7,0.8,0.9",
+                    help="comma-separated onset thresholds to try (onset-head models only)")
     ap.add_argument("--out", default=None)
     args = ap.parse_args()
 
@@ -70,27 +74,33 @@ def main() -> None:
     print(f"checkpoint epoch {ck.get('epoch')}, onset head: {has_onset}, device: {device}")
 
     frame_thr, onset_thr = args.frame_thr, args.onset_thr
+    tuning = []
     if args.tune_dir:
         tune = load_pieces(args.tune_dir, args.tune_pieces)
         tune_preds = [predict_piece(model, p.cqt, device=device) for p in tune]
-        grid_f = [0.3, 0.4, 0.5, 0.6, 0.7]
-        grid_o = [0.3, 0.4, 0.5, 0.6, 0.7] if has_onset else [args.onset_thr]
+        grid_f = [float(x) for x in args.grid_frame.split(",")]
+        grid_o = [float(x) for x in args.grid_onset.split(",")] if has_onset else [args.onset_thr]
         best = None
         for ft, ot in itertools.product(grid_f, grid_o):
             s = score_predictions(tune, tune_preds, frame_thr=ft, onset_thr=ot, **common)
             f1 = s["note"]["onset_f1"]
             print(f"  tune frame_thr={ft} onset_thr={ot}: note onset F1 {f1:.3f}")
+            tuning.append({"frame_thr": ft, "onset_thr": ot, "note_onset_f1": f1})
             if best is None or f1 > best[0]:
                 best = (f1, ft, ot)
         _, frame_thr, onset_thr = best
         print(f"chosen on {Path(args.tune_dir).name}: frame_thr={frame_thr} onset_thr={onset_thr}")
+        at_edge = frame_thr in (min(grid_f), max(grid_f)) or (
+            has_onset and onset_thr in (min(grid_o), max(grid_o)))
+        if at_edge:
+            print("  note: a chosen threshold is at the edge of the grid; widen it if you can")
 
     pieces = load_pieces(args.dir, args.max_pieces)
     preds = [predict_piece(model, p.cqt, device=device) for p in pieces]
     result = score_predictions(pieces, preds, frame_thr=frame_thr, onset_thr=onset_thr, **common)
     result.update({"checkpoint": args.ckpt, "epoch": ck.get("epoch"), "frame_thr": frame_thr,
                    "onset_thr": onset_thr, "min_frames": args.min_frames, "onset_head": has_onset,
-                   "dir": args.dir})
+                   "dir": args.dir, "tuning": tuning})
 
     f, n = result["frame"], result["note"]
     print(f"\n{result['n_pieces']} pieces")
