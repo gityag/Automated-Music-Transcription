@@ -1,0 +1,61 @@
+{
+  "n_pieces": 50,
+  "frame": {
+    "precision": 0.852787256224959,
+    "recall": 0.7623748852611115,
+    "f1": 0.8029525865363435
+  },
+  "note": {
+    "onset_precision": 0.6057116004479056,
+    "onset_recall": 0.6899911972917812,
+    "onset_f1": 0.6392002192951094,
+    "onset_offset_precision": 0.38769654510623097,
+    "onset_offset_recall": 0.4315255251788978,
+    "onset_offset_f1": 0.40506507356338384
+  },
+  "checkpoint": "/kaggle/input/notebooks/prayagmane/amt-notebook/run1/best.pt",
+  "epoch": 10,
+  "frame_thr": 0.5,
+  "onset_thr": 0.5,
+  "min_frames": 3,
+  "onset_head": false,
+  "dir": "/kaggle/input/datasets/prayagmane/amt-smd-cache",
+  "tune_metric": "onset_offset_f1",
+  "tuning": [
+    {
+      "frame_thr": 0.1,
+      "onset_thr": 0.5,
+      "onset_offset_f1": 0.22216066747907873
+    },
+    {
+      "frame_thr": 0.2,
+      "onset_thr": 0.5,
+      "onset_offset_f1": 0.29631739643828203
+    },
+    {
+      "frame_thr": 0.3,
+      "onset_thr": 0.5,
+      "onset_offset_f1": 0.3395646420217897
+    },
+    {
+      "frame_thr": 0.4,
+      "onset_thr": 0.5,
+      "onset_offset_f1": 0.36415545114837017
+    },
+    {
+      "frame_thr": 0.5,
+      "onset_thr": 0.5,
+      "onset_offset_f1": 0.37220973933615326
+    },
+    {
+      "frame_thr": 0.6,
+      "onset_thr": 0.5,
+      "onset_offset_f1": 0.36583399718041915
+    },
+    {
+      "frame_thr": 0.7,
+      "onset_thr": 0.5,
+      "onset_offset_f1": 0.34421915383161955
+    }
+  ]
+}
