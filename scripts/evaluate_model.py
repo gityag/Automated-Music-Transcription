@@ -59,6 +59,9 @@ def main() -> None:
                     help="comma-separated frame thresholds to try when tuning")
     ap.add_argument("--grid-onset", default="0.3,0.4,0.5,0.6,0.7,0.8,0.9",
                     help="comma-separated onset thresholds to try (onset-head models only)")
+    ap.add_argument("--tune-metric", default="onset_offset_f1",
+                    choices=["onset_f1", "onset_offset_f1"],
+                    help="note metric the threshold search maximizes")
     ap.add_argument("--out", default=None)
     args = ap.parse_args()
 
@@ -83,13 +86,14 @@ def main() -> None:
         best = None
         for ft, ot in itertools.product(grid_f, grid_o):
             s = score_predictions(tune, tune_preds, frame_thr=ft, onset_thr=ot, **common)
-            f1 = s["note"]["onset_f1"]
-            print(f"  tune frame_thr={ft} onset_thr={ot}: note onset F1 {f1:.3f}")
-            tuning.append({"frame_thr": ft, "onset_thr": ot, "note_onset_f1": f1})
+            f1 = s["note"][args.tune_metric]
+            print(f"  tune frame_thr={ft} onset_thr={ot}: {args.tune_metric} {f1:.3f}")
+            tuning.append({"frame_thr": ft, "onset_thr": ot, args.tune_metric: f1})
             if best is None or f1 > best[0]:
                 best = (f1, ft, ot)
         _, frame_thr, onset_thr = best
-        print(f"chosen on {Path(args.tune_dir).name}: frame_thr={frame_thr} onset_thr={onset_thr}")
+        print(f"chosen on {Path(args.tune_dir).name} by {args.tune_metric}: "
+              f"frame_thr={frame_thr} onset_thr={onset_thr}")
         at_edge = frame_thr in (min(grid_f), max(grid_f)) or (
             has_onset and onset_thr in (min(grid_o), max(grid_o)))
         if at_edge:
@@ -100,7 +104,7 @@ def main() -> None:
     result = score_predictions(pieces, preds, frame_thr=frame_thr, onset_thr=onset_thr, **common)
     result.update({"checkpoint": args.ckpt, "epoch": ck.get("epoch"), "frame_thr": frame_thr,
                    "onset_thr": onset_thr, "min_frames": args.min_frames, "onset_head": has_onset,
-                   "dir": args.dir, "tuning": tuning})
+                   "dir": args.dir, "tune_metric": args.tune_metric, "tuning": tuning})
 
     f, n = result["frame"], result["note"]
     print(f"\n{result['n_pieces']} pieces")

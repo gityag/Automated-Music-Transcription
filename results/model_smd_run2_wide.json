@@ -1,0 +1,270 @@
+{
+  "n_pieces": 50,
+  "frame": {
+    "precision": 0.5636695882082788,
+    "recall": 0.9122019615187489,
+    "f1": 0.6951832969745613
+  },
+  "note": {
+    "onset_precision": 0.8801853664182222,
+    "onset_recall": 0.8957009148683194,
+    "onset_f1": 0.8863546749679841,
+    "onset_offset_precision": 0.611961295285759,
+    "onset_offset_recall": 0.6236195284590665,
+    "onset_offset_f1": 0.6167002283380433
+  },
+  "checkpoint": "/kaggle/input/notebooks/prayagmane/amt-train-run2/run2/best.pt",
+  "epoch": 10,
+  "frame_thr": 0.1,
+  "onset_thr": 0.8,
+  "min_frames": 3,
+  "onset_head": true,
+  "dir": "/kaggle/input/datasets/prayagmane/amt-smd-cache",
+  "tuning": [
+    {
+      "frame_thr": 0.1,
+      "onset_thr": 0.3,
+      "note_onset_f1": 0.717521880540367
+    },
+    {
+      "frame_thr": 0.1,
+      "onset_thr": 0.4,
+      "note_onset_f1": 0.7690632852929292
+    },
+    {
+      "frame_thr": 0.1,
+      "onset_thr": 0.5,
+      "note_onset_f1": 0.8119400532659821
+    },
+    {
+      "frame_thr": 0.1,
+      "onset_thr": 0.6,
+      "note_onset_f1": 0.8475702567365565
+    },
+    {
+      "frame_thr": 0.1,
+      "onset_thr": 0.7,
+      "note_onset_f1": 0.876798112000805
+    },
+    {
+      "frame_thr": 0.1,
+      "onset_thr": 0.8,
+      "note_onset_f1": 0.8967685862022554
+    },
+    {
+      "frame_thr": 0.1,
+      "onset_thr": 0.9,
+      "note_onset_f1": 0.8845490179962692
+    },
+    {
+      "frame_thr": 0.2,
+      "onset_thr": 0.3,
+      "note_onset_f1": 0.7396221878997155
+    },
+    {
+      "frame_thr": 0.2,
+      "onset_thr": 0.4,
+      "note_onset_f1": 0.7849202104594842
+    },
+    {
+      "frame_thr": 0.2,
+      "onset_thr": 0.5,
+      "note_onset_f1": 0.8222124399252904
+    },
+    {
+      "frame_thr": 0.2,
+      "onset_thr": 0.6,
+      "note_onset_f1": 0.8527817476850839
+    },
+    {
+      "frame_thr": 0.2,
+      "onset_thr": 0.7,
+      "note_onset_f1": 0.8775775069590405
+    },
+    {
+      "frame_thr": 0.2,
+      "onset_thr": 0.8,
+      "note_onset_f1": 0.8942017735486099
+    },
+    {
+      "frame_thr": 0.2,
+      "onset_thr": 0.9,
+      "note_onset_f1": 0.8812574862691585
+    },
+    {
+      "frame_thr": 0.3,
+      "onset_thr": 0.3,
+      "note_onset_f1": 0.7530733820679134
+    },
+    {
+      "frame_thr": 0.3,
+      "onset_thr": 0.4,
+      "note_onset_f1": 0.7940662592805213
+    },
+    {
+      "frame_thr": 0.3,
+      "onset_thr": 0.5,
+      "note_onset_f1": 0.827242536356855
+    },
+    {
+      "frame_thr": 0.3,
+      "onset_thr": 0.6,
+      "note_onset_f1": 0.853937864851995
+    },
+    {
+      "frame_thr": 0.3,
+      "onset_thr": 0.7,
+      "note_onset_f1": 0.8750293419516798
+    },
+    {
+      "frame_thr": 0.3,
+      "onset_thr": 0.8,
+      "note_onset_f1": 0.8887684143475276
+    },
+    {
+      "frame_thr": 0.3,
+      "onset_thr": 0.9,
+      "note_onset_f1": 0.8750275891445517
+    },
+    {
+      "frame_thr": 0.4,
+      "onset_thr": 0.3,
+      "note_onset_f1": 0.7592447421288311
+    },
+    {
+      "frame_thr": 0.4,
+      "onset_thr": 0.4,
+      "note_onset_f1": 0.7960843976010604
+    },
+    {
+      "frame_thr": 0.4,
+      "onset_thr": 0.5,
+      "note_onset_f1": 0.8257197737623626
+    },
+    {
+      "frame_thr": 0.4,
+      "onset_thr": 0.6,
+      "note_onset_f1": 0.8491061342326972
+    },
+    {
+      "frame_thr": 0.4,
+      "onset_thr": 0.7,
+      "note_onset_f1": 0.8674951534507228
+    },
+    {
+      "frame_thr": 0.4,
+      "onset_thr": 0.8,
+      "note_onset_f1": 0.8787369065482779
+    },
+    {
+      "frame_thr": 0.4,
+      "onset_thr": 0.9,
+      "note_onset_f1": 0.8648784971963753
+    },
+    {
+      "frame_thr": 0.5,
+      "onset_thr": 0.3,
+      "note_onset_f1": 0.7574377536946985
+    },
+    {
+      "frame_thr": 0.5,
+      "onset_thr": 0.4,
+      "note_onset_f1": 0.790381431988113
+    },
+    {
+      "frame_thr": 0.5,
+      "onset_thr": 0.5,
+      "note_onset_f1": 0.8164632034971593
+    },
+    {
+      "frame_thr": 0.5,
+      "onset_thr": 0.6,
+      "note_onset_f1": 0.8371553757905449
+    },
+    {
+      "frame_thr": 0.5,
+      "onset_thr": 0.7,
+      "note_onset_f1": 0.852841358890955
+    },
+    {
+      "frame_thr": 0.5,
+      "onset_thr": 0.8,
+      "note_onset_f1": 0.8619547214972734
+    },
+    {
+      "frame_thr": 0.5,
+      "onset_thr": 0.9,
+      "note_onset_f1": 0.8484971380234988
+    },
+    {
+      "frame_thr": 0.6,
+      "onset_thr": 0.3,
+      "note_onset_f1": 0.74673141772621
+    },
+    {
+      "frame_thr": 0.6,
+      "onset_thr": 0.4,
+      "note_onset_f1": 0.7753867014087605
+    },
+    {
+      "frame_thr": 0.6,
+      "onset_thr": 0.5,
+      "note_onset_f1": 0.7977525568474029
+    },
+    {
+      "frame_thr": 0.6,
+      "onset_thr": 0.6,
+      "note_onset_f1": 0.8154088675070937
+    },
+    {
+      "frame_thr": 0.6,
+      "onset_thr": 0.7,
+      "note_onset_f1": 0.8285505781489269
+    },
+    {
+      "frame_thr": 0.6,
+      "onset_thr": 0.8,
+      "note_onset_f1": 0.8360108641372616
+    },
+    {
+      "frame_thr": 0.6,
+      "onset_thr": 0.9,
+      "note_onset_f1": 0.8234259741693423
+    },
+    {
+      "frame_thr": 0.7,
+      "onset_thr": 0.3,
+      "note_onset_f1": 0.7162411320702778
+    },
+    {
+      "frame_thr": 0.7,
+      "onset_thr": 0.4,
+      "note_onset_f1": 0.7396406827335831
+    },
+    {
+      "frame_thr": 0.7,
+      "onset_thr": 0.5,
+      "note_onset_f1": 0.7576097834172565
+    },
+    {
+      "frame_thr": 0.7,
+      "onset_thr": 0.6,
+      "note_onset_f1": 0.7717469398527098
+    },
+    {
+      "frame_thr": 0.7,
+      "onset_thr": 0.7,
+      "note_onset_f1": 0.7816772337345546
+    },
+    {
+      "frame_thr": 0.7,
+      "onset_thr": 0.8,
+      "note_onset_f1": 0.7871255386912642
+    },
+    {
+      "frame_thr": 0.7,
+      "onset_thr": 0.9,
+      "note_onset_f1": 0.7766682681740967
+    }
+  ]
+}
