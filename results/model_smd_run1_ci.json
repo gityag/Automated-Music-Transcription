@@ -1,0 +1,883 @@
+{
+  "n_pieces": 50,
+  "frame": {
+    "precision": 0.852787256224959,
+    "recall": 0.7623748852611115,
+    "f1": 0.8029525865363435
+  },
+  "note": {
+    "onset_precision": 0.6057101477670932,
+    "onset_recall": 0.6899911972917812,
+    "onset_f1": 0.6391992481675874,
+    "onset_offset_precision": 0.38769591845960605,
+    "onset_offset_recall": 0.4315255251788978,
+    "onset_offset_f1": 0.4050646546456293
+  },
+  "per_piece": [
+    {
+      "stem": "Chopin_Op028-15_006_20100611-SMD",
+      "frame": {
+        "precision": 0.8699399265533125,
+        "recall": 0.8045230125933706,
+        "f1": 0.8359536351907474
+      },
+      "note": {
+        "onset_precision": 0.3412621359223301,
+        "onset_recall": 0.46897931954636424,
+        "onset_f1": 0.39505479067153704,
+        "onset_offset_precision": 0.1587378640776699,
+        "onset_offset_recall": 0.2181454302868579,
+        "onset_offset_f1": 0.1837594830008429
+      }
+    },
+    {
+      "stem": "Bartok_SZ080-01_002_20110315-SMD",
+      "frame": {
+        "precision": 0.7892067356461757,
+        "recall": 0.6234848636627732,
+        "f1": 0.6966254407073703
+      },
+      "note": {
+        "onset_precision": 0.7630662020905923,
+        "onset_recall": 0.6668358284699315,
+        "onset_f1": 0.7117129316181449,
+        "onset_offset_precision": 0.6068524970963995,
+        "onset_offset_recall": 0.5303222532352195,
+        "onset_offset_f1": 0.5660121868652676
+      }
+    },
+    {
+      "stem": "Bach_BWV888-01_008_20110315-SMD",
+      "frame": {
+        "precision": 0.9296040226272785,
+        "recall": 0.7877658048920392,
+        "f1": 0.8528276779773786
+      },
+      "note": {
+        "onset_precision": 0.7995226730310262,
+        "onset_recall": 0.9724238026124818,
+        "onset_f1": 0.8775376555337263,
+        "onset_offset_precision": 0.6050119331742243,
+        "onset_offset_recall": 0.7358490566037735,
+        "onset_offset_f1": 0.6640471512770136
+      }
+    },
+    {
+      "stem": "Beethoven_Op031No2-03_002_20090916-SMD",
+      "frame": {
+        "precision": 0.8162653491941673,
+        "recall": 0.8562371853734009,
+        "f1": 0.8357736154852017
+      },
+      "note": {
+        "onset_precision": 0.7473469387755102,
+        "onset_recall": 0.8376029277218664,
+        "onset_f1": 0.7899050905953409,
+        "onset_offset_precision": 0.5555102040816327,
+        "onset_offset_recall": 0.6225983531564502,
+        "onset_offset_f1": 0.5871440897325282
+      }
+    },
+    {
+      "stem": "Liszt_KonzertetuedeNo2LaLeggierezza_003_20090916-SMD",
+      "frame": {
+        "precision": 0.8100434515188191,
+        "recall": 0.7136090330699854,
+        "f1": 0.7587744975049483
+      },
+      "note": {
+        "onset_precision": 0.5203874746564542,
+        "onset_recall": 0.6932773109243697,
+        "onset_f1": 0.5945180800411788,
+        "onset_offset_precision": 0.23608920928136967,
+        "onset_offset_recall": 0.31452581032412963,
+        "onset_offset_f1": 0.2697207566593746
+      }
+    },
+    {
+      "stem": "Mozart_KV265_006_20110315-SMD",
+      "frame": {
+        "precision": 0.8635539505821358,
+        "recall": 0.8286626310265001,
+        "f1": 0.8457485838396289
+      },
+      "note": {
+        "onset_precision": 0.8484773458776925,
+        "onset_recall": 0.8184857893479819,
+        "onset_f1": 0.8332117675662533,
+        "onset_offset_precision": 0.6523892052488239,
+        "onset_offset_recall": 0.6293288750895629,
+        "onset_offset_f1": 0.6406515925115488
+      }
+    },
+    {
+      "stem": "Bartok_SZ080-02_002_20110315-SMD",
+      "frame": {
+        "precision": 0.8724606387764282,
+        "recall": 0.7570415938046465,
+        "f1": 0.8106635011661637
+      },
+      "note": {
+        "onset_precision": 0.3824884792626728,
+        "onset_recall": 0.672972972972973,
+        "onset_f1": 0.48775710088148877,
+        "onset_offset_precision": 0.1858678955453149,
+        "onset_offset_recall": 0.327027027027027,
+        "onset_offset_f1": 0.23702252693437806
+      }
+    },
+    {
+      "stem": "Rachmaninov_Op039No1_002_20090916-SMD",
+      "frame": {
+        "precision": 0.8204337107512437,
+        "recall": 0.6457411086711515,
+        "f1": 0.7226802246957245
+      },
+      "note": {
+        "onset_precision": 0.5350459879479861,
+        "onset_recall": 0.5523903077930583,
+        "onset_f1": 0.5435798292250685,
+        "onset_offset_precision": 0.27719632096416114,
+        "onset_offset_recall": 0.2861820563195809,
+        "onset_offset_f1": 0.28161752859674566
+      }
+    },
+    {
+      "stem": "Beethoven_Op027No1-02_003_20090916-SMD",
+      "frame": {
+        "precision": 0.8959713783686517,
+        "recall": 0.851295357631346,
+        "f1": 0.873062205398492
+      },
+      "note": {
+        "onset_precision": 0.5273743016759777,
+        "onset_recall": 0.5632458233890215,
+        "onset_f1": 0.5447201384881709,
+        "onset_offset_precision": 0.27262569832402234,
+        "onset_offset_recall": 0.2911694510739857,
+        "onset_offset_f1": 0.28159261396422386
+      }
+    },
+    {
+      "stem": "Brahms_Op010No2_003_20090916-SMD",
+      "frame": {
+        "precision": 0.8338528848783155,
+        "recall": 0.6568585214544201,
+        "f1": 0.7348483022869124
+      },
+      "note": {
+        "onset_precision": 0.4352430084170513,
+        "onset_recall": 0.6670828131502289,
+        "onset_f1": 0.5267827801511665,
+        "onset_offset_precision": 0.26934564213956014,
+        "onset_offset_recall": 0.4128173116937162,
+        "onset_offset_f1": 0.32599408478475195
+      }
+    },
+    {
+      "stem": "Chopin_Op010-03_007_20100611-SMD",
+      "frame": {
+        "precision": 0.8950815089894483,
+        "recall": 0.7365364395084445,
+        "f1": 0.8081060254428617
+      },
+      "note": {
+        "onset_precision": 0.4223798266351458,
+        "onset_recall": 0.5797728501892915,
+        "onset_f1": 0.4887166628675632,
+        "onset_offset_precision": 0.14972419227738376,
+        "onset_offset_recall": 0.2055164954029205,
+        "onset_offset_f1": 0.17323911556872576
+      }
+    },
+    {
+      "stem": "Bach_BWV871-01_002_20090916-SMD",
+      "frame": {
+        "precision": 0.902177694287901,
+        "recall": 0.9033718824021179,
+        "f1": 0.9027743934277856
+      },
+      "note": {
+        "onset_precision": 0.9545454545454546,
+        "onset_recall": 0.9795053003533569,
+        "onset_f1": 0.9668643181025462,
+        "onset_offset_precision": 0.9035812672176309,
+        "onset_offset_recall": 0.927208480565371,
+        "onset_offset_f1": 0.9152424136728288
+      }
+    },
+    {
+      "stem": "Haydn_Hob017No4_003_20090916-SMD",
+      "frame": {
+        "precision": 0.8072428971588635,
+        "recall": 0.8609350660435738,
+        "f1": 0.8332249104220233
+      },
+      "note": {
+        "onset_precision": 0.8601076095311299,
+        "onset_recall": 0.8692387364060072,
+        "onset_f1": 0.8646490663232452,
+        "onset_offset_precision": 0.6984370996669229,
+        "onset_offset_recall": 0.7058518902123252,
+        "onset_offset_f1": 0.7021249195106246
+      }
+    },
+    {
+      "stem": "Bach_BWV875-02_002_20090916-SMD",
+      "frame": {
+        "precision": 0.9198198198198199,
+        "recall": 0.8735455167693361,
+        "f1": 0.8960856591188345
+      },
+      "note": {
+        "onset_precision": 0.8640350877192983,
+        "onset_recall": 0.9813200498132005,
+        "onset_f1": 0.9189504373177843,
+        "onset_offset_precision": 0.7532894736842105,
+        "onset_offset_recall": 0.8555417185554172,
+        "onset_offset_f1": 0.8011661807580175
+      }
+    },
+    {
+      "stem": "Ravel_JeuxDEau_008_20110315-SMD",
+      "frame": {
+        "precision": 0.8862153644387049,
+        "recall": 0.5657388897431954,
+        "f1": 0.6906092184473235
+      },
+      "note": {
+        "onset_precision": 0.3695568400770713,
+        "onset_recall": 0.47287968441814593,
+        "onset_f1": 0.41488211118321433,
+        "onset_offset_precision": 0.10211946050096339,
+        "onset_offset_recall": 0.1306706114398422,
+        "onset_offset_f1": 0.11464417045208738
+      }
+    },
+    {
+      "stem": "Bach_BWV871-02_002_20090916-SMD",
+      "frame": {
+        "precision": 0.9380731776496171,
+        "recall": 0.8809766925638179,
+        "f1": 0.9086288605508367
+      },
+      "note": {
+        "onset_precision": 0.8277634961439588,
+        "onset_recall": 0.9787234042553191,
+        "onset_f1": 0.8969359331476324,
+        "onset_offset_precision": 0.6696658097686375,
+        "onset_offset_recall": 0.7917933130699089,
+        "onset_offset_f1": 0.7256267409470752
+      }
+    },
+    {
+      "stem": "Haydn_HobXVINo52-02_008_20110315-SMD",
+      "frame": {
+        "precision": 0.9195777411670881,
+        "recall": 0.856769942219137,
+        "f1": 0.8870634679623443
+      },
+      "note": {
+        "onset_precision": 0.558239398819109,
+        "onset_recall": 0.7514450867052023,
+        "onset_f1": 0.6405913150600555,
+        "onset_offset_precision": 0.33816425120772947,
+        "onset_offset_recall": 0.4552023121387283,
+        "onset_offset_f1": 0.38805050816137976
+      }
+    },
+    {
+      "stem": "Beethoven_WoO080_001_20081107-SMD",
+      "frame": {
+        "precision": 0.8147579919453583,
+        "recall": 0.7754299754299754,
+        "f1": 0.7946076597703796
+      },
+      "note": {
+        "onset_precision": 0.7080204265545209,
+        "onset_recall": 0.6320729418074551,
+        "onset_f1": 0.6678945877018986,
+        "onset_offset_precision": 0.3971162511264644,
+        "onset_offset_recall": 0.3545186377044784,
+        "onset_offset_f1": 0.37461037120997454
+      }
+    },
+    {
+      "stem": "Skryabin_Op008No8_003_20090916-SMD",
+      "frame": {
+        "precision": 0.8865650167564437,
+        "recall": 0.8395447370607294,
+        "f1": 0.862414446397788
+      },
+      "note": {
+        "onset_precision": 0.55286800276434,
+        "onset_recall": 0.6666666666666666,
+        "onset_f1": 0.6044578768417077,
+        "onset_offset_precision": 0.29094678645473393,
+        "onset_offset_recall": 0.35083333333333333,
+        "onset_offset_f1": 0.3180959576879486
+      }
+    },
+    {
+      "stem": "Chopin_Op028-11_003_20100611-SMD",
+      "frame": {
+        "precision": 0.8277462011367591,
+        "recall": 0.7563328033916269,
+        "f1": 0.7904297740363314
+      },
+      "note": {
+        "onset_precision": 0.5887640449438202,
+        "onset_recall": 0.8370607028753994,
+        "onset_f1": 0.691292875989446,
+        "onset_offset_precision": 0.3303370786516854,
+        "onset_offset_recall": 0.4696485623003195,
+        "onset_offset_f1": 0.38786279683377306
+      }
+    },
+    {
+      "stem": "Beethoven_Op031No2-01_002_20090916-SMD",
+      "frame": {
+        "precision": 0.8899857713084101,
+        "recall": 0.8453483713169997,
+        "f1": 0.867092975111561
+      },
+      "note": {
+        "onset_precision": 0.613247388308513,
+        "onset_recall": 0.6977744056651493,
+        "onset_f1": 0.6527859931385307,
+        "onset_offset_precision": 0.43409646588130696,
+        "onset_offset_recall": 0.4939301972685888,
+        "onset_offset_f1": 0.4620844670531173
+      }
+    },
+    {
+      "stem": "Brahms_Op010No1_003_20090916-SMD",
+      "frame": {
+        "precision": 0.8309315299363194,
+        "recall": 0.7852246839908876,
+        "f1": 0.8074317846129926
+      },
+      "note": {
+        "onset_precision": 0.4144598570828079,
+        "onset_recall": 0.5997566909975669,
+        "onset_f1": 0.4901814566244096,
+        "onset_offset_precision": 0.19335855401429172,
+        "onset_offset_recall": 0.2798053527980535,
+        "onset_offset_f1": 0.22868506089982601
+      }
+    },
+    {
+      "stem": "Haydn_HobXVINo52-03_008_20110315-SMD",
+      "frame": {
+        "precision": 0.8289226050791143,
+        "recall": 0.8257759877786265,
+        "f1": 0.8273463045847731
+      },
+      "note": {
+        "onset_precision": 0.8832778953734503,
+        "onset_recall": 0.8427582227351413,
+        "onset_f1": 0.862542447955116,
+        "onset_offset_precision": 0.7157544602358633,
+        "onset_offset_recall": 0.6829197922677438,
+        "onset_offset_f1": 0.6989517200649639
+      }
+    },
+    {
+      "stem": "Mozart_KV398_002_20110315-SMD",
+      "frame": {
+        "precision": 0.832419547079857,
+        "recall": 0.8100429828750767,
+        "f1": 0.8210788381742737
+      },
+      "note": {
+        "onset_precision": 0.7763120160596502,
+        "onset_recall": 0.7420504385964912,
+        "onset_f1": 0.7587946741415558,
+        "onset_offset_precision": 0.5638084313163177,
+        "onset_offset_recall": 0.5389254385964912,
+        "onset_offset_f1": 0.5510861948142957
+      }
+    },
+    {
+      "stem": "Bach_BWV849-02_001_20090916-SMD",
+      "frame": {
+        "precision": 0.8884827014396623,
+        "recall": 0.7982460595594832,
+        "f1": 0.8409506398537477
+      },
+      "note": {
+        "onset_precision": 0.6627647714604237,
+        "onset_recall": 0.9028094153378892,
+        "onset_f1": 0.7643844423015107,
+        "onset_offset_precision": 0.4420289855072464,
+        "onset_offset_recall": 0.6021260440394837,
+        "onset_offset_f1": 0.5098039215686274
+      }
+    },
+    {
+      "stem": "Chopin_Op010-04_007_20100611-SMD",
+      "frame": {
+        "precision": 0.7938009683995922,
+        "recall": 0.6324940352302147,
+        "f1": 0.7040259923718039
+      },
+      "note": {
+        "onset_precision": 0.7098092643051771,
+        "onset_recall": 0.7098092643051771,
+        "onset_f1": 0.7098092643051771,
+        "onset_offset_precision": 0.4409627611262489,
+        "onset_offset_recall": 0.4409627611262489,
+        "onset_offset_f1": 0.4409627611262489
+      }
+    },
+    {
+      "stem": "Liszt_AnnesDePelerinage-LectureDante_002_20090916-SMD",
+      "frame": {
+        "precision": 0.8234452614607506,
+        "recall": 0.6708998204231635,
+        "f1": 0.7393864840721424
+      },
+      "note": {
+        "onset_precision": 0.36138541969212895,
+        "onset_recall": 0.39195148842337374,
+        "onset_f1": 0.3760483566301473,
+        "onset_offset_precision": 0.11516119663084519,
+        "onset_offset_recall": 0.12490155930067727,
+        "onset_offset_f1": 0.11983377408386853
+      }
+    },
+    {
+      "stem": "Bach_BWV888-02_008_20110315-SMD",
+      "frame": {
+        "precision": 0.8629827112619163,
+        "recall": 0.8098559514783927,
+        "f1": 0.8355757196495619
+      },
+      "note": {
+        "onset_precision": 0.9130982367758187,
+        "onset_recall": 0.9489528795811518,
+        "onset_f1": 0.9306803594351734,
+        "onset_offset_precision": 0.836272040302267,
+        "onset_offset_recall": 0.8691099476439791,
+        "onset_offset_f1": 0.852374839537869
+      }
+    },
+    {
+      "stem": "Chopin_Op026No2_005_20100611-SMD",
+      "frame": {
+        "precision": 0.8460455202862145,
+        "recall": 0.800374461037149,
+        "f1": 0.8225765418222019
+      },
+      "note": {
+        "onset_precision": 0.583416087388282,
+        "onset_recall": 0.46831406935033876,
+        "onset_f1": 0.5195666592969268,
+        "onset_offset_precision": 0.34086395233366434,
+        "onset_offset_recall": 0.2736149860502192,
+        "onset_offset_f1": 0.3035595843466726
+      }
+    },
+    {
+      "stem": "Chopin_Op028-01_003_20100611-SMD",
+      "frame": {
+        "precision": 0.8016069221260815,
+        "recall": 0.7836858006042297,
+        "f1": 0.7925450656889703
+      },
+      "note": {
+        "onset_precision": 0.47983014861995754,
+        "onset_recall": 0.6848484848484848,
+        "onset_f1": 0.564294631710362,
+        "onset_offset_precision": 0.31634819532908703,
+        "onset_offset_recall": 0.45151515151515154,
+        "onset_offset_f1": 0.3720349563046192
+      }
+    },
+    {
+      "stem": "Chopin_Op029_004_20100611-SMD",
+      "frame": {
+        "precision": 0.8439911229993681,
+        "recall": 0.6962161900027884,
+        "f1": 0.7630145358879646
+      },
+      "note": {
+        "onset_precision": 0.541,
+        "onset_recall": 0.6956708101157308,
+        "onset_f1": 0.60866304144009,
+        "onset_offset_precision": 0.26866666666666666,
+        "onset_offset_recall": 0.34547792541791683,
+        "onset_offset_f1": 0.30226889180573785
+      }
+    },
+    {
+      "stem": "Bach_BWV875-01_002_20090916-SMD",
+      "frame": {
+        "precision": 0.899152884227511,
+        "recall": 0.8921352811687012,
+        "f1": 0.8956303365143145
+      },
+      "note": {
+        "onset_precision": 0.9589285714285715,
+        "onset_recall": 0.9745916515426497,
+        "onset_f1": 0.9666966696669667,
+        "onset_offset_precision": 0.9044642857142857,
+        "onset_offset_recall": 0.9192377495462795,
+        "onset_offset_f1": 0.9117911791179119
+      }
+    },
+    {
+      "stem": "Chopin_Op028-04_003_20100611-SMD",
+      "frame": {
+        "precision": 0.9000261882938326,
+        "recall": 0.8545409336731522,
+        "f1": 0.8766939829724818
+      },
+      "note": {
+        "onset_precision": 0.3972911963882618,
+        "onset_recall": 0.29333333333333333,
+        "onset_f1": 0.3374880153403643,
+        "onset_offset_precision": 0.12415349887133183,
+        "onset_offset_recall": 0.09166666666666666,
+        "onset_offset_f1": 0.10546500479386385
+      }
+    },
+    {
+      "stem": "Chopin_Op026No1_003_20100611-SMD",
+      "frame": {
+        "precision": 0.8636122284794852,
+        "recall": 0.837118081008157,
+        "f1": 0.850158790499497
+      },
+      "note": {
+        "onset_precision": 0.5811361783093232,
+        "onset_recall": 0.5963737796373779,
+        "onset_f1": 0.5886563876651982,
+        "onset_offset_precision": 0.2924707801032889,
+        "onset_offset_recall": 0.300139470013947,
+        "onset_offset_f1": 0.2962555066079295
+      }
+    },
+    {
+      "stem": "Haydn_HobXVINo52-01_008_20110315-SMD",
+      "frame": {
+        "precision": 0.851127710318277,
+        "recall": 0.820120386356213,
+        "f1": 0.8353364027922174
+      },
+      "note": {
+        "onset_precision": 0.7744879786286732,
+        "onset_recall": 0.7685001104484206,
+        "onset_f1": 0.7714824259895775,
+        "onset_offset_precision": 0.5520926090828139,
+        "onset_offset_recall": 0.5478241661144245,
+        "onset_offset_f1": 0.5499501053331854
+      }
+    },
+    {
+      "stem": "Bach_BWV849-01_001_20090916-SMD",
+      "frame": {
+        "precision": 0.879476199342146,
+        "recall": 0.7940047625717888,
+        "f1": 0.8345577950854669
+      },
+      "note": {
+        "onset_precision": 0.6029011786038078,
+        "onset_recall": 0.9185082872928176,
+        "onset_f1": 0.7279693486590036,
+        "onset_offset_precision": 0.3989120580235721,
+        "onset_offset_recall": 0.6077348066298343,
+        "onset_offset_f1": 0.481663929939792
+      }
+    },
+    {
+      "stem": "Beethoven_Op031No2-02_002_20090916-SMD",
+      "frame": {
+        "precision": 0.8874224298506868,
+        "recall": 0.8481706794619142,
+        "f1": 0.8673527006503369
+      },
+      "note": {
+        "onset_precision": 0.4985061886470337,
+        "onset_recall": 0.6968973747016707,
+        "onset_f1": 0.5812391142075144,
+        "onset_offset_precision": 0.2573623559539053,
+        "onset_offset_recall": 0.3597852028639618,
+        "onset_offset_f1": 0.3000746454341876
+      }
+    },
+    {
+      "stem": "Chopin_Op066_006_20100611-SMD",
+      "frame": {
+        "precision": 0.8246670198965889,
+        "recall": 0.7742508190815994,
+        "f1": 0.7986640714854463
+      },
+      "note": {
+        "onset_precision": 0.4481560662747194,
+        "onset_recall": 0.5565881181546631,
+        "onset_f1": 0.49652109548482604,
+        "onset_offset_precision": 0.16889363976483165,
+        "onset_offset_recall": 0.20975771656156655,
+        "onset_offset_f1": 0.18712065136935604
+      }
+    },
+    {
+      "stem": "Rachmaninoff_Op036-03_007_20110315-SMD",
+      "frame": {
+        "precision": 0.8090565612135566,
+        "recall": 0.6313231956851084,
+        "f1": 0.7092243156972966
+      },
+      "note": {
+        "onset_precision": 0.4769956744003146,
+        "onset_recall": 0.5227321697909934,
+        "onset_f1": 0.49881772386141665,
+        "onset_offset_precision": 0.21647660243806527,
+        "onset_offset_recall": 0.2372333548804137,
+        "onset_offset_f1": 0.22638017888352008
+      }
+    },
+    {
+      "stem": "Beethoven_Op027No1-01_003_20090916-SMD",
+      "frame": {
+        "precision": 0.8783595511310384,
+        "recall": 0.8263921162072951,
+        "f1": 0.8515837493016032
+      },
+      "note": {
+        "onset_precision": 0.7640583159773877,
+        "onset_recall": 0.7295454545454545,
+        "onset_f1": 0.7464031390786223,
+        "onset_offset_precision": 0.5742338589705445,
+        "onset_offset_recall": 0.5482954545454546,
+        "onset_offset_f1": 0.5609649760209272
+      }
+    },
+    {
+      "stem": "Chopin_Op048No1_007_20100611-SMD",
+      "frame": {
+        "precision": 0.8710308149538558,
+        "recall": 0.6357551626207704,
+        "f1": 0.7350245431670998
+      },
+      "note": {
+        "onset_precision": 0.3467215097991774,
+        "onset_recall": 0.5006988120195668,
+        "onset_f1": 0.40972122944960687,
+        "onset_offset_precision": 0.09363658359545124,
+        "onset_offset_recall": 0.13522012578616352,
+        "onset_offset_f1": 0.11065046461758399
+      }
+    },
+    {
+      "stem": "Rachmaninoff_Op036-01_007_20110315-SMD",
+      "frame": {
+        "precision": 0.8338336244265302,
+        "recall": 0.7044761395865017,
+        "f1": 0.7637160038053903
+      },
+      "note": {
+        "onset_precision": 0.43885487340724805,
+        "onset_recall": 0.6014969380811975,
+        "onset_f1": 0.5074626865671642,
+        "onset_offset_precision": 0.1893099453913619,
+        "onset_offset_recall": 0.2594692674075754,
+        "onset_offset_f1": 0.21890547263681592
+      }
+    },
+    {
+      "stem": "Beethoven_Op027No1-03_003_20090916-SMD",
+      "frame": {
+        "precision": 0.8217386904159498,
+        "recall": 0.8179473747834146,
+        "f1": 0.8198386494209353
+      },
+      "note": {
+        "onset_precision": 0.8723404255319149,
+        "onset_recall": 0.81436978911231,
+        "onset_f1": 0.8423589093214965,
+        "onset_offset_precision": 0.7307591279222485,
+        "onset_offset_recall": 0.6821971554683669,
+        "onset_offset_f1": 0.7056436271401396
+      }
+    },
+    {
+      "stem": "Chopin_Op028-17_005_20100611-SMD",
+      "frame": {
+        "precision": 0.7874948723612382,
+        "recall": 0.7162763331611274,
+        "f1": 0.7501991492943352
+      },
+      "note": {
+        "onset_precision": 0.39411206077872746,
+        "onset_recall": 0.40057915057915056,
+        "onset_f1": 0.3973192915270464,
+        "onset_offset_precision": 0.11538461538461539,
+        "onset_offset_recall": 0.11727799227799228,
+        "onset_offset_f1": 0.11632359980852083
+      }
+    },
+    {
+      "stem": "Brahms_Op005-01_002_20110315-SMD",
+      "frame": {
+        "precision": 0.8356317581027336,
+        "recall": 0.6728443351361695,
+        "f1": 0.7454544320846012
+      },
+      "note": {
+        "onset_precision": 0.4686960276338515,
+        "onset_recall": 0.600221177771634,
+        "onset_f1": 0.5263668323433144,
+        "onset_offset_precision": 0.19883419689119172,
+        "onset_offset_recall": 0.25463090959358586,
+        "onset_offset_f1": 0.2232997939144139
+      }
+    },
+    {
+      "stem": "Liszt_VariationenBachmotivWeinenKlagenSorgenZagen_001_20090916-SMD",
+      "frame": {
+        "precision": 0.8525353175722552,
+        "recall": 0.7288402377662486,
+        "f1": 0.7858500676399797
+      },
+      "note": {
+        "onset_precision": 0.498574848933987,
+        "onset_recall": 0.5482698094282848,
+        "onset_f1": 0.5222427897533886,
+        "onset_offset_precision": 0.24523999543951658,
+        "onset_offset_recall": 0.2696840521564694,
+        "onset_offset_f1": 0.25688182958141753
+      }
+    },
+    {
+      "stem": "Ravel_ValsesNoblesEtSentimentales_003_20090916-SMD",
+      "frame": {
+        "precision": 0.8223532885205606,
+        "recall": 0.636483689341542,
+        "f1": 0.7175777183640761
+      },
+      "note": {
+        "onset_precision": 0.4947944053002419,
+        "onset_recall": 0.6980712166172107,
+        "onset_f1": 0.5791125607729707,
+        "onset_offset_precision": 0.24019350089389,
+        "onset_offset_recall": 0.33887240356083087,
+        "onset_offset_f1": 0.2811249923072189
+      }
+    },
+    {
+      "stem": "Rachmaninoff_Op036-02_007_20110315-SMD",
+      "frame": {
+        "precision": 0.8802639161000346,
+        "recall": 0.6853034857117222,
+        "f1": 0.7706444696683061
+      },
+      "note": {
+        "onset_precision": 0.321173104434907,
+        "onset_recall": 0.6131087847064178,
+        "onset_f1": 0.4215302769519637,
+        "onset_offset_precision": 0.11611826418693372,
+        "onset_offset_recall": 0.2216659080564406,
+        "onset_offset_f1": 0.15240181505241746
+      }
+    },
+    {
+      "stem": "Chopin_Op028-03_003_20100611-SMD",
+      "frame": {
+        "precision": 0.7750836803004327,
+        "recall": 0.5833486943164362,
+        "f1": 0.6656850371616884
+      },
+      "note": {
+        "onset_precision": 0.6628056628056628,
+        "onset_recall": 0.7779456193353474,
+        "onset_f1": 0.7157748436414175,
+        "onset_offset_precision": 0.31402831402831405,
+        "onset_offset_recall": 0.3685800604229607,
+        "onset_offset_f1": 0.3391243919388464
+      }
+    },
+    {
+      "stem": "Bartok_SZ080-03_002_20110315-SMD",
+      "frame": {
+        "precision": 0.8252919521174147,
+        "recall": 0.6268471538091182,
+        "f1": 0.7125101295530368
+      },
+      "note": {
+        "onset_precision": 0.7398773006134969,
+        "onset_recall": 0.5410497981157469,
+        "onset_f1": 0.6250323918113501,
+        "onset_offset_precision": 0.5319018404907976,
+        "onset_offset_recall": 0.38896366083445494,
+        "onset_offset_f1": 0.44933920704845826
+      }
+    }
+  ],
+  "ci": {
+    "frame_f1": {
+      "mean": 0.8029525865363435,
+      "lo": 0.7854055396722007,
+      "hi": 0.8205160703176804,
+      "n": 50
+    },
+    "note_onset_f1": {
+      "mean": 0.6391992481675874,
+      "lo": 0.5948250233388109,
+      "hi": 0.684974206978179,
+      "n": 50
+    },
+    "note_onset_offset_f1": {
+      "mean": 0.4050646546456293,
+      "lo": 0.34604941985955845,
+      "hi": 0.4647305408871511,
+      "n": 50
+    }
+  },
+  "checkpoint": "/kaggle/input/notebooks/prayagmane/amt-notebook/run1/best.pt",
+  "epoch": 10,
+  "frame_thr": 0.5,
+  "onset_thr": 0.5,
+  "min_frames": 3,
+  "onset_head": false,
+  "dir": "/kaggle/input/datasets/prayagmane/amt-smd-cache",
+  "tune_metric": "onset_offset_f1",
+  "tuning": [
+    {
+      "frame_thr": 0.1,
+      "onset_thr": 0.5,
+      "onset_offset_f1": 0.22216066747907873
+    },
+    {
+      "frame_thr": 0.2,
+      "onset_thr": 0.5,
+      "onset_offset_f1": 0.29631739643828203
+    },
+    {
+      "frame_thr": 0.3,
+      "onset_thr": 0.5,
+      "onset_offset_f1": 0.3395646420217897
+    },
+    {
+      "frame_thr": 0.4,
+      "onset_thr": 0.5,
+      "onset_offset_f1": 0.3641550606492105
+    },
+    {
+      "frame_thr": 0.5,
+      "onset_thr": 0.5,
+      "onset_offset_f1": 0.37220973933615326
+    },
+    {
+      "frame_thr": 0.6,
+      "onset_thr": 0.5,
+      "onset_offset_f1": 0.36583399718041915
+    },
+    {
+      "frame_thr": 0.7,
+      "onset_thr": 0.5,
+      "onset_offset_f1": 0.34421976861001746
+    }
+  ]
+}

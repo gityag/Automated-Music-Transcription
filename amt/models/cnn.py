@@ -14,6 +14,17 @@ Design, and why:
   +12, +19, +24 ... bins. So after the convs, every frame's whole
   (channels x 88 bins) column goes through a fully-connected layer: each
   pitch's decision can use all harmonics (the Onsets-and-Frames layout).
+- Optional temporal model (temporal="bigru"): the per-frame hidden vector
+  is projected to `pitch_feat` features per pitch, and ONE small
+  bidirectional GRU, shared by all 88 pitches, runs over time on each
+  pitch's feature sequence (the frequency-grouped recurrence of HPPNet,
+  Wei et al. 2022). It gives every pitch a memory of how long it has
+  been sounding, which is what offsets need; the CNN alone sees only
+  +-240 ms. It is RESIDUAL: the CNN's own frame/onset logits (the
+  temporal="none" heads) are also fed to the GRU, and the GRU's output
+  is ADDED to them through zero-initialised heads. At step 0 the model
+  is exactly the CNN model, and the GRU only learns corrections. (Without
+  this, the GRU path learned far slower than the CNN alone.)
 - Input normalization (per-bin mean/std from the training set) lives
   inside the model as buffers, so a checkpoint is self-contained and
   training/inference can't normalize differently.
@@ -34,6 +45,9 @@ class FrameCNN(nn.Module):
         onset_head: bool = False,
         hidden: int = 512,
         time_dilations=None,
+        temporal: str = "none",
+        pitch_feat: int = 16,
+        rnn_hidden: int = 32,
     ):
         super().__init__()
         dil = list(time_dilations) if time_dilations else [2**i for i in range(len(conv_channels))]
@@ -49,10 +63,27 @@ class FrameCNN(nn.Module):
         self.conv = nn.Sequential(*layers)
         self.drop = nn.Dropout(dropout)
         self.fc = nn.Linear(c_in * n_bins, hidden)
+        if temporal not in ("none", "bigru"):
+            raise ValueError(f"unknown temporal model {temporal!r}")
+        self.temporal = temporal
+        self.n_bins = n_bins
         self.frame_out = nn.Linear(hidden, n_bins)
         self.onset_out = nn.Linear(hidden, n_bins) if onset_head else None
-        self.n_bins = n_bins
         self.receptive_radius = int(sum(dil))  # frames of context needed on each side
+        if temporal == "bigru":
+            self.pitch_feat = pitch_feat
+            self.pitch_proj = nn.Linear(hidden, n_bins * pitch_feat)
+            n_in = pitch_feat + (2 if onset_head else 1)   # + the CNN's own logits
+            self.rnn = nn.GRU(n_in, rnn_hidden, batch_first=True, bidirectional=True)
+            self.frame_rnn_out = nn.Linear(2 * rnn_hidden, 1)
+            self.onset_rnn_out = nn.Linear(2 * rnn_hidden, 1) if onset_head else None
+            for head in (self.frame_rnn_out, self.onset_rnn_out):
+                if head is not None:
+                    nn.init.zeros_(head.weight)
+                    nn.init.zeros_(head.bias)
+            # A GRU's context is unbounded; predict_piece overlaps chunks by
+            # this many frames (~8 s), far longer than its effective memory.
+            self.receptive_radius = 512
 
         self.register_buffer("norm_mean", torch.zeros(n_bins, 1))
         self.register_buffer("norm_std", torch.ones(n_bins, 1))
@@ -67,8 +98,20 @@ class FrameCNN(nn.Module):
         b, c, f, t = h.shape
         h = self.drop(h.permute(0, 3, 1, 2).reshape(b, t, c * f))
         h = self.drop(torch.relu(self.fc(h)))                # (B, T, hidden)
-        frame = self.frame_out(h).transpose(1, 2)            # (B, 88, T)
-        onset = self.onset_out(h).transpose(1, 2) if self.onset_out is not None else None
+        frame = self.frame_out(h)                            # (B, T, 88)
+        onset = self.onset_out(h) if self.onset_out is not None else None
+        if self.temporal == "bigru":
+            z = torch.relu(self.pitch_proj(h)).view(b, t, self.n_bins, self.pitch_feat)
+            extra = [frame.unsqueeze(-1)] + ([onset.unsqueeze(-1)] if onset is not None else [])
+            z = torch.cat([z] + extra, dim=-1)               # (B, T, 88, n_in)
+            z = z.permute(0, 2, 1, 3).reshape(b * self.n_bins, t, z.shape[-1])
+            y, _ = self.rnn(z)                               # (B*88, T, 2*rnn_hidden)
+            y = self.drop(y)
+            frame = frame + self.frame_rnn_out(y).view(b, self.n_bins, t).transpose(1, 2)
+            if onset is not None:
+                onset = onset + self.onset_rnn_out(y).view(b, self.n_bins, t).transpose(1, 2)
+        frame = frame.transpose(1, 2)                        # (B, 88, T)
+        onset = onset.transpose(1, 2) if onset is not None else None
         return frame, onset
 
 
@@ -78,6 +121,9 @@ def build_model(cfg) -> FrameCNN:
         conv_channels=tuple(cfg.model.conv_channels),
         dropout=cfg.model.dropout,
         onset_head=cfg.model.onset_head,
+        temporal=getattr(cfg.model, "temporal", "none"),
+        pitch_feat=getattr(cfg.model, "pitch_feat", 16),
+        rnn_hidden=getattr(cfg.model, "rnn_hidden", 32),
     )
 
 
@@ -87,7 +133,9 @@ def predict_piece(model: FrameCNN, cqt: np.ndarray, chunk: int = 2048, device=No
     Run the model over a whole piece, in chunks (a full piece at once can
     exceed GPU memory). Each chunk is padded with `receptive_radius` extra
     frames of real context on each side and then cropped, so the result is
-    identical to running the whole piece in one pass.
+    identical to running the whole piece in one pass (for the GRU model:
+    equal within float tolerance, since 512 frames of overlap far exceed
+    its effective memory).
 
     Returns (frame_probs, onset_probs_or_None), each float32 (88, T).
     """

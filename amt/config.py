@@ -1,17 +1,4 @@
-"""
-Central configuration for the AMT pipeline.
-
-Every constant that the legacy scripts hardcoded or silently overrode
-(sample rate, pitch range, frame rate, seed, ...) lives here instead,
-as one typed, serializable object. A run is fully specified by a
-Config plus a Git commit hash -- that pair is what we log alongside
-every result so experiments stay reproducible.
-
-Usage:
-    cfg = Config()                          # defaults
-    cfg = Config.from_yaml("configs/default.yaml")
-    cfg.to_yaml("configs/my_run.yaml")
-"""
+"""Central configuration for the AMT pipeline."""
 from __future__ import annotations
 
 import dataclasses
@@ -23,25 +10,15 @@ import yaml
 
 @dataclass
 class AudioConfig:
-    # A piano's highest fundamental is ~4.2 kHz (C8); 16 kHz sample rate
-    # gives headroom to ~8 kHz (Nyquist) at 1/4 the samples of the legacy
-    # 88.2 kHz load, with no loss of musically relevant content.
     sample_rate: int = 16_000
 
 
 @dataclass
 class CQTConfig:
-    # librosa's CQT below is anchored at fmin; pitch_low/pitch_high in
-    # LabelConfig MUST match this range or the input and target pitch
-    # axes silently disagree (a bug present in the original pipeline).
-    fmin_midi: int = 21          # A0 -- lowest note on an 88-key piano
-    n_bins: int = 88             # A0..C8 inclusive, one bin per semitone
+    fmin_midi: int = 21
+    n_bins: int = 88
     bins_per_octave: int = 12
-    # Frame rate shared with the piano-roll target. 16 ms hop => a
-    # ~32 ms analysis frame at bins_per_octave=12, comfortably inside
-    # mir_eval's default 50 ms onset tolerance (the legacy 83 ms grid
-    # was not).
-    hop_length: int = 256        # at sample_rate=16000 -> 16 ms/frame
+    hop_length: int = 256
 
 
 @dataclass
@@ -58,11 +35,7 @@ class LabelConfig:
 
 @dataclass
 class SplitConfig:
-    # Split BY SONG, never by segment: adjacent segments overlap in
-    # audio, so a random segment-level split leaks test audio into
-    # training (the bug that made the original accuracy numbers
-    # meaningless).
-    train_hours: float = 45.0    # subset of MAESTRO train split we actually use
+    train_hours: float = 45.0
     val_hours: float = 5.0
     seed: int = 21
 
@@ -70,13 +43,15 @@ class SplitConfig:
 @dataclass
 class ModelConfig:
     name: str = "cnn_baseline"
-    # A list, not a tuple: YAML has no tuple type, so a value that
-    # round-trips through to_yaml/from_yaml would silently become a
-    # list anyway. Keeping the Python type and the YAML type the same
-    # avoids that mismatch.
     conv_channels: list[int] = field(default_factory=lambda: [32, 32, 64, 64])
     dropout: float = 0.25
-    onset_head: bool = False     # ablation switch: frame-only vs onset+frame
+    onset_head: bool = False
+    # Temporal model after the per-frame layers: "none" (the CNN alone sees
+    # +-15 frames) or "bigru" (a small bidirectional GRU over time, run on
+    # each pitch separately with weights shared by all 88 pitches).
+    temporal: str = "none"
+    pitch_feat: int = 16      # features per pitch fed to the GRU
+    rnn_hidden: int = 32      # GRU units per direction
 
 
 @dataclass
@@ -85,14 +60,14 @@ class TrainConfig:
     batch_size: int = 16
     learning_rate: float = 1e-3
     seed: int = 21
-    device: str = "auto"         # "auto" resolves to cuda > mps > cpu at runtime
-    segment_frames: int = 256 
+    device: str = "auto"
+    segment_frames: int = 256  # training window: 256 frames = ~4.1 s at 62.5 fps
 
 
 @dataclass
 class EvalConfig:
     onset_tolerance_seconds: float = 0.05
-    offset_ratio: float = 0.2    # mir_eval default: max(50ms, 0.2 * note duration)
+    offset_ratio: float = 0.2
 
 
 @dataclass
@@ -110,8 +85,7 @@ class Config:
         if self.cqt.fmin_midi != self.labels.pitch_low:
             raise ValueError(
                 f"cqt.fmin_midi ({self.cqt.fmin_midi}) must equal "
-                f"labels.pitch_low ({self.labels.pitch_low}) or the CQT "
-                "input and the piano-roll target cover different pitches."
+                f"labels.pitch_low ({self.labels.pitch_low})."
             )
         if self.cqt.n_bins != n_expected:
             raise ValueError(
@@ -137,8 +111,6 @@ class Config:
 
 
 def _resolve(section_cls, values: dict):
-    # dataclasses.fields(cls) gives string type names when annotations
-    # use `from __future__ import annotations`; resolve via globals().
     if isinstance(section_cls, str):
         section_cls = globals()[section_cls]
     return section_cls(**values)

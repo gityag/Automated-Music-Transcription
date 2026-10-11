@@ -175,3 +175,60 @@ def test_checkpoint_falls_back_to_frame_f1_without_notes(tmp_path):
     out = train(cfg, [_synthetic_piece(seed=1)], [_synthetic_piece(seed=2)], tmp_path,
                 epochs=1, steps_per_epoch=5, log=lambda *_: None)
     assert out["history"][-1]["select_metric"] == "frame_f1"
+
+
+def test_bigru_forward_shapes_and_param_count():
+    x = torch.randn(2, 88, 64)
+    m = FrameCNN(conv_channels=(4, 4), hidden=32, onset_head=True, temporal="bigru", pitch_feat=4, rnn_hidden=8)
+    f, o = m(x)
+    assert f.shape == (2, 88, 64) and o.shape == (2, 88, 64)
+    # one GRU shared by all pitches: its size does not depend on n_bins
+    assert sum(p.numel() for p in m.rnn.parameters()) == 2 * 3 * (8 * (4 + 2) + 8 * 8 + 2 * 8)
+    with pytest.raises(ValueError):
+        FrameCNN(temporal="lstm")
+
+
+def test_bigru_starts_identical_to_cnn():
+    # zero-initialised residual heads: before training, adding the GRU
+    # changes nothing, so the GRU can only learn corrections
+    torch.manual_seed(0)
+    base = FrameCNN(conv_channels=(4, 4), hidden=16, onset_head=True).eval()
+    torch.manual_seed(0)
+    gru = FrameCNN(conv_channels=(4, 4), hidden=16, onset_head=True,
+                   temporal="bigru", pitch_feat=4, rnn_hidden=8).eval()
+    x = torch.randn(1, 88, 50)
+    (bf, bo), (gf, go) = base(x), gru(x)
+    assert torch.allclose(bf, gf) and torch.allclose(bo, go)
+
+
+def test_bigru_chunked_prediction_matches_single_pass():
+    torch.manual_seed(0)
+    m = FrameCNN(conv_channels=(4, 4), hidden=16, onset_head=True,
+                 temporal="bigru", pitch_feat=4, rnn_hidden=8).eval()
+    cqt = np.random.default_rng(1).normal(-40, 10, size=(88, 3000)).astype(np.float32)
+    m.set_norm(cqt.mean(axis=1), cqt.std(axis=1))  # as in training: unnormalized input saturates the GRU
+    full_f, full_o = predict_piece(m, cqt, chunk=100_000)
+    ch_f, ch_o = predict_piece(m, cqt, chunk=700)
+    np.testing.assert_allclose(full_f, ch_f, atol=1e-4)
+    np.testing.assert_allclose(full_o, ch_o, atol=1e-4)
+
+
+def test_bigru_trains_on_synthetic_task(tmp_path):
+    cfg = Config()
+    cfg.model.conv_channels = [8, 8, 8, 8]
+    cfg.model.onset_head = True
+    cfg.model.temporal = "bigru"
+    cfg.model.pitch_feat = 8
+    cfg.model.rnn_hidden = 16
+    cfg.train.batch_size = 8
+    cfg.train.segment_frames = 96
+    cfg.train.learning_rate = 3e-3
+    cfg.train.device = "cpu"
+    train_p = [_synthetic_piece(n_frames=1500, seed=i, stem=f"t{i}") for i in range(10)]
+    out = train(cfg, train_p, [_synthetic_piece(seed=100, stem="v")], tmp_path,
+                epochs=6, steps_per_epoch=40, log=lambda *_: None)
+    assert out["best_val_f1"] > 0.85   # the CNN alone reaches ~0.93 here
+    ck = torch.load(tmp_path / "best.pt", weights_only=False)
+    assert ck["config"]["model"]["temporal"] == "bigru"
+    m = build_model(cfg)
+    m.load_state_dict(ck["model"])   # the checkpoint rebuilds from its own config
