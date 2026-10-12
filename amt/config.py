@@ -52,6 +52,9 @@ class ModelConfig:
     temporal: str = "none"
     pitch_feat: int = 16      # features per pitch fed to the GRU
     rnn_hidden: int = 32      # GRU units per direction
+    # Harmonic dilated convolution after the first conv layer (HPPNet):
+    # each output bin also sees the bins of its 2nd..8th harmonics.
+    harmonic: bool = False
 
 
 @dataclass

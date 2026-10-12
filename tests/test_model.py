@@ -232,3 +232,35 @@ def test_bigru_trains_on_synthetic_task(tmp_path):
     assert ck["config"]["model"]["temporal"] == "bigru"
     m = build_model(cfg)
     m.load_state_dict(ck["model"])   # the checkpoint rebuilds from its own config
+
+
+def test_harmonic_dilations_for_12_bins_per_octave():
+    from amt.models.cnn import harmonic_dilations
+    assert harmonic_dilations(12) == [12, 19, 24, 28, 31, 34, 36]
+
+
+def test_harmonic_conv_connects_each_bin_to_its_harmonics():
+    from amt.models.cnn import HarmonicDilatedConv
+    conv = HarmonicDilatedConv(1, 1, [12, 19])
+    with torch.no_grad():
+        for c in [conv.base, *conv.harm]:
+            c.weight.zero_()
+            c.weight[0, 0, 0, 1] = 1.0      # centre time tap only
+        conv.base.bias.zero_()
+    x = torch.zeros(1, 1, 88, 5)
+    x[0, 0, 60, 2] = 1.0                    # one active bin
+    y = conv(x)[0, 0, :, 2]
+    # bin 60 itself, and the bins whose 2nd / 3rd harmonic is bin 60
+    assert torch.nonzero(y).flatten().tolist() == [60 - 19, 60 - 12, 60]
+
+
+def test_harmonic_model_shapes_and_config():
+    cfg = Config()
+    cfg.model.conv_channels = [4, 4]
+    cfg.model.onset_head = True
+    cfg.model.harmonic = True
+    m = build_model(cfg)
+    assert m.harmonic is not None
+    f, o = m(torch.randn(2, 88, 40))
+    assert f.shape == (2, 88, 40) and o.shape == (2, 88, 40)
+    assert build_model(Config()).harmonic is None     # off by default: old checkpoints load

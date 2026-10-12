@@ -25,15 +25,53 @@ Design, and why:
   is ADDED to them through zero-initialised heads. At step 0 the model
   is exactly the CNN model, and the GRU only learns corrections. (Without
   this, the GRU path learned far slower than the CNN alone.)
+- Optional harmonic block (harmonic=True): a harmonic dilated convolution
+  (HarmonicDilatedConv) added residually after the first conv layer, so
+  early features combine each bin with its harmonics' bins.
 - Input normalization (per-bin mean/std from the training set) lives
   inside the model as buffers, so a checkpoint is self-contained and
   training/inference can't normalize differently.
 """
 from __future__ import annotations
 
+import math
+
 import numpy as np
 import torch
+import torch.nn.functional as F
 from torch import nn
+
+
+def harmonic_dilations(bins_per_octave: int = 12, n_harmonics: int = 8) -> list[int]:
+    """Bin offsets of harmonics 2..n above a fundamental on a log-frequency
+    axis: round(bins_per_octave * log2(k)). 12 bins/octave -> 12, 19, 24, 28,
+    31, 34, 36."""
+    return [round(bins_per_octave * math.log2(k)) for k in range(2, n_harmonics + 1)]
+
+
+class HarmonicDilatedConv(nn.Module):
+    """Harmonic dilated convolution (HPPNet, Wei et al. 2022), on our CQT.
+
+    Output bin f is a learned sum over input bins f, f+d_2, ..., f+d_8 (its
+    harmonics), each with a 3-frame time kernel. A 3x3 conv only sees +-1
+    semitone per layer; this lets the very first layers combine a note's
+    fundamental with its overtones. Bins above the top of the range are
+    zero-padded."""
+
+    def __init__(self, c_in: int, c_out: int, dilations: list[int]):
+        super().__init__()
+        self.dilations = list(dilations)
+        self.base = nn.Conv2d(c_in, c_out, (1, 3), padding=(0, 1))
+        self.harm = nn.ModuleList(
+            nn.Conv2d(c_in, c_out, (1, 3), padding=(0, 1), bias=False) for _ in self.dilations)
+
+    def forward(self, x: torch.Tensor) -> torch.Tensor:  # x: (B, C, F, T)
+        out = self.base(x)
+        n_bins = x.shape[2]
+        for d, conv in zip(self.dilations, self.harm):
+            shifted = F.pad(x[:, :, d:, :], (0, 0, 0, min(d, n_bins)))  # bin f now holds bin f+d
+            out = out + conv(shifted)
+        return out
 
 
 class FrameCNN(nn.Module):
@@ -48,6 +86,8 @@ class FrameCNN(nn.Module):
         temporal: str = "none",
         pitch_feat: int = 16,
         rnn_hidden: int = 32,
+        harmonic: bool = False,
+        bins_per_octave: int = 12,
     ):
         super().__init__()
         dil = list(time_dilations) if time_dilations else [2**i for i in range(len(conv_channels))]
@@ -61,6 +101,13 @@ class FrameCNN(nn.Module):
             ]
             c_in = c_out
         self.conv = nn.Sequential(*layers)
+        # optional harmonic block, applied residually after the first conv layer
+        self.harmonic = None
+        if harmonic:
+            c1 = conv_channels[0]
+            self.harmonic = nn.Sequential(
+                HarmonicDilatedConv(c1, c1, harmonic_dilations(bins_per_octave)),
+                nn.BatchNorm2d(c1), nn.ReLU(inplace=True))
         self.drop = nn.Dropout(dropout)
         self.fc = nn.Linear(c_in * n_bins, hidden)
         if temporal not in ("none", "bigru"):
@@ -94,7 +141,12 @@ class FrameCNN(nn.Module):
 
     def forward(self, x: torch.Tensor):
         x = (x - self.norm_mean) / self.norm_std            # (B, F, T)
-        h = self.conv(x.unsqueeze(1))                        # (B, C, F, T)
+        if self.harmonic is None:
+            h = self.conv(x.unsqueeze(1))                    # (B, C, F, T)
+        else:
+            h = self.conv[:3](x.unsqueeze(1))                # first conv + BN + ReLU
+            h = h + self.harmonic(h)
+            h = self.conv[3:](h)
         b, c, f, t = h.shape
         h = self.drop(h.permute(0, 3, 1, 2).reshape(b, t, c * f))
         h = self.drop(torch.relu(self.fc(h)))                # (B, T, hidden)
@@ -124,6 +176,8 @@ def build_model(cfg) -> FrameCNN:
         temporal=getattr(cfg.model, "temporal", "none"),
         pitch_feat=getattr(cfg.model, "pitch_feat", 16),
         rnn_hidden=getattr(cfg.model, "rnn_hidden", 32),
+        harmonic=getattr(cfg.model, "harmonic", False),
+        bins_per_octave=cfg.cqt.bins_per_octave,
     )
 
 
