@@ -1,0 +1,3150 @@
+{
+  "n_pieces": 177,
+  "frame": {
+    "precision": 0.911864215232618,
+    "recall": 0.8761068051513216,
+    "f1": 0.8929305022062771
+  },
+  "note": {
+    "onset_precision": 0.969784686113456,
+    "onset_recall": 0.8901974748473215,
+    "onset_f1": 0.9273233976938485,
+    "onset_offset_precision": 0.8094564796714243,
+    "onset_offset_recall": 0.7445327771446507,
+    "onset_offset_f1": 0.7748538170180249
+  },
+  "per_piece": [
+    {
+      "stem": "MIDI-Unprocessed_12_R1_2006_01-08_ORIG_MID--AUDIO_12_R1_2006_07_Track07_wav",
+      "frame": {
+        "precision": 0.8332800060228491,
+        "recall": 0.838122822959261,
+        "f1": 0.8356943985654287
+      },
+      "note": {
+        "onset_precision": 0.9273858921161826,
+        "onset_recall": 0.8199685534591195,
+        "onset_f1": 0.870375521557719,
+        "onset_offset_precision": 0.7448132780082988,
+        "onset_offset_recall": 0.6585429769392034,
+        "onset_offset_f1": 0.6990264255910987
+      }
+    },
+    {
+      "stem": "MIDI-Unprocessed_06_R1_2006_01-04_ORIG_MID--AUDIO_06_R1_2006_02_Track02_wav",
+      "frame": {
+        "precision": 0.8424360944265958,
+        "recall": 0.8381045025013897,
+        "f1": 0.8402647161267852
+      },
+      "note": {
+        "onset_precision": 0.9640662818841929,
+        "onset_recall": 0.8449738903394256,
+        "onset_f1": 0.9006000521784503,
+        "onset_offset_precision": 0.7248184695587414,
+        "onset_offset_recall": 0.6352806788511749,
+        "onset_offset_f1": 0.6771023567266719
+      }
+    },
+    {
+      "stem": "MIDI-Unprocessed_083_PIANO083_MID--AUDIO-split_07-09-17_Piano-e_2_-06_wav--3",
+      "frame": {
+        "precision": 0.9478840369903531,
+        "recall": 0.857692959177912,
+        "f1": 0.900535913305352
+      },
+      "note": {
+        "onset_precision": 0.9884141926140478,
+        "onset_recall": 0.8904109589041096,
+        "onset_f1": 0.9368565545641729,
+        "onset_offset_precision": 0.8406951484431572,
+        "onset_offset_recall": 0.7573385518590998,
+        "onset_offset_f1": 0.7968428277282087
+      }
+    },
+    {
+      "stem": "MIDI-Unprocessed_09_R2_2008_01-05_ORIG_MID--AUDIO_09_R2_2008_wav--3",
+      "frame": {
+        "precision": 0.9396334925431329,
+        "recall": 0.9015721888123007,
+        "f1": 0.920209440077132
+      },
+      "note": {
+        "onset_precision": 0.9569520039584364,
+        "onset_recall": 0.8316491077187702,
+        "onset_f1": 0.8899114229840103,
+        "onset_offset_precision": 0.7803067788223652,
+        "onset_offset_recall": 0.6781337346807138,
+        "onset_offset_f1": 0.7256413206027839
+      }
+    },
+    {
+      "stem": "MIDI-Unprocessed_SMF_02_R1_2004_01-05_ORIG_MID--AUDIO_02_R1_2004_10_Track10_wav",
+      "frame": {
+        "precision": 0.87612436850536,
+        "recall": 0.8130276523164294,
+        "f1": 0.8433975505846768
+      },
+      "note": {
+        "onset_precision": 0.9370539798719122,
+        "onset_recall": 0.8040508714083844,
+        "onset_f1": 0.8654723677539294,
+        "onset_offset_precision": 0.7189387008234218,
+        "onset_offset_recall": 0.6168943319202387,
+        "onset_offset_f1": 0.6640189285110698
+      }
+    },
+    {
+      "stem": "ORIG-MIDI_02_7_6_13_Group__MID--AUDIO_08_R1_2013_wav--5",
+      "frame": {
+        "precision": 0.8721441503577895,
+        "recall": 0.8721942807874694,
+        "f1": 0.8721692148522818
+      },
+      "note": {
+        "onset_precision": 0.9695636230289696,
+        "onset_recall": 0.8515297906602255,
+        "onset_f1": 0.9067215363511659,
+        "onset_offset_precision": 0.8478181151448478,
+        "onset_offset_recall": 0.7446054750402576,
+        "onset_offset_f1": 0.7928669410150893
+      }
+    },
+    {
+      "stem": "ORIG-MIDI_01_7_7_13_Group__MID--AUDIO_14_R1_2013_wav--2",
+      "frame": {
+        "precision": 0.9481605351170569,
+        "recall": 0.9152342727510688,
+        "f1": 0.9314064997336176
+      },
+      "note": {
+        "onset_precision": 0.997737556561086,
+        "onset_recall": 0.9700835899692037,
+        "onset_f1": 0.9837162614320767,
+        "onset_offset_precision": 0.9009049773755656,
+        "onset_offset_recall": 0.8759348878134624,
+        "onset_offset_f1": 0.8882444791434307
+      }
+    },
+    {
+      "stem": "MIDI-UNPROCESSED_11-13_R1_2014_MID--AUDIO_11_R1_2014_wav--1",
+      "frame": {
+        "precision": 0.9099006509078451,
+        "recall": 0.837696335078534,
+        "f1": 0.8723068838675775
+      },
+      "note": {
+        "onset_precision": 0.9919003115264797,
+        "onset_recall": 0.9359200470311582,
+        "onset_f1": 0.9630973986690865,
+        "onset_offset_precision": 0.8087227414330218,
+        "onset_offset_recall": 0.7630805408583187,
+        "onset_offset_f1": 0.7852389594676346
+      }
+    },
+    {
+      "stem": "ORIG-MIDI_01_7_6_13_Group__MID--AUDIO_01_R1_2013_wav--4",
+      "frame": {
+        "precision": 0.8643590739642752,
+        "recall": 0.8500556292811088,
+        "f1": 0.8571476844577357
+      },
+      "note": {
+        "onset_precision": 0.9380753138075314,
+        "onset_recall": 0.734600262123198,
+        "onset_f1": 0.8239617787578097,
+        "onset_offset_precision": 0.7569037656903765,
+        "onset_offset_recall": 0.5927260812581914,
+        "onset_offset_f1": 0.6648291069459757
+      }
+    },
+    {
+      "stem": "MIDI-Unprocessed_Recital17-19_MID--AUDIO_19_R1_2018_wav--3",
+      "frame": {
+        "precision": 0.8870658450400758,
+        "recall": 0.8437615280567283,
+        "f1": 0.8648719618511437
+      },
+      "note": {
+        "onset_precision": 0.9418672930123312,
+        "onset_recall": 0.7694890861117774,
+        "onset_f1": 0.846996699669967,
+        "onset_offset_precision": 0.7809747504403993,
+        "onset_offset_recall": 0.6380426960901895,
+        "onset_offset_f1": 0.7023102310231023
+      }
+    },
+    {
+      "stem": "MIDI-Unprocessed_11_R1_2011_MID--AUDIO_R1-D4_07_Track07_wav",
+      "frame": {
+        "precision": 0.9233364114354635,
+        "recall": 0.6949645390070922,
+        "f1": 0.793036750483559
+      },
+      "note": {
+        "onset_precision": 0.9853694220921726,
+        "onset_recall": 0.9882611885546588,
+        "onset_f1": 0.9868131868131869,
+        "onset_offset_precision": 0.7161667885881492,
+        "onset_offset_recall": 0.7182685253118122,
+        "onset_offset_f1": 0.7172161172161173
+      }
+    },
+    {
+      "stem": "MIDI-Unprocessed_SMF_17_R1_2004_03-06_ORIG_MID--AUDIO_20_R2_2004_12_Track12_wav--1",
+      "frame": {
+        "precision": 0.9035663504801231,
+        "recall": 0.9034079844206426,
+        "f1": 0.9034871605106582
+      },
+      "note": {
+        "onset_precision": 0.9698025551684089,
+        "onset_recall": 0.8803373748023194,
+        "onset_f1": 0.9229068803536888,
+        "onset_offset_precision": 0.7636469221835076,
+        "onset_offset_recall": 0.6931997891407485,
+        "onset_offset_f1": 0.7267200884222161
+      }
+    },
+    {
+      "stem": "MIDI-Unprocessed_Recital5-7_MID--AUDIO_06_R1_2018_wav--3",
+      "frame": {
+        "precision": 0.9142858249014206,
+        "recall": 0.8909122461529175,
+        "f1": 0.9024477157932649
+      },
+      "note": {
+        "onset_precision": 0.9525396180414466,
+        "onset_recall": 0.8277542372881356,
+        "onset_f1": 0.885773663328925,
+        "onset_offset_precision": 0.7727752945956928,
+        "onset_offset_recall": 0.6715395480225989,
+        "onset_offset_f1": 0.7186094842244474
+      }
+    },
+    {
+      "stem": "MIDI-Unprocessed_R1_D2-13-20_mid--AUDIO-from_mp3_16_R1_2015_wav--2",
+      "frame": {
+        "precision": 0.9588832010519889,
+        "recall": 0.9144143135454688,
+        "f1": 0.9361209495317676
+      },
+      "note": {
+        "onset_precision": 0.9931707317073171,
+        "onset_recall": 0.9635589209654519,
+        "onset_f1": 0.9781407638722076,
+        "onset_offset_precision": 0.9287804878048781,
+        "onset_offset_recall": 0.9010884997633696,
+        "onset_offset_f1": 0.9147249579630075
+      }
+    },
+    {
+      "stem": "MIDI-Unprocessed_11_R1_2009_06-09_ORIG_MID--AUDIO_11_R1_2009_11_R1_2009_07_WAV",
+      "frame": {
+        "precision": 0.9205500761236513,
+        "recall": 0.7748896039672921,
+        "f1": 0.8414627689747759
+      },
+      "note": {
+        "onset_precision": 0.9910979228486647,
+        "onset_recall": 0.926490984743412,
+        "onset_f1": 0.9577060931899642,
+        "onset_offset_precision": 0.7106824925816023,
+        "onset_offset_recall": 0.6643550624133149,
+        "onset_offset_f1": 0.6867383512544804
+      }
+    },
+    {
+      "stem": "MIDI-UNPROCESSED_09-10_R1_2014_MID--AUDIO_09_R1_2014_wav--4",
+      "frame": {
+        "precision": 0.8981102343115507,
+        "recall": 0.8544045573532295,
+        "f1": 0.8757124115025944
+      },
+      "note": {
+        "onset_precision": 0.9545171339563863,
+        "onset_recall": 0.7925504397309882,
+        "onset_f1": 0.8660260033917467,
+        "onset_offset_precision": 0.7478193146417446,
+        "onset_offset_recall": 0.6209260217278841,
+        "onset_offset_f1": 0.6784906726964387
+      }
+    },
+    {
+      "stem": "MIDI-Unprocessed_XP_03_R1_2004_01-02_ORIG_MID--AUDIO_03_R1_2004_01_Track01_wav",
+      "frame": {
+        "precision": 0.9338780706426428,
+        "recall": 0.8622265400115141,
+        "f1": 0.8966231174581397
+      },
+      "note": {
+        "onset_precision": 0.9910039582583663,
+        "onset_recall": 0.9804200783196867,
+        "onset_f1": 0.985683607730852,
+        "onset_offset_precision": 0.8089240734077006,
+        "onset_offset_recall": 0.8002847988608045,
+        "onset_offset_f1": 0.8045812455261273
+      }
+    },
+    {
+      "stem": "MIDI-Unprocessed_XP_15_R1_2004_03_ORIG_MID--AUDIO_15_R1_2004_03_Track03_wav",
+      "frame": {
+        "precision": 0.9269392361829237,
+        "recall": 0.8838809283665684,
+        "f1": 0.9048981546111645
+      },
+      "note": {
+        "onset_precision": 0.9801331285202253,
+        "onset_recall": 0.9325733216408457,
+        "onset_f1": 0.9557619332933891,
+        "onset_offset_precision": 0.8817204301075269,
+        "onset_offset_recall": 0.8389359836305174,
+        "onset_offset_f1": 0.8597962852007189
+      }
+    },
+    {
+      "stem": "MIDI-Unprocessed_053_PIANO053_MID--AUDIO-split_07-06-17_Piano-e_3-04_wav--1",
+      "frame": {
+        "precision": 0.9573631377419021,
+        "recall": 0.9217586249844314,
+        "f1": 0.9392235745015672
+      },
+      "note": {
+        "onset_precision": 0.9900332225913622,
+        "onset_recall": 0.9841479524438573,
+        "onset_f1": 0.9870818151705864,
+        "onset_offset_precision": 0.9255813953488372,
+        "onset_offset_recall": 0.9200792602377807,
+        "onset_offset_f1": 0.9228221265319642
+      }
+    },
+    {
+      "stem": "ORIG-MIDI_02_7_10_13_Group_MID--AUDIO_12_R3_2013_wav--2",
+      "frame": {
+        "precision": 0.9283247871289457,
+        "recall": 0.8907054001841588,
+        "f1": 0.9091260901413901
+      },
+      "note": {
+        "onset_precision": 0.9743589743589743,
+        "onset_recall": 0.897133220910624,
+        "onset_f1": 0.9341527655838455,
+        "onset_offset_precision": 0.8447802197802198,
+        "onset_offset_recall": 0.7778246205733558,
+        "onset_offset_f1": 0.8099209833187007
+      }
+    },
+    {
+      "stem": "MIDI-Unprocessed_22_R2_2011_MID--AUDIO_R2-D5_10_Track10_wav",
+      "frame": {
+        "precision": 0.9481539972651811,
+        "recall": 0.8980973055803857,
+        "f1": 0.9224470676409968
+      },
+      "note": {
+        "onset_precision": 0.9717336683417085,
+        "onset_recall": 0.9392835458409229,
+        "onset_f1": 0.9552330966347637,
+        "onset_offset_precision": 0.835427135678392,
+        "onset_offset_recall": 0.8075288403157256,
+        "onset_offset_f1": 0.821241123803643
+      }
+    },
+    {
+      "stem": "MIDI-UNPROCESSED_01-03_R1_2014_MID--AUDIO_01_R1_2014_wav--2",
+      "frame": {
+        "precision": 0.9637802689263542,
+        "recall": 0.9156882477915689,
+        "f1": 0.9391189667283075
+      },
+      "note": {
+        "onset_precision": 0.9979959919839679,
+        "onset_recall": 0.9861386138613861,
+        "onset_f1": 0.9920318725099602,
+        "onset_offset_precision": 0.8296593186372746,
+        "onset_offset_recall": 0.8198019801980198,
+        "onset_offset_f1": 0.8247011952191234
+      }
+    },
+    {
+      "stem": "MIDI-Unprocessed_R1_D2-21-22_mid--AUDIO-from_mp3_22_R1_2015_wav--3",
+      "frame": {
+        "precision": 0.9534750265674814,
+        "recall": 0.8105114816889194,
+        "f1": 0.8761999628902627
+      },
+      "note": {
+        "onset_precision": 0.9798969072164948,
+        "onset_recall": 0.8950094161958568,
+        "onset_f1": 0.935531496062992,
+        "onset_offset_precision": 0.831958762886598,
+        "onset_offset_recall": 0.7598870056497176,
+        "onset_offset_f1": 0.7942913385826771
+      }
+    },
+    {
+      "stem": "MIDI-Unprocessed_11_R3_2008_01-04_ORIG_MID--AUDIO_11_R3_2008_wav--1",
+      "frame": {
+        "precision": 0.9098659710013421,
+        "recall": 0.8119127545081898,
+        "f1": 0.8581030486717774
+      },
+      "note": {
+        "onset_precision": 0.992078460958129,
+        "onset_recall": 0.960555149744339,
+        "onset_f1": 0.9760623492299129,
+        "onset_offset_precision": 0.7996982270841192,
+        "onset_offset_recall": 0.7742878013148283,
+        "onset_offset_f1": 0.7867879012803859
+      }
+    },
+    {
+      "stem": "ORIG-MIDI_01_7_6_13_Group__MID--AUDIO_03_R1_2013_wav--1",
+      "frame": {
+        "precision": 0.9286184075307272,
+        "recall": 0.9043615764927241,
+        "f1": 0.91632949002667
+      },
+      "note": {
+        "onset_precision": 0.9880239520958084,
+        "onset_recall": 0.9713024282560706,
+        "onset_f1": 0.979591836734694,
+        "onset_offset_precision": 0.8967065868263473,
+        "onset_offset_recall": 0.8815305371596762,
+        "onset_offset_f1": 0.8890538033395176
+      }
+    },
+    {
+      "stem": "MIDI-Unprocessed_14_R1_2008_01-05_ORIG_MID--AUDIO_14_R1_2008_wav--3",
+      "frame": {
+        "precision": 0.814502441896713,
+        "recall": 0.8454707246481026,
+        "f1": 0.8296977127786255
+      },
+      "note": {
+        "onset_precision": 0.927038626609442,
+        "onset_recall": 0.7671940587665482,
+        "onset_f1": 0.8395759717314488,
+        "onset_offset_precision": 0.6718689036285603,
+        "onset_offset_recall": 0.5560219567323216,
+        "onset_offset_f1": 0.6084805653710247
+      }
+    },
+    {
+      "stem": "MIDI-Unprocessed_17_R2_2008_01-04_ORIG_MID--AUDIO_17_R2_2008_wav--1",
+      "frame": {
+        "precision": 0.9470017448501814,
+        "recall": 0.8909687857994875,
+        "f1": 0.9181311459448934
+      },
+      "note": {
+        "onset_precision": 0.9780821917808219,
+        "onset_recall": 0.9452780229479258,
+        "onset_f1": 0.9614003590664272,
+        "onset_offset_precision": 0.8356164383561644,
+        "onset_offset_recall": 0.8075904677846425,
+        "onset_offset_f1": 0.8213644524236983
+      }
+    },
+    {
+      "stem": "MIDI-Unprocessed_071_PIANO071_MID--AUDIO-split_07-08-17_Piano-e_1-04_wav--2",
+      "frame": {
+        "precision": 0.9379276080858684,
+        "recall": 0.9052999650332184,
+        "f1": 0.9213250096589869
+      },
+      "note": {
+        "onset_precision": 0.9863975427819219,
+        "onset_recall": 0.9513330512060939,
+        "onset_f1": 0.9685480396380871,
+        "onset_offset_precision": 0.8604651162790697,
+        "onset_offset_recall": 0.8298772746508676,
+        "onset_offset_f1": 0.8448944420508402
+      }
+    },
+    {
+      "stem": "MIDI-Unprocessed_049_PIANO049_MID--AUDIO-split_07-06-17_Piano-e_2-06_wav--2",
+      "frame": {
+        "precision": 0.9361460001685914,
+        "recall": 0.8934792228166861,
+        "f1": 0.9143151178347226
+      },
+      "note": {
+        "onset_precision": 0.9896584142901912,
+        "onset_recall": 0.9370919881305638,
+        "onset_f1": 0.9626581313824112,
+        "onset_offset_precision": 0.8937637104356001,
+        "onset_offset_recall": 0.8462908011869437,
+        "onset_offset_f1": 0.8693796677335772
+      }
+    },
+    {
+      "stem": "ORIG-MIDI_02_7_10_13_Group_MID--AUDIO_14_R3_2013_wav--2",
+      "frame": {
+        "precision": 0.9195835268930137,
+        "recall": 0.8803733845101503,
+        "f1": 0.8995513801266213
+      },
+      "note": {
+        "onset_precision": 0.9529091262891614,
+        "onset_recall": 0.828175207170641,
+        "onset_f1": 0.8861744480636988,
+        "onset_offset_precision": 0.7746643315820199,
+        "onset_offset_recall": 0.6732623033992897,
+        "onset_offset_f1": 0.7204125950054289
+      }
+    },
+    {
+      "stem": "MIDI-UNPROCESSED_19-20_R1_2014_MID--AUDIO_19_R1_2014_wav--8",
+      "frame": {
+        "precision": 0.8796512784797532,
+        "recall": 0.8370829733600009,
+        "f1": 0.8578393620569419
+      },
+      "note": {
+        "onset_precision": 0.9598130841121495,
+        "onset_recall": 0.8318483719423295,
+        "onset_f1": 0.8912609563481733,
+        "onset_offset_precision": 0.7665420560747663,
+        "onset_offset_recall": 0.664344727037097,
+        "onset_offset_f1": 0.7117938036969539
+      }
+    },
+    {
+      "stem": "MIDI-Unprocessed_065_PIANO065_MID--AUDIO-split_07-07-17_Piano-e_3-01_wav--2",
+      "frame": {
+        "precision": 0.953045177390117,
+        "recall": 0.9052336176921099,
+        "f1": 0.9285243269589151
+      },
+      "note": {
+        "onset_precision": 0.9861516034985423,
+        "onset_recall": 0.9485861182519281,
+        "onset_f1": 0.9670041691483027,
+        "onset_offset_precision": 0.9079203109815355,
+        "onset_offset_recall": 0.87333489132975,
+        "onset_offset_f1": 0.8902918403811794
+      }
+    },
+    {
+      "stem": "MIDI-Unprocessed_18_R1_2011_MID--AUDIO_R1-D7_07_Track07_wav",
+      "frame": {
+        "precision": 0.9421097365190292,
+        "recall": 0.9158455229818226,
+        "f1": 0.9287919931724726
+      },
+      "note": {
+        "onset_precision": 0.9946236559139785,
+        "onset_recall": 0.9879839786381842,
+        "onset_f1": 0.9912926992632284,
+        "onset_offset_precision": 0.8931451612903226,
+        "onset_offset_recall": 0.8871829105473965,
+        "onset_offset_f1": 0.8901540522438044
+      }
+    },
+    {
+      "stem": "MIDI-Unprocessed_XP_04_R1_2004_03-05_ORIG_MID--AUDIO_04_R1_2004_06_Track06_wav",
+      "frame": {
+        "precision": 0.8440917687690157,
+        "recall": 0.8702102407595795,
+        "f1": 0.8569520390700004
+      },
+      "note": {
+        "onset_precision": 0.9866740699611327,
+        "onset_recall": 0.9763736263736263,
+        "onset_f1": 0.9814968240817452,
+        "onset_offset_precision": 0.8017767906718489,
+        "onset_offset_recall": 0.7934065934065934,
+        "onset_offset_f1": 0.7975697321181993
+      }
+    },
+    {
+      "stem": "MIDI-UNPROCESSED_01-03_R1_2014_MID--AUDIO_02_R1_2014_wav--4",
+      "frame": {
+        "precision": 0.9265396992789559,
+        "recall": 0.9262489854999707,
+        "f1": 0.926394319582086
+      },
+      "note": {
+        "onset_precision": 0.9581386292834891,
+        "onset_recall": 0.8579149232914923,
+        "onset_f1": 0.9052612214863871,
+        "onset_offset_precision": 0.7871884735202492,
+        "onset_offset_recall": 0.7048465829846583,
+        "onset_offset_f1": 0.7437454010301694
+      }
+    },
+    {
+      "stem": "MIDI-Unprocessed_Recital13-15_MID--AUDIO_14_R1_2018_wav--3",
+      "frame": {
+        "precision": 0.8421845159394741,
+        "recall": 0.838458444550075,
+        "f1": 0.8403173497993661
+      },
+      "note": {
+        "onset_precision": 0.9746320681642138,
+        "onset_recall": 0.8889085128929707,
+        "onset_f1": 0.9297986329207463,
+        "onset_offset_precision": 0.8301704105344694,
+        "onset_offset_recall": 0.7571529494878135,
+        "onset_offset_f1": 0.7919822649177904
+      }
+    },
+    {
+      "stem": "MIDI-Unprocessed_01_R1_2009_01-04_ORIG_MID--AUDIO_01_R1_2009_01_R1_2009_04_WAV",
+      "frame": {
+        "precision": 0.9306767842210382,
+        "recall": 0.9233955019199123,
+        "f1": 0.9270218456042046
+      },
+      "note": {
+        "onset_precision": 0.9645844456308952,
+        "onset_recall": 0.8492635537449076,
+        "onset_f1": 0.903258061828181,
+        "onset_offset_precision": 0.7766506495817761,
+        "onset_offset_recall": 0.6837981823879662,
+        "onset_offset_f1": 0.7272727272727272
+      }
+    },
+    {
+      "stem": "ORIG-MIDI_02_7_7_13_Group__MID--AUDIO_16_R1_2013_wav--2",
+      "frame": {
+        "precision": 0.9286051378857518,
+        "recall": 0.8817804535889642,
+        "f1": 0.9045872476514091
+      },
+      "note": {
+        "onset_precision": 0.9700449326010984,
+        "onset_recall": 0.8923076923076924,
+        "onset_f1": 0.9295538811146992,
+        "onset_offset_precision": 0.8879181228157763,
+        "onset_offset_recall": 0.8167623421354765,
+        "onset_offset_f1": 0.8508551608659252
+      }
+    },
+    {
+      "stem": "ORIG-MIDI_03_7_10_13_Group_MID--AUDIO_17_R3_2013_wav--1",
+      "frame": {
+        "precision": 0.913910205521743,
+        "recall": 0.925771215404204,
+        "f1": 0.9198024746157688
+      },
+      "note": {
+        "onset_precision": 0.9946332737030411,
+        "onset_recall": 0.9676296554124608,
+        "onset_f1": 0.9809456598447424,
+        "onset_offset_precision": 0.8940966010733452,
+        "onset_offset_recall": 0.8698224852071006,
+        "onset_offset_f1": 0.8817925194071983
+      }
+    },
+    {
+      "stem": "MIDI-Unprocessed_16_R2_2009_01_ORIG_MID--AUDIO_16_R2_2009_16_R2_2009_04_WAV",
+      "frame": {
+        "precision": 0.9159996629876148,
+        "recall": 0.8771471740182776,
+        "f1": 0.8961525059853654
+      },
+      "note": {
+        "onset_precision": 0.9634633097942892,
+        "onset_recall": 0.862917640588478,
+        "onset_f1": 0.9104228621164866,
+        "onset_offset_precision": 0.8183911575069082,
+        "onset_offset_recall": 0.7329850130620101,
+        "onset_offset_f1": 0.7733372017117573
+      }
+    },
+    {
+      "stem": "MIDI-Unprocessed_04_R2_2008_01-04_ORIG_MID--AUDIO_04_R2_2008_wav--3",
+      "frame": {
+        "precision": 0.8684863523573201,
+        "recall": 0.9386997237271716,
+        "f1": 0.9022290618628249
+      },
+      "note": {
+        "onset_precision": 0.9644940400710119,
+        "onset_recall": 0.8881363848668846,
+        "onset_f1": 0.924741641337386,
+        "onset_offset_precision": 0.7146842505706315,
+        "onset_offset_recall": 0.6581036898645493,
+        "onset_offset_f1": 0.6852279635258359
+      }
+    },
+    {
+      "stem": "MIDI-Unprocessed_XP_14_R1_2004_04_ORIG_MID--AUDIO_14_R1_2004_04_Track04_wav",
+      "frame": {
+        "precision": 0.8795699690292265,
+        "recall": 0.8169014084507042,
+        "f1": 0.8470781836570273
+      },
+      "note": {
+        "onset_precision": 0.9955519611807522,
+        "onset_recall": 0.9576040451186308,
+        "onset_f1": 0.9762093576526566,
+        "onset_offset_precision": 0.8354225636878285,
+        "onset_offset_recall": 0.8035783741734733,
+        "onset_offset_f1": 0.8191911181601903
+      }
+    },
+    {
+      "stem": "MIDI-Unprocessed_12_R1_2008_01-04_ORIG_MID--AUDIO_12_R1_2008_wav--1",
+      "frame": {
+        "precision": 0.8334801572806773,
+        "recall": 0.8783597128818241,
+        "f1": 0.8553316281531134
+      },
+      "note": {
+        "onset_precision": 0.9922374429223745,
+        "onset_recall": 0.9683600713012478,
+        "onset_f1": 0.9801533603969329,
+        "onset_offset_precision": 0.7433789954337899,
+        "onset_offset_recall": 0.7254901960784313,
+        "onset_offset_f1": 0.7343256653134866
+      }
+    },
+    {
+      "stem": "MIDI-Unprocessed_15_R1_2006_01-05_ORIG_MID--AUDIO_15_R1_2006_02_Track02_wav",
+      "frame": {
+        "precision": 0.8921523096692743,
+        "recall": 0.8848788952094737,
+        "f1": 0.8885007173440085
+      },
+      "note": {
+        "onset_precision": 0.9681150823075783,
+        "onset_recall": 0.8531102979613173,
+        "onset_f1": 0.9069815908301493,
+        "onset_offset_precision": 0.7880765238024618,
+        "onset_offset_recall": 0.6944589649764767,
+        "onset_offset_f1": 0.7383119138589789
+      }
+    },
+    {
+      "stem": "MIDI-Unprocessed_052_PIANO052_MID--AUDIO-split_07-06-17_Piano-e_3-03_wav--3",
+      "frame": {
+        "precision": 0.9441785292472182,
+        "recall": 0.9195423174718489,
+        "f1": 0.9316975923938047
+      },
+      "note": {
+        "onset_precision": 0.9989293361884368,
+        "onset_recall": 0.9897454031117398,
+        "onset_f1": 0.9943161634103018,
+        "onset_offset_precision": 0.9396859386152748,
+        "onset_offset_recall": 0.9310466760961811,
+        "onset_offset_f1": 0.9353463587921848
+      }
+    },
+    {
+      "stem": "MIDI-Unprocessed_07_R1_2009_01-03_ORIG_MID--AUDIO_07_R1_2009_07_R1_2009_03_WAV",
+      "frame": {
+        "precision": 0.928466227021254,
+        "recall": 0.9191300813701332,
+        "f1": 0.9237745658135282
+      },
+      "note": {
+        "onset_precision": 0.9480314960629921,
+        "onset_recall": 0.8476220275344181,
+        "onset_f1": 0.8950194102585282,
+        "onset_offset_precision": 0.7653543307086614,
+        "onset_offset_recall": 0.6842928660826032,
+        "onset_offset_f1": 0.7225571983150242
+      }
+    },
+    {
+      "stem": "ORIG-MIDI_02_7_6_13_Group__MID--AUDIO_08_R1_2013_wav--4",
+      "frame": {
+        "precision": 0.9204392558754099,
+        "recall": 0.9058069836034379,
+        "f1": 0.9130645013047318
+      },
+      "note": {
+        "onset_precision": 0.9666136724960255,
+        "onset_recall": 0.8726228919985648,
+        "onset_f1": 0.9172166698095418,
+        "onset_offset_precision": 0.8024642289348172,
+        "onset_offset_recall": 0.7244348762109796,
+        "onset_offset_f1": 0.7614557797473128
+      }
+    },
+    {
+      "stem": "MIDI-Unprocessed_07_R1_2011_MID--AUDIO_R1-D3_03_Track03_wav",
+      "frame": {
+        "precision": 0.9155735922892964,
+        "recall": 0.725466551823141,
+        "f1": 0.8095085538540399
+      },
+      "note": {
+        "onset_precision": 0.9672823218997362,
+        "onset_recall": 0.8589503280224929,
+        "onset_f1": 0.9099032017870441,
+        "onset_offset_precision": 0.7926121372031663,
+        "onset_offset_recall": 0.703842549203374,
+        "onset_offset_f1": 0.7455944403077687
+      }
+    },
+    {
+      "stem": "MIDI-Unprocessed_XP_18_R1_2004_01-02_ORIG_MID--AUDIO_18_R1_2004_05_Track05_wav",
+      "frame": {
+        "precision": 0.8621580446446314,
+        "recall": 0.8348406131742672,
+        "f1": 0.8482794577685088
+      },
+      "note": {
+        "onset_precision": 0.9410288582183187,
+        "onset_recall": 0.6764374295377678,
+        "onset_f1": 0.7870916961826053,
+        "onset_offset_precision": 0.7070263488080301,
+        "onset_offset_recall": 0.5082299887260429,
+        "onset_offset_f1": 0.5913682277318641
+      }
+    },
+    {
+      "stem": "MIDI-Unprocessed_03_R2_2011_MID--AUDIO_R2-D1_06_Track06_wav",
+      "frame": {
+        "precision": 0.9052015400330007,
+        "recall": 0.9358651502843217,
+        "f1": 0.9202779885769061
+      },
+      "note": {
+        "onset_precision": 0.9528936742934051,
+        "onset_recall": 0.8697788697788698,
+        "onset_f1": 0.9094412331406552,
+        "onset_offset_precision": 0.797442799461642,
+        "onset_offset_recall": 0.7278869778869779,
+        "onset_offset_f1": 0.7610789980732177
+      }
+    },
+    {
+      "stem": "MIDI-Unprocessed_04_R3_2008_01-07_ORIG_MID--AUDIO_04_R3_2008_wav--6",
+      "frame": {
+        "precision": 0.9057140855185944,
+        "recall": 0.8800616159724941,
+        "f1": 0.8927036033080682
+      },
+      "note": {
+        "onset_precision": 0.9605843439911798,
+        "onset_recall": 0.859009120039438,
+        "onset_f1": 0.9069616135328562,
+        "onset_offset_precision": 0.8351708930540243,
+        "onset_offset_recall": 0.7468572837071727,
+        "onset_offset_f1": 0.7885491216655823
+      }
+    },
+    {
+      "stem": "MIDI-Unprocessed_11_R1_2009_06-09_ORIG_MID--AUDIO_11_R1_2009_11_R1_2009_08_WAV",
+      "frame": {
+        "precision": 0.8747722393210426,
+        "recall": 0.8123053213522725,
+        "f1": 0.8423823083606566
+      },
+      "note": {
+        "onset_precision": 0.9205316742081447,
+        "onset_recall": 0.8017241379310345,
+        "onset_f1": 0.8570300157977883,
+        "onset_offset_precision": 0.7036199095022625,
+        "onset_offset_recall": 0.6128078817733991,
+        "onset_offset_f1": 0.6550816219062665
+      }
+    },
+    {
+      "stem": "MIDI-Unprocessed_09_R1_2009_01-04_ORIG_MID--AUDIO_09_R1_2009_09_R1_2009_03_WAV",
+      "frame": {
+        "precision": 0.8838163278825526,
+        "recall": 0.9004028531973877,
+        "f1": 0.8920324944003991
+      },
+      "note": {
+        "onset_precision": 0.9674732249107497,
+        "onset_recall": 0.862243695498468,
+        "onset_f1": 0.9118325129291546,
+        "onset_offset_precision": 0.7494380536824011,
+        "onset_offset_recall": 0.667923638934716,
+        "onset_offset_f1": 0.7063368434170354
+      }
+    },
+    {
+      "stem": "MIDI-Unprocessed_14_R1_2011_MID--AUDIO_R1-D6_04_Track04_wav",
+      "frame": {
+        "precision": 0.8950972104818259,
+        "recall": 0.8676426405921394,
+        "f1": 0.8811561238783406
+      },
+      "note": {
+        "onset_precision": 0.9549718574108818,
+        "onset_recall": 0.7964324831794711,
+        "onset_f1": 0.8685265762306971,
+        "onset_offset_precision": 0.8165103189493433,
+        "onset_offset_recall": 0.6809575966202472,
+        "onset_offset_f1": 0.7425987543724938
+      }
+    },
+    {
+      "stem": "MIDI-Unprocessed_XP_14_R1_2004_04_ORIG_MID--AUDIO_14_R1_2004_05_Track05_wav",
+      "frame": {
+        "precision": 0.9356870823253252,
+        "recall": 0.9013174592187536,
+        "f1": 0.9181807497943354
+      },
+      "note": {
+        "onset_precision": 0.9896073903002309,
+        "onset_recall": 0.9794285714285714,
+        "onset_f1": 0.9844916714531879,
+        "onset_offset_precision": 0.7886836027713626,
+        "onset_offset_recall": 0.7805714285714286,
+        "onset_offset_f1": 0.7846065479609421
+      }
+    },
+    {
+      "stem": "MIDI-Unprocessed_08_R1_2009_01-04_ORIG_MID--AUDIO_08_R1_2009_08_R1_2009_04_WAV",
+      "frame": {
+        "precision": 0.9126274850534765,
+        "recall": 0.8369156928213689,
+        "f1": 0.8731333682991756
+      },
+      "note": {
+        "onset_precision": 0.938367129135539,
+        "onset_recall": 0.7034,
+        "onset_f1": 0.8040695016003658,
+        "onset_offset_precision": 0.6969050160085379,
+        "onset_offset_recall": 0.5224,
+        "onset_offset_f1": 0.5971650663008689
+      }
+    },
+    {
+      "stem": "MIDI-Unprocessed_XP_18_R1_2004_01-02_ORIG_MID--AUDIO_18_R1_2004_03_Track03_wav",
+      "frame": {
+        "precision": 0.905892786756011,
+        "recall": 0.9083879892787885,
+        "f1": 0.9071386721761386
+      },
+      "note": {
+        "onset_precision": 0.9445865302642796,
+        "onset_recall": 0.8346516007532957,
+        "onset_f1": 0.8862227554489103,
+        "onset_offset_precision": 0.7468030690537084,
+        "onset_offset_recall": 0.6598870056497175,
+        "onset_offset_f1": 0.7006598680263947
+      }
+    },
+    {
+      "stem": "MIDI-Unprocessed_046_PIANO046_MID--AUDIO-split_07-06-17_Piano-e_2-02_wav--2",
+      "frame": {
+        "precision": 0.9165533980582524,
+        "recall": 0.8708345824781496,
+        "f1": 0.8931092794721096
+      },
+      "note": {
+        "onset_precision": 0.9835790884718498,
+        "onset_recall": 0.899203431372549,
+        "onset_f1": 0.9395006402048655,
+        "onset_offset_precision": 0.9024798927613941,
+        "onset_offset_recall": 0.8250612745098039,
+        "onset_offset_f1": 0.8620358514724712
+      }
+    },
+    {
+      "stem": "MIDI-Unprocessed_R1_D1-1-8_mid--AUDIO-from_mp3_05_R1_2015_wav--3",
+      "frame": {
+        "precision": 0.9284694289109083,
+        "recall": 0.9090084417455523,
+        "f1": 0.9186358782989463
+      },
+      "note": {
+        "onset_precision": 0.9857797059532417,
+        "onset_recall": 0.9408787669657235,
+        "onset_f1": 0.9628060263653485,
+        "onset_offset_precision": 0.8900939985538684,
+        "onset_offset_recall": 0.849551414768806,
+        "onset_offset_f1": 0.8693502824858756
+      }
+    },
+    {
+      "stem": "MIDI-Unprocessed_R1_D1-1-8_mid--AUDIO-from_mp3_06_R1_2015_wav--6",
+      "frame": {
+        "precision": 0.9120863412193553,
+        "recall": 0.8630169411287323,
+        "f1": 0.8868734254191643
+      },
+      "note": {
+        "onset_precision": 0.960167714884696,
+        "onset_recall": 0.8625235404896422,
+        "onset_f1": 0.9087301587301587,
+        "onset_offset_precision": 0.7720125786163522,
+        "onset_offset_recall": 0.693502824858757,
+        "onset_offset_f1": 0.730654761904762
+      }
+    },
+    {
+      "stem": "MIDI-Unprocessed_R1_D2-13-20_mid--AUDIO-from_mp3_15_R1_2015_wav--4",
+      "frame": {
+        "precision": 0.9222014831256621,
+        "recall": 0.9364492300757118,
+        "f1": 0.9292707475523835
+      },
+      "note": {
+        "onset_precision": 0.9736218138707765,
+        "onset_recall": 0.9122465981671758,
+        "onset_f1": 0.9419354838709677,
+        "onset_offset_precision": 0.8615886188500297,
+        "onset_offset_recall": 0.8072757567342405,
+        "onset_offset_f1": 0.8335483870967743
+      }
+    },
+    {
+      "stem": "MIDI-Unprocessed_04_R3_2008_01-07_ORIG_MID--AUDIO_04_R3_2008_wav--7",
+      "frame": {
+        "precision": 0.9099320951699833,
+        "recall": 0.9072597689488754,
+        "f1": 0.9085939671245281
+      },
+      "note": {
+        "onset_precision": 0.9387936790563098,
+        "onset_recall": 0.8251173708920188,
+        "onset_f1": 0.8782925559604373,
+        "onset_offset_precision": 0.7489427999109727,
+        "onset_offset_recall": 0.6582550860719875,
+        "onset_offset_f1": 0.7006767308693389
+      }
+    },
+    {
+      "stem": "MIDI-Unprocessed_23_R1_2011_MID--AUDIO_R1-D9_03_Track03_wav",
+      "frame": {
+        "precision": 0.9336846310422889,
+        "recall": 0.9025726843082807,
+        "f1": 0.9178650907934847
+      },
+      "note": {
+        "onset_precision": 0.9878345498783455,
+        "onset_recall": 0.9616295594504974,
+        "onset_f1": 0.9745559289486317,
+        "onset_offset_precision": 0.8569343065693431,
+        "onset_offset_recall": 0.8342018000947419,
+        "onset_offset_f1": 0.8454152664426309
+      }
+    },
+    {
+      "stem": "MIDI-UNPROCESSED_04-05_R1_2014_MID--AUDIO_04_R1_2014_wav--2",
+      "frame": {
+        "precision": 0.941044319578036,
+        "recall": 0.8922005380956094,
+        "f1": 0.915971747892726
+      },
+      "note": {
+        "onset_precision": 0.9846721544138518,
+        "onset_recall": 0.9286160435442135,
+        "onset_f1": 0.9558229243203528,
+        "onset_offset_precision": 0.8815403538650771,
+        "onset_offset_recall": 0.8313554028732042,
+        "onset_offset_f1": 0.855712711241734
+      }
+    },
+    {
+      "stem": "MIDI-Unprocessed_R1_D1-1-8_mid--AUDIO-from_mp3_06_R1_2015_wav--2",
+      "frame": {
+        "precision": 0.925319590003455,
+        "recall": 0.8991114692091629,
+        "f1": 0.9120272885675205
+      },
+      "note": {
+        "onset_precision": 0.988564668769716,
+        "onset_recall": 0.945680875141456,
+        "onset_f1": 0.9666473877000193,
+        "onset_offset_precision": 0.8572555205047319,
+        "onset_offset_recall": 0.8200678989060732,
+        "onset_offset_f1": 0.8382494698284172
+      }
+    },
+    {
+      "stem": "MIDI-Unprocessed_R2_D2-19-21-22_mid--AUDIO-from_mp3_19_R2_2015_wav--3",
+      "frame": {
+        "precision": 0.9413727359389895,
+        "recall": 0.9573701923742781,
+        "f1": 0.9493040725659707
+      },
+      "note": {
+        "onset_precision": 0.9526627218934911,
+        "onset_recall": 0.9096045197740112,
+        "onset_f1": 0.9306358381502889,
+        "onset_offset_precision": 0.8300591715976331,
+        "onset_offset_recall": 0.792542372881356,
+        "onset_offset_f1": 0.8108670520231214
+      }
+    },
+    {
+      "stem": "MIDI-Unprocessed_078_PIANO078_MID--AUDIO-split_07-09-17_Piano-e_1-02_wav--2",
+      "frame": {
+        "precision": 0.9393907773474022,
+        "recall": 0.8894540280988796,
+        "f1": 0.9137406393176066
+      },
+      "note": {
+        "onset_precision": 0.9872321690636924,
+        "onset_recall": 0.9478652951951528,
+        "onset_f1": 0.9671482999065487,
+        "onset_offset_precision": 0.8324038743762842,
+        "onset_offset_recall": 0.7992109341975483,
+        "onset_offset_f1": 0.8154697721227805
+      }
+    },
+    {
+      "stem": "MIDI-Unprocessed_Recital9-11_MID--AUDIO_09_R1_2018_wav--2",
+      "frame": {
+        "precision": 0.916278198130666,
+        "recall": 0.9080989471484787,
+        "f1": 0.9121702375746975
+      },
+      "note": {
+        "onset_precision": 0.9522990975504942,
+        "onset_recall": 0.8381240544629349,
+        "onset_f1": 0.8915711124522229,
+        "onset_offset_precision": 0.7756768371293511,
+        "onset_offset_recall": 0.68267776096823,
+        "onset_offset_f1": 0.7262120297726814
+      }
+    },
+    {
+      "stem": "MIDI-Unprocessed_Recital17-19_MID--AUDIO_17_R1_2018_wav--2",
+      "frame": {
+        "precision": 0.9048021281155839,
+        "recall": 0.870252704079158,
+        "f1": 0.8871911834696237
+      },
+      "note": {
+        "onset_precision": 0.9171035386631717,
+        "onset_recall": 0.7325307511122743,
+        "onset_f1": 0.8144914884329987,
+        "onset_offset_precision": 0.6841415465268676,
+        "onset_offset_recall": 0.5464538079036901,
+        "onset_offset_f1": 0.6075949367088607
+      }
+    },
+    {
+      "stem": "MIDI-Unprocessed_12_R3_2008_01-04_ORIG_MID--AUDIO_12_R3_2008_wav--3",
+      "frame": {
+        "precision": 0.957656814977174,
+        "recall": 0.889620916388914,
+        "f1": 0.9223859724612736
+      },
+      "note": {
+        "onset_precision": 0.9897260273972602,
+        "onset_recall": 0.9262820512820513,
+        "onset_f1": 0.9569536423841059,
+        "onset_offset_precision": 0.8587328767123288,
+        "onset_offset_recall": 0.8036858974358975,
+        "onset_offset_f1": 0.8302980132450332
+      }
+    },
+    {
+      "stem": "MIDI-UNPROCESSED_19-21_R3_2014_MID--AUDIO_21_R3_2014_wav--1",
+      "frame": {
+        "precision": 0.8605696202531645,
+        "recall": 0.9197519729425028,
+        "f1": 0.8891771117166212
+      },
+      "note": {
+        "onset_precision": 0.9727157360406091,
+        "onset_recall": 0.8224248927038627,
+        "onset_f1": 0.8912790697674419,
+        "onset_offset_precision": 0.6446700507614214,
+        "onset_offset_recall": 0.5450643776824035,
+        "onset_offset_f1": 0.5906976744186045
+      }
+    },
+    {
+      "stem": "MIDI-Unprocessed_Recital9-11_MID--AUDIO_09_R1_2018_wav--1",
+      "frame": {
+        "precision": 0.8975088272812566,
+        "recall": 0.9103473948389111,
+        "f1": 0.9038825242443528
+      },
+      "note": {
+        "onset_precision": 0.9661317100166021,
+        "onset_recall": 0.8919885550786838,
+        "onset_f1": 0.9275808936825886,
+        "onset_offset_precision": 0.8037631433314887,
+        "onset_offset_recall": 0.742080523196403,
+        "onset_offset_f1": 0.7716911960044632
+      }
+    },
+    {
+      "stem": "MIDI-Unprocessed_Recital9-11_MID--AUDIO_09_R1_2018_wav--5",
+      "frame": {
+        "precision": 0.9189260738158794,
+        "recall": 0.9268184144360635,
+        "f1": 0.9228553704360156
+      },
+      "note": {
+        "onset_precision": 0.9962085308056872,
+        "onset_recall": 0.9598173515981735,
+        "onset_f1": 0.9776744186046511,
+        "onset_offset_precision": 0.7876777251184834,
+        "onset_offset_recall": 0.7589041095890411,
+        "onset_offset_f1": 0.7730232558139535
+      }
+    },
+    {
+      "stem": "MIDI-Unprocessed_10_R2_2008_01-05_ORIG_MID--AUDIO_10_R2_2008_wav--2",
+      "frame": {
+        "precision": 0.8833977315218746,
+        "recall": 0.8129265355279004,
+        "f1": 0.8466983245228922
+      },
+      "note": {
+        "onset_precision": 0.9681107099879663,
+        "onset_recall": 0.9090395480225989,
+        "onset_f1": 0.9376456876456877,
+        "onset_offset_precision": 0.8513838748495788,
+        "onset_offset_recall": 0.7994350282485876,
+        "onset_offset_f1": 0.8245920745920746
+      }
+    },
+    {
+      "stem": "ORIG-MIDI_03_7_8_13_Group__MID--AUDIO_19_R2_2013_wav--4",
+      "frame": {
+        "precision": 0.9245554285444925,
+        "recall": 0.8732066735672867,
+        "f1": 0.8981477241505633
+      },
+      "note": {
+        "onset_precision": 0.9614508165590581,
+        "onset_recall": 0.8237878294825903,
+        "onset_f1": 0.8873116018226429,
+        "onset_offset_precision": 0.8404861374857577,
+        "onset_offset_recall": 0.7201431825577611,
+        "onset_offset_f1": 0.7756747283561164
+      }
+    },
+    {
+      "stem": "MIDI-Unprocessed_05_R1_2011_MID--AUDIO_R1-D2_12_Track12_wav",
+      "frame": {
+        "precision": 0.9059147721680937,
+        "recall": 0.8591206056206575,
+        "f1": 0.8818973914061711
+      },
+      "note": {
+        "onset_precision": 0.9967382440880674,
+        "onset_recall": 0.977605971740869,
+        "onset_f1": 0.9870794078061912,
+        "onset_offset_precision": 0.7417776569720033,
+        "onset_offset_recall": 0.7275393228472408,
+        "onset_offset_f1": 0.7345895020188424
+      }
+    },
+    {
+      "stem": "MIDI-Unprocessed_03_R1_2006_01-05_ORIG_MID--AUDIO_03_R1_2006_04_Track04_wav",
+      "frame": {
+        "precision": 0.927963062033412,
+        "recall": 0.9269008777602691,
+        "f1": 0.9274316657679484
+      },
+      "note": {
+        "onset_precision": 0.9817413816596267,
+        "onset_recall": 0.9337739761534474,
+        "onset_f1": 0.9571570906675524,
+        "onset_offset_precision": 0.8375800517781714,
+        "onset_offset_recall": 0.7966562986003111,
+        "onset_offset_f1": 0.8166057788110263
+      }
+    },
+    {
+      "stem": "MIDI-Unprocessed_03_R1_2009_03-08_ORIG_MID--AUDIO_03_R1_2009_03_R1_2009_03_WAV",
+      "frame": {
+        "precision": 0.9251660972720561,
+        "recall": 0.9001695439018482,
+        "f1": 0.9124966663985675
+      },
+      "note": {
+        "onset_precision": 0.9862650602409638,
+        "onset_recall": 0.903532008830022,
+        "onset_f1": 0.9430875576036866,
+        "onset_offset_precision": 0.8701204819277109,
+        "onset_offset_recall": 0.7971302428256071,
+        "onset_offset_f1": 0.8320276497695853
+      }
+    },
+    {
+      "stem": "MIDI-Unprocessed_01_R1_2006_01-09_ORIG_MID--AUDIO_01_R1_2006_02_Track02_wav",
+      "frame": {
+        "precision": 0.8960538364887024,
+        "recall": 0.856404306853107,
+        "f1": 0.8757805345100325
+      },
+      "note": {
+        "onset_precision": 0.9875807252856433,
+        "onset_recall": 0.9571497351949928,
+        "onset_f1": 0.9721271393643032,
+        "onset_offset_precision": 0.8693492300049677,
+        "onset_offset_recall": 0.8425613866153105,
+        "onset_offset_f1": 0.8557457212713936
+      }
+    },
+    {
+      "stem": "MIDI-Unprocessed_24_R1_2011_MID--AUDIO_R1-D9_11_Track11_wav",
+      "frame": {
+        "precision": 0.9054751206523548,
+        "recall": 0.9403733148980298,
+        "f1": 0.9225943196269606
+      },
+      "note": {
+        "onset_precision": 0.9841534612176814,
+        "onset_recall": 0.9394904458598726,
+        "onset_f1": 0.9613034623217923,
+        "onset_offset_precision": 0.8573811509591326,
+        "onset_offset_recall": 0.8184713375796179,
+        "onset_offset_f1": 0.8374745417515275
+      }
+    },
+    {
+      "stem": "MIDI-Unprocessed_17_R1_2009_01-03_ORIG_MID--AUDIO_17_R1_2009_17_R1_2009_01_WAV",
+      "frame": {
+        "precision": 0.8995813811303334,
+        "recall": 0.8802024197585125,
+        "f1": 0.8897863977019934
+      },
+      "note": {
+        "onset_precision": 0.981418918918919,
+        "onset_recall": 0.9090751043115438,
+        "onset_f1": 0.9438628158844765,
+        "onset_offset_precision": 0.7451201201201201,
+        "onset_offset_recall": 0.6901947148817803,
+        "onset_offset_f1": 0.7166064981949457
+      }
+    },
+    {
+      "stem": "MIDI-Unprocessed_11_R1_2009_01-05_ORIG_MID--AUDIO_11_R1_2009_11_R1_2009_04_WAV",
+      "frame": {
+        "precision": 0.9376036118655426,
+        "recall": 0.7759128988003152,
+        "f1": 0.8491295320236384
+      },
+      "note": {
+        "onset_precision": 0.9548192771084337,
+        "onset_recall": 0.7694174757281553,
+        "onset_f1": 0.8521505376344087,
+        "onset_offset_precision": 0.7934595524956971,
+        "onset_offset_recall": 0.6393897364771152,
+        "onset_offset_f1": 0.7081413210445467
+      }
+    },
+    {
+      "stem": "MIDI-Unprocessed_10_R1_2008_01-04_ORIG_MID--AUDIO_10_R1_2008_wav--2",
+      "frame": {
+        "precision": 0.8874119172444895,
+        "recall": 0.8748652283615104,
+        "f1": 0.8810939091692694
+      },
+      "note": {
+        "onset_precision": 0.9626607319485658,
+        "onset_recall": 0.8912545787545788,
+        "onset_f1": 0.9255825011887779,
+        "onset_offset_precision": 0.8170128585558852,
+        "onset_offset_recall": 0.7564102564102564,
+        "onset_offset_f1": 0.785544460294817
+      }
+    },
+    {
+      "stem": "MIDI-Unprocessed_04_R1_2008_01-04_ORIG_MID--AUDIO_04_R1_2008_wav--4",
+      "frame": {
+        "precision": 0.8629962229674774,
+        "recall": 0.868799318030139,
+        "f1": 0.8658880476673568
+      },
+      "note": {
+        "onset_precision": 0.9483476450689565,
+        "onset_recall": 0.8427563880217366,
+        "onset_f1": 0.8924395469850015,
+        "onset_offset_precision": 0.7832422586520947,
+        "onset_offset_recall": 0.6960342236096658,
+        "onset_offset_f1": 0.7370676461585552
+      }
+    },
+    {
+      "stem": "MIDI-Unprocessed_09_R1_2008_01-05_ORIG_MID--AUDIO_09_R1_2008_wav--2",
+      "frame": {
+        "precision": 0.8982998285234777,
+        "recall": 0.8910663554276822,
+        "f1": 0.8946684713983339
+      },
+      "note": {
+        "onset_precision": 0.9873170731707317,
+        "onset_recall": 0.9373263352886694,
+        "onset_f1": 0.9616724738675958,
+        "onset_offset_precision": 0.8783739837398374,
+        "onset_offset_recall": 0.8338993516517443,
+        "onset_offset_f1": 0.8555590750712703
+      }
+    },
+    {
+      "stem": "MIDI-Unprocessed_10_R2_2008_01-05_ORIG_MID--AUDIO_10_R2_2008_wav--4",
+      "frame": {
+        "precision": 0.951277839509155,
+        "recall": 0.9395742041179885,
+        "f1": 0.9453898013483506
+      },
+      "note": {
+        "onset_precision": 0.9366666666666666,
+        "onset_recall": 0.8617598490209956,
+        "onset_f1": 0.8976532743580292,
+        "onset_offset_precision": 0.7935897435897435,
+        "onset_offset_recall": 0.7301250294880868,
+        "onset_offset_f1": 0.760535692345497
+      }
+    },
+    {
+      "stem": "MIDI-Unprocessed_09_R3_2008_01-07_ORIG_MID--AUDIO_09_R3_2008_wav--1",
+      "frame": {
+        "precision": 0.9433089282082571,
+        "recall": 0.8849511089911758,
+        "f1": 0.9131986316540742
+      },
+      "note": {
+        "onset_precision": 0.9935838680109991,
+        "onset_recall": 0.9739442946990117,
+        "onset_f1": 0.9836660617059891,
+        "onset_offset_precision": 0.7818515123739689,
+        "onset_offset_recall": 0.766397124887691,
+        "onset_offset_f1": 0.7740471869328494
+      }
+    },
+    {
+      "stem": "MIDI-Unprocessed_XP_11_R1_2004_01-02_ORIG_MID--AUDIO_11_R1_2004_02_Track02_wav",
+      "frame": {
+        "precision": 0.9163908123836529,
+        "recall": 0.8742002202710702,
+        "f1": 0.8947984608774158
+      },
+      "note": {
+        "onset_precision": 0.9686377318186231,
+        "onset_recall": 0.882051282051282,
+        "onset_f1": 0.923318987458929,
+        "onset_offset_precision": 0.7687154092630353,
+        "onset_offset_recall": 0.7,
+        "onset_offset_f1": 0.7327502429543246
+      }
+    },
+    {
+      "stem": "MIDI-Unprocessed_17_R1_2008_01-04_ORIG_MID--AUDIO_17_R1_2008_wav--3",
+      "frame": {
+        "precision": 0.83318851530034,
+        "recall": 0.8455426375164138,
+        "f1": 0.8393201181658603
+      },
+      "note": {
+        "onset_precision": 0.9472573839662447,
+        "onset_recall": 0.7996438112199465,
+        "onset_f1": 0.8672139063254467,
+        "onset_offset_precision": 0.6786216596343179,
+        "onset_offset_recall": 0.5728702879192639,
+        "onset_offset_f1": 0.621277965556092
+      }
+    },
+    {
+      "stem": "ORIG-MIDI_01_7_7_13_Group__MID--AUDIO_11_R1_2013_wav--1",
+      "frame": {
+        "precision": 0.9424798202337463,
+        "recall": 0.9079661857365728,
+        "f1": 0.9249011370775997
+      },
+      "note": {
+        "onset_precision": 0.9924736578023081,
+        "onset_recall": 0.9860418743768694,
+        "onset_f1": 0.989247311827957,
+        "onset_offset_precision": 0.8840943301555444,
+        "onset_offset_recall": 0.8783649052841476,
+        "onset_offset_f1": 0.881220305076269
+      }
+    },
+    {
+      "stem": "MIDI-Unprocessed_08_R1_2008_01-05_ORIG_MID--AUDIO_08_R1_2008_wav--3",
+      "frame": {
+        "precision": 0.9054070749083721,
+        "recall": 0.8627486887025677,
+        "f1": 0.8835632953784327
+      },
+      "note": {
+        "onset_precision": 0.9202453987730062,
+        "onset_recall": 0.7133798351299937,
+        "onset_f1": 0.8037149490980533,
+        "onset_offset_precision": 0.7194274028629857,
+        "onset_offset_recall": 0.5577045022194039,
+        "onset_offset_f1": 0.6283264868726558
+      }
+    },
+    {
+      "stem": "MIDI-Unprocessed_16_R1_2006_01-04_ORIG_MID--AUDIO_16_R1_2006_02_Track02_wav",
+      "frame": {
+        "precision": 0.9262511200105337,
+        "recall": 0.8232934936815093,
+        "f1": 0.8717428691465343
+      },
+      "note": {
+        "onset_precision": 0.9363541121005762,
+        "onset_recall": 0.7754880694143167,
+        "onset_f1": 0.8483626008542952,
+        "onset_offset_precision": 0.7255107386066003,
+        "onset_offset_recall": 0.6008676789587852,
+        "onset_offset_f1": 0.6573327005220694
+      }
+    },
+    {
+      "stem": "MIDI-Unprocessed_15_R1_2009_01-02_ORIG_MID--AUDIO_15_R1_2009_15_R1_2009_02_WAV",
+      "frame": {
+        "precision": 0.9196051466417469,
+        "recall": 0.8784420120372969,
+        "f1": 0.8985524004713022
+      },
+      "note": {
+        "onset_precision": 0.9665837479270315,
+        "onset_recall": 0.8754130369480324,
+        "onset_f1": 0.9187421185372004,
+        "onset_offset_precision": 0.7880597014925373,
+        "onset_offset_recall": 0.71372784620006,
+        "onset_offset_f1": 0.7490542244640606
+      }
+    },
+    {
+      "stem": "MIDI-Unprocessed_02_R2_2011_MID--AUDIO_R2-D1_02_Track02_wav",
+      "frame": {
+        "precision": 0.8518546441495778,
+        "recall": 0.8487958052254391,
+        "f1": 0.8503224738295744
+      },
+      "note": {
+        "onset_precision": 0.9768992617289831,
+        "onset_recall": 0.8962202315927463,
+        "onset_f1": 0.9348222424794895,
+        "onset_offset_precision": 0.8101929030721601,
+        "onset_offset_recall": 0.7432816255188989,
+        "onset_offset_f1": 0.7752962625341843
+      }
+    },
+    {
+      "stem": "MIDI-UNPROCESSED_19-20-21_R2_2014_MID--AUDIO_20_R2_2014_wav",
+      "frame": {
+        "precision": 0.8752875628205188,
+        "recall": 0.8709753809864321,
+        "f1": 0.8731261477018034
+      },
+      "note": {
+        "onset_precision": 0.9671707503828484,
+        "onset_recall": 0.929280853411808,
+        "onset_f1": 0.947847293874871,
+        "onset_offset_precision": 0.7411944869831547,
+        "onset_offset_recall": 0.712157439764576,
+        "onset_offset_f1": 0.7263858925053935
+      }
+    },
+    {
+      "stem": "ORIG-MIDI_02_7_7_13_Group__MID--AUDIO_19_R1_2013_wav--2",
+      "frame": {
+        "precision": 0.9661298076923077,
+        "recall": 0.9107203553057941,
+        "f1": 0.9376071666025125
+      },
+      "note": {
+        "onset_precision": 0.9968525179856115,
+        "onset_recall": 0.9783759929390997,
+        "onset_f1": 0.9875278396436525,
+        "onset_offset_precision": 0.9357014388489209,
+        "onset_offset_recall": 0.9183583406884378,
+        "onset_offset_f1": 0.9269487750556794
+      }
+    },
+    {
+      "stem": "MIDI-Unprocessed_04_R3_2011_MID--AUDIO_R3-D2_05_Track05_wav",
+      "frame": {
+        "precision": 0.8957053913301726,
+        "recall": 0.8876648972512745,
+        "f1": 0.8916670186256704
+      },
+      "note": {
+        "onset_precision": 0.9623259623259623,
+        "onset_recall": 0.8608058608058609,
+        "onset_f1": 0.908739365815932,
+        "onset_offset_precision": 0.7932022932022932,
+        "onset_offset_recall": 0.7095238095238096,
+        "onset_offset_f1": 0.7490332559938129
+      }
+    },
+    {
+      "stem": "MIDI-Unprocessed_17_R1_2009_01-03_ORIG_MID--AUDIO_17_R1_2009_17_R1_2009_02_WAV",
+      "frame": {
+        "precision": 0.924260261836795,
+        "recall": 0.8659559162593379,
+        "f1": 0.8941586515569946
+      },
+      "note": {
+        "onset_precision": 0.937584803256445,
+        "onset_recall": 0.7846922552804906,
+        "onset_f1": 0.8543521266073195,
+        "onset_offset_precision": 0.7280868385345998,
+        "onset_offset_recall": 0.60935725641608,
+        "onset_offset_f1": 0.663452027695351
+      }
+    },
+    {
+      "stem": "MIDI-Unprocessed_08_R1_2008_01-05_ORIG_MID--AUDIO_08_R1_2008_wav--2",
+      "frame": {
+        "precision": 0.9073037505746194,
+        "recall": 0.8961566197484041,
+        "f1": 0.9016957351320846
+      },
+      "note": {
+        "onset_precision": 0.9942897930049964,
+        "onset_recall": 0.9775438596491228,
+        "onset_f1": 0.9858457183297947,
+        "onset_offset_precision": 0.8554603854389722,
+        "onset_offset_recall": 0.8410526315789474,
+        "onset_offset_f1": 0.8481953290870489
+      }
+    },
+    {
+      "stem": "MIDI-Unprocessed_05_R1_2008_01-04_ORIG_MID--AUDIO_05_R1_2008_wav--2",
+      "frame": {
+        "precision": 0.8615951984959144,
+        "recall": 0.8227454771440409,
+        "f1": 0.8417222987531349
+      },
+      "note": {
+        "onset_precision": 0.9679126695335759,
+        "onset_recall": 0.8781512605042017,
+        "onset_f1": 0.9208497246262786,
+        "onset_offset_precision": 0.7876281839232551,
+        "onset_offset_recall": 0.7145858343337335,
+        "onset_offset_f1": 0.7493312352478364
+      }
+    },
+    {
+      "stem": "MIDI-Unprocessed_23_R3_2011_MID--AUDIO_R3-D8_04_Track04_wav",
+      "frame": {
+        "precision": 0.9038524475197531,
+        "recall": 0.9099217119816753,
+        "f1": 0.9068769252419746
+      },
+      "note": {
+        "onset_precision": 0.9681807141122176,
+        "onset_recall": 0.9125457875457875,
+        "onset_f1": 0.9395403653506188,
+        "onset_offset_precision": 0.8290017002671849,
+        "onset_offset_recall": 0.7813644688644689,
+        "onset_offset_f1": 0.8044784914555098
+      }
+    },
+    {
+      "stem": "MIDI-Unprocessed_08_R1_2009_01-04_ORIG_MID--AUDIO_08_R1_2009_08_R1_2009_03_WAV",
+      "frame": {
+        "precision": 0.9348578376356154,
+        "recall": 0.8845027299193855,
+        "f1": 0.9089834354126596
+      },
+      "note": {
+        "onset_precision": 0.9609094535301157,
+        "onset_recall": 0.8399581589958159,
+        "onset_f1": 0.8963720930232559,
+        "onset_offset_precision": 0.7335460710011966,
+        "onset_offset_recall": 0.641213389121339,
+        "onset_offset_f1": 0.6842790697674419
+      }
+    },
+    {
+      "stem": "MIDI-Unprocessed_07_R1_2011_MID--AUDIO_R1-D3_02_Track02_wav",
+      "frame": {
+        "precision": 0.9384026856116793,
+        "recall": 0.8516668438020335,
+        "f1": 0.8929334200018572
+      },
+      "note": {
+        "onset_precision": 0.9941563184806428,
+        "onset_recall": 0.9905385735080058,
+        "onset_f1": 0.9923441487422531,
+        "onset_offset_precision": 0.8429510591672754,
+        "onset_offset_recall": 0.8398835516739447,
+        "onset_offset_f1": 0.8414145096609552
+      }
+    },
+    {
+      "stem": "ORIG-MIDI_01_7_8_13_Group__MID--AUDIO_07_R2_2013_wav--2",
+      "frame": {
+        "precision": 0.9443492183085327,
+        "recall": 0.9553349403100259,
+        "f1": 0.9498103145321329
+      },
+      "note": {
+        "onset_precision": 0.9865453106450336,
+        "onset_recall": 0.9436033308099925,
+        "onset_f1": 0.9645966337782937,
+        "onset_offset_precision": 0.8975069252077562,
+        "onset_offset_recall": 0.858440575321726,
+        "onset_offset_f1": 0.877539175856065
+      }
+    },
+    {
+      "stem": "ORIG-MIDI_01_7_10_13_Group_MID--AUDIO_07_R3_2013_wav--1",
+      "frame": {
+        "precision": 0.9374873196405342,
+        "recall": 0.8980154102933443,
+        "f1": 0.9173269494642805
+      },
+      "note": {
+        "onset_precision": 0.9887429643527205,
+        "onset_recall": 0.9666768572302048,
+        "onset_f1": 0.9775854073272531,
+        "onset_offset_precision": 0.909631019387117,
+        "onset_offset_recall": 0.8893304799755426,
+        "onset_offset_f1": 0.8993662080692534
+      }
+    },
+    {
+      "stem": "MIDI-Unprocessed_072_PIANO072_MID--AUDIO-split_07-08-17_Piano-e_1-06_wav--2",
+      "frame": {
+        "precision": 0.9186975272411769,
+        "recall": 0.8995527348142225,
+        "f1": 0.909024340975659
+      },
+      "note": {
+        "onset_precision": 0.9898500576701269,
+        "onset_recall": 0.9426625659050967,
+        "onset_f1": 0.9656802070439969,
+        "onset_offset_precision": 0.8828143021914648,
+        "onset_offset_recall": 0.8407293497363796,
+        "onset_offset_f1": 0.8612580173286823
+      }
+    },
+    {
+      "stem": "MIDI-Unprocessed_09_R1_2011_MID--AUDIO_R1-D3_13_Track13_wav",
+      "frame": {
+        "precision": 0.8980326549628344,
+        "recall": 0.8482217866143937,
+        "f1": 0.872416808105745
+      },
+      "note": {
+        "onset_precision": 0.9931699477701889,
+        "onset_recall": 0.947489459563051,
+        "onset_f1": 0.9697920753236564,
+        "onset_offset_precision": 0.7476898352752109,
+        "onset_offset_recall": 0.7133001149865849,
+        "onset_offset_f1": 0.730090231463319
+      }
+    },
+    {
+      "stem": "MIDI-Unprocessed_02_R1_2009_03-06_ORIG_MID--AUDIO_02_R1_2009_02_R1_2009_04_WAV",
+      "frame": {
+        "precision": 0.9725987983413726,
+        "recall": 0.6754507628294036,
+        "f1": 0.7972364615053793
+      },
+      "note": {
+        "onset_precision": 0.9811827956989247,
+        "onset_recall": 0.9323116219667944,
+        "onset_f1": 0.9561231172233138,
+        "onset_offset_precision": 0.6760752688172043,
+        "onset_offset_recall": 0.6424010217113666,
+        "onset_offset_f1": 0.6588081204977079
+      }
+    },
+    {
+      "stem": "MIDI-Unprocessed_05_R1_2011_MID--AUDIO_R1-D2_10_Track10_wav",
+      "frame": {
+        "precision": 0.8989776250733261,
+        "recall": 0.8943309712380159,
+        "f1": 0.8966482781678369
+      },
+      "note": {
+        "onset_precision": 0.9943635509628934,
+        "onset_recall": 0.9392191659272404,
+        "onset_f1": 0.9660050193931097,
+        "onset_offset_precision": 0.8215124471582903,
+        "onset_offset_recall": 0.7759538598047915,
+        "onset_offset_f1": 0.7980835044490076
+      }
+    },
+    {
+      "stem": "MIDI-Unprocessed_044_PIANO044_MID--AUDIO-split_07-06-17_Piano-e_1-04_wav--2",
+      "frame": {
+        "precision": 0.9428779252500943,
+        "recall": 0.9279616078057058,
+        "f1": 0.9353603021745521
+      },
+      "note": {
+        "onset_precision": 0.9811473202262322,
+        "onset_recall": 0.931237218813906,
+        "onset_f1": 0.9555409836065574,
+        "onset_offset_precision": 0.8707244815513062,
+        "onset_offset_recall": 0.8264314928425358,
+        "onset_offset_f1": 0.848
+      }
+    },
+    {
+      "stem": "MIDI-Unprocessed_06_R1_2008_01-04_ORIG_MID--AUDIO_06_R1_2008_wav--2",
+      "frame": {
+        "precision": 0.8866142850381029,
+        "recall": 0.8913183126739788,
+        "f1": 0.888960075932847
+      },
+      "note": {
+        "onset_precision": 0.9630006788866259,
+        "onset_recall": 0.8882279273638072,
+        "onset_f1": 0.9241042345276873,
+        "onset_offset_precision": 0.7993890020366599,
+        "onset_offset_recall": 0.7373199749530369,
+        "onset_offset_f1": 0.7671009771986971
+      }
+    },
+    {
+      "stem": "MIDI-Unprocessed_20_R1_2009_01-05_ORIG_MID--AUDIO_20_R1_2009_20_R1_2009_02_WAV",
+      "frame": {
+        "precision": 0.8944252546114949,
+        "recall": 0.7066672293614118,
+        "f1": 0.7895371727419539
+      },
+      "note": {
+        "onset_precision": 0.9676196032672112,
+        "onset_recall": 0.824816610717394,
+        "onset_f1": 0.8905295657426674,
+        "onset_offset_precision": 0.6643815635939323,
+        "onset_offset_recall": 0.56633097103071,
+        "onset_offset_f1": 0.6114504329149607
+      }
+    },
+    {
+      "stem": "MIDI-Unprocessed_R1_D1-1-8_mid--AUDIO-from_mp3_07_R1_2015_wav--1",
+      "frame": {
+        "precision": 0.9560759914695467,
+        "recall": 0.8976944980251677,
+        "f1": 0.9259659295473064
+      },
+      "note": {
+        "onset_precision": 0.997737556561086,
+        "onset_recall": 0.9771048744460856,
+        "onset_f1": 0.987313432835821,
+        "onset_offset_precision": 0.8838612368024132,
+        "onset_offset_recall": 0.8655834564254062,
+        "onset_offset_f1": 0.8746268656716417
+      }
+    },
+    {
+      "stem": "MIDI-Unprocessed_R2_D1-2-3-6-7-8-11_mid--AUDIO-from_mp3_06_R2_2015_wav--1",
+      "frame": {
+        "precision": 0.9240537296545186,
+        "recall": 0.9582055001942271,
+        "f1": 0.9408197895261224
+      },
+      "note": {
+        "onset_precision": 0.9654572564612326,
+        "onset_recall": 0.9013921113689095,
+        "onset_f1": 0.9323254139668826,
+        "onset_offset_precision": 0.8486580516898609,
+        "onset_offset_recall": 0.7923433874709976,
+        "onset_offset_f1": 0.8195344372450204
+      }
+    },
+    {
+      "stem": "MIDI-Unprocessed_09_R3_2008_01-07_ORIG_MID--AUDIO_09_R3_2008_wav--2",
+      "frame": {
+        "precision": 0.884419983065199,
+        "recall": 0.757066924377869,
+        "f1": 0.8158031762561833
+      },
+      "note": {
+        "onset_precision": 0.9848484848484849,
+        "onset_recall": 0.8843537414965986,
+        "onset_f1": 0.9318996415770608,
+        "onset_offset_precision": 0.8573232323232324,
+        "onset_offset_recall": 0.7698412698412699,
+        "onset_offset_f1": 0.8112305854241338
+      }
+    },
+    {
+      "stem": "MIDI-Unprocessed_01_R1_2006_01-09_ORIG_MID--AUDIO_01_R1_2006_04_Track04_wav",
+      "frame": {
+        "precision": 0.9149535375620885,
+        "recall": 0.8877065150973633,
+        "f1": 0.9011241083497669
+      },
+      "note": {
+        "onset_precision": 0.9553543552919138,
+        "onset_recall": 0.8388157894736842,
+        "onset_f1": 0.8933002481389578,
+        "onset_offset_precision": 0.7680299719013425,
+        "onset_offset_recall": 0.6743421052631579,
+        "onset_offset_f1": 0.7181433367391621
+      }
+    },
+    {
+      "stem": "MIDI-Unprocessed_R2_D2-12-13-15_mid--AUDIO-from_mp3_13_R2_2015_wav--4",
+      "frame": {
+        "precision": 0.8773327332733273,
+        "recall": 0.8896647194839966,
+        "f1": 0.883455693525484
+      },
+      "note": {
+        "onset_precision": 0.9705426356589147,
+        "onset_recall": 0.856068376068376,
+        "onset_f1": 0.9097184377838328,
+        "onset_offset_precision": 0.8642118863049095,
+        "onset_offset_recall": 0.7622792022792023,
+        "onset_offset_f1": 0.8100514683620951
+      }
+    },
+    {
+      "stem": "MIDI-Unprocessed_16_R2_2009_01_ORIG_MID--AUDIO_16_R2_2009_16_R2_2009_01_WAV",
+      "frame": {
+        "precision": 0.9283996978755545,
+        "recall": 0.9042544373180259,
+        "f1": 0.9161680104140421
+      },
+      "note": {
+        "onset_precision": 0.9568999604586793,
+        "onset_recall": 0.8803201164059659,
+        "onset_f1": 0.9170140204622963,
+        "onset_offset_precision": 0.7935943060498221,
+        "onset_offset_recall": 0.7300836667879229,
+        "onset_offset_f1": 0.7605153467222432
+      }
+    },
+    {
+      "stem": "MIDI-Unprocessed_10_R2_2008_01-05_ORIG_MID--AUDIO_10_R2_2008_wav--1",
+      "frame": {
+        "precision": 0.942493596628935,
+        "recall": 0.8494935954721478,
+        "f1": 0.8935803532959931
+      },
+      "note": {
+        "onset_precision": 0.9915662650602409,
+        "onset_recall": 0.9569767441860465,
+        "onset_f1": 0.9739644970414201,
+        "onset_offset_precision": 0.8710843373493976,
+        "onset_offset_recall": 0.8406976744186047,
+        "onset_offset_f1": 0.855621301775148
+      }
+    },
+    {
+      "stem": "MIDI-Unprocessed_R1_D1-9-12_mid--AUDIO-from_mp3_11_R1_2015_wav--5",
+      "frame": {
+        "precision": 0.8893511514540259,
+        "recall": 0.9044017094017094,
+        "f1": 0.8968132892618019
+      },
+      "note": {
+        "onset_precision": 0.9848024316109423,
+        "onset_recall": 0.9257142857142857,
+        "onset_f1": 0.9543446244477173,
+        "onset_offset_precision": 0.9012158054711246,
+        "onset_offset_recall": 0.8471428571428572,
+        "onset_offset_f1": 0.8733431516936672
+      }
+    },
+    {
+      "stem": "MIDI-Unprocessed_17_R1_2008_01-04_ORIG_MID--AUDIO_17_R1_2008_wav--2",
+      "frame": {
+        "precision": 0.858234189104571,
+        "recall": 0.8183175114932235,
+        "f1": 0.8378006662795319
+      },
+      "note": {
+        "onset_precision": 0.9757809757809758,
+        "onset_recall": 0.8408953418027828,
+        "onset_f1": 0.9033306255077174,
+        "onset_offset_precision": 0.846963846963847,
+        "onset_offset_recall": 0.7298850574712644,
+        "onset_offset_f1": 0.7840779853777418
+      }
+    },
+    {
+      "stem": "MIDI-Unprocessed_17_R1_2006_01-06_ORIG_MID--AUDIO_17_R1_2006_02_Track02_wav",
+      "frame": {
+        "precision": 0.9150190717343297,
+        "recall": 0.9192008561326355,
+        "f1": 0.9171051969694758
+      },
+      "note": {
+        "onset_precision": 0.9602154273801251,
+        "onset_recall": 0.8648098889062744,
+        "onset_f1": 0.910018934716391,
+        "onset_offset_precision": 0.7564280750521195,
+        "onset_offset_recall": 0.6812705366922235,
+        "onset_offset_f1": 0.7168848275294313
+      }
+    },
+    {
+      "stem": "ORIG-MIDI_01_7_6_13_Group__MID--AUDIO_04_R1_2013_wav--1",
+      "frame": {
+        "precision": 0.931841909023117,
+        "recall": 0.8770353733857383,
+        "f1": 0.9036083592450648
+      },
+      "note": {
+        "onset_precision": 0.9980289093298291,
+        "onset_recall": 0.9743425272610647,
+        "onset_f1": 0.9860434923726062,
+        "onset_offset_precision": 0.900131406044678,
+        "onset_offset_recall": 0.8787684413085312,
+        "onset_offset_f1": 0.8893216488153197
+      }
+    },
+    {
+      "stem": "MIDI-Unprocessed_R1_D1-1-8_mid--AUDIO-from_mp3_04_R1_2015_wav--2",
+      "frame": {
+        "precision": 0.9491815352450642,
+        "recall": 0.9167508031206976,
+        "f1": 0.9326843389244902
+      },
+      "note": {
+        "onset_precision": 0.9961225281116712,
+        "onset_recall": 0.9786666666666667,
+        "onset_f1": 0.9873174481168333,
+        "onset_offset_precision": 0.9406746801085692,
+        "onset_offset_recall": 0.9241904761904762,
+        "onset_offset_f1": 0.9323597232897771
+      }
+    },
+    {
+      "stem": "MIDI-Unprocessed_Recital16_MID--AUDIO_16_R1_2018_wav--3",
+      "frame": {
+        "precision": 0.9146734520780322,
+        "recall": 0.8318653576437588,
+        "f1": 0.8713063278122589
+      },
+      "note": {
+        "onset_precision": 0.9833333333333333,
+        "onset_recall": 0.9672131147540983,
+        "onset_f1": 0.9752066115702478,
+        "onset_offset_precision": 0.7722222222222223,
+        "onset_offset_recall": 0.7595628415300546,
+        "onset_offset_f1": 0.7658402203856749
+      }
+    },
+    {
+      "stem": "ORIG-MIDI_01_7_7_13_Group__MID--AUDIO_13_R1_2013_wav--3",
+      "frame": {
+        "precision": 0.8885377991942491,
+        "recall": 0.782878023316513,
+        "f1": 0.8323682311805081
+      },
+      "note": {
+        "onset_precision": 0.9475873544093179,
+        "onset_recall": 0.7017868145409735,
+        "onset_f1": 0.8063716814159291,
+        "onset_offset_precision": 0.8227953410981698,
+        "onset_offset_recall": 0.6093653727664818,
+        "onset_offset_f1": 0.7001769911504425
+      }
+    },
+    {
+      "stem": "MIDI-Unprocessed_13_R1_2008_01-04_ORIG_MID--AUDIO_13_R1_2008_wav--1",
+      "frame": {
+        "precision": 0.9295991650306901,
+        "recall": 0.8017660801165956,
+        "f1": 0.8609634283873047
+      },
+      "note": {
+        "onset_precision": 0.998015873015873,
+        "onset_recall": 0.9779650032404407,
+        "onset_f1": 0.9878887070376432,
+        "onset_offset_precision": 0.7347883597883598,
+        "onset_offset_recall": 0.7200259235255995,
+        "onset_offset_f1": 0.7273322422258592
+      }
+    },
+    {
+      "stem": "MIDI-Unprocessed_075_PIANO075_MID--AUDIO-split_07-08-17_Piano-e_2-06_wav--3",
+      "frame": {
+        "precision": 0.9217931891321305,
+        "recall": 0.9010697506654552,
+        "f1": 0.9113136714366853
+      },
+      "note": {
+        "onset_precision": 0.9562448075325395,
+        "onset_recall": 0.8294499159260149,
+        "onset_f1": 0.8883457679444303,
+        "onset_offset_precision": 0.8091941290501247,
+        "onset_offset_recall": 0.7018976699495556,
+        "onset_offset_f1": 0.7517365577566247
+      }
+    },
+    {
+      "stem": "MIDI-Unprocessed_06_R1_2008_01-04_ORIG_MID--AUDIO_06_R1_2008_wav--3",
+      "frame": {
+        "precision": 0.8666038669710855,
+        "recall": 0.8492880613362541,
+        "f1": 0.8578585935215698
+      },
+      "note": {
+        "onset_precision": 0.9349422875131165,
+        "onset_recall": 0.8107370336669699,
+        "onset_f1": 0.8684210526315788,
+        "onset_offset_precision": 0.6890521161245191,
+        "onset_offset_recall": 0.5975128905065211,
+        "onset_offset_f1": 0.640025990903184
+      }
+    },
+    {
+      "stem": "MIDI-Unprocessed_02_R1_2011_MID--AUDIO_R1-D1_10_Track10_wav",
+      "frame": {
+        "precision": 0.8446475195822454,
+        "recall": 0.8325335763879581,
+        "f1": 0.8385467996921873
+      },
+      "note": {
+        "onset_precision": 0.9497580945292148,
+        "onset_recall": 0.8163787587971849,
+        "onset_f1": 0.8780319972475487,
+        "onset_offset_precision": 0.7729810197245999,
+        "onset_offset_recall": 0.664427383237364,
+        "onset_offset_f1": 0.7146051952520214
+      }
+    },
+    {
+      "stem": "ORIG-MIDI_01_7_7_13_Group__MID--AUDIO_11_R1_2013_wav--4",
+      "frame": {
+        "precision": 0.8420641537583922,
+        "recall": 0.8219456199564823,
+        "f1": 0.8318832663571456
+      },
+      "note": {
+        "onset_precision": 0.9367528798087372,
+        "onset_recall": 0.7016115904281296,
+        "onset_f1": 0.8023082650781832,
+        "onset_offset_precision": 0.7454901108454683,
+        "onset_offset_recall": 0.5583591079277226,
+        "onset_offset_f1": 0.6384959046909903
+      }
+    },
+    {
+      "stem": "MIDI-Unprocessed_R1_D1-9-12_mid--AUDIO-from_mp3_09_R1_2015_wav--2",
+      "frame": {
+        "precision": 0.9599220192899651,
+        "recall": 0.9188716679435048,
+        "f1": 0.9389483826289431
+      },
+      "note": {
+        "onset_precision": 0.9837441943551268,
+        "onset_recall": 0.9457324403228576,
+        "onset_f1": 0.964363891077839,
+        "onset_offset_precision": 0.9113969274740978,
+        "onset_offset_recall": 0.8761806628885455,
+        "onset_offset_f1": 0.8934419052622362
+      }
+    },
+    {
+      "stem": "MIDI-UNPROCESSED_11-13_R1_2014_MID--AUDIO_13_R1_2014_wav--6",
+      "frame": {
+        "precision": 0.8691793734049784,
+        "recall": 0.8292298971048242,
+        "f1": 0.8487347954217209
+      },
+      "note": {
+        "onset_precision": 0.916383570105003,
+        "onset_recall": 0.7625931637111283,
+        "onset_f1": 0.8324449431897882,
+        "onset_offset_precision": 0.6386658431130328,
+        "onset_offset_recall": 0.5314829092778206,
+        "onset_offset_f1": 0.5801655211109552
+      }
+    },
+    {
+      "stem": "MIDI-Unprocessed_066_PIANO066_MID--AUDIO-split_07-07-17_Piano-e_3-02_wav--2",
+      "frame": {
+        "precision": 0.9388595173530502,
+        "recall": 0.9068724442685662,
+        "f1": 0.9225888081590399
+      },
+      "note": {
+        "onset_precision": 0.9867882982069833,
+        "onset_recall": 0.9622699386503067,
+        "onset_f1": 0.9743749029352383,
+        "onset_offset_precision": 0.9248191255111671,
+        "onset_offset_recall": 0.901840490797546,
+        "onset_offset_f1": 0.9131852772169591
+      }
+    },
+    {
+      "stem": "MIDI-Unprocessed_057_PIANO057_MID--AUDIO-split_07-07-17_Piano-e_1-07_wav--3",
+      "frame": {
+        "precision": 0.9609058448745464,
+        "recall": 0.9430260784147044,
+        "f1": 0.9518820074746397
+      },
+      "note": {
+        "onset_precision": 0.9798831927319922,
+        "onset_recall": 0.9484924623115578,
+        "onset_f1": 0.963932333226939,
+        "onset_offset_precision": 0.8961713173264114,
+        "onset_offset_recall": 0.867462311557789,
+        "onset_offset_f1": 0.8815831471433132
+      }
+    },
+    {
+      "stem": "MIDI-Unprocessed_R1_D1-9-12_mid--AUDIO-from_mp3_12_R1_2015_wav--3",
+      "frame": {
+        "precision": 0.9718876012873189,
+        "recall": 0.9385310845504686,
+        "f1": 0.9549181352330959
+      },
+      "note": {
+        "onset_precision": 0.9700305810397554,
+        "onset_recall": 0.8910112359550562,
+        "onset_f1": 0.9288433382137627,
+        "onset_offset_precision": 0.8697247706422019,
+        "onset_offset_recall": 0.798876404494382,
+        "onset_offset_f1": 0.832796486090776
+      }
+    },
+    {
+      "stem": "MIDI-Unprocessed_18_R1_2008_01-04_ORIG_MID--AUDIO_18_R1_2008_wav--2",
+      "frame": {
+        "precision": 0.8891573113542703,
+        "recall": 0.9088862258052802,
+        "f1": 0.8989135314716711
+      },
+      "note": {
+        "onset_precision": 0.9751211631663974,
+        "onset_recall": 0.9393090569561158,
+        "onset_f1": 0.9568801521876982,
+        "onset_offset_precision": 0.8697899838449111,
+        "onset_offset_recall": 0.8378462496109554,
+        "onset_offset_f1": 0.8535193405199746
+      }
+    },
+    {
+      "stem": "MIDI-Unprocessed_14_R1_2008_01-05_ORIG_MID--AUDIO_14_R1_2008_wav--1",
+      "frame": {
+        "precision": 0.9024565970204755,
+        "recall": 0.9033173591401852,
+        "f1": 0.9028867729296735
+      },
+      "note": {
+        "onset_precision": 0.9898705683736635,
+        "onset_recall": 0.9643640350877193,
+        "onset_f1": 0.9769508469869481,
+        "onset_offset_precision": 0.8418683173888576,
+        "onset_offset_recall": 0.8201754385964912,
+        "onset_offset_f1": 0.8308803110247154
+      }
+    },
+    {
+      "stem": "MIDI-Unprocessed_05_R1_2008_01-04_ORIG_MID--AUDIO_05_R1_2008_wav--3",
+      "frame": {
+        "precision": 0.9446577178493952,
+        "recall": 0.9186963092810149,
+        "f1": 0.9314961583103687
+      },
+      "note": {
+        "onset_precision": 0.9702380952380952,
+        "onset_recall": 0.8813987022350397,
+        "onset_f1": 0.9236871930487345,
+        "onset_offset_precision": 0.8242063492063492,
+        "onset_offset_recall": 0.7487382840663303,
+        "onset_offset_f1": 0.7846618813751418
+      }
+    },
+    {
+      "stem": "MIDI-Unprocessed_R1_D1-1-8_mid--AUDIO-from_mp3_05_R1_2015_wav--4",
+      "frame": {
+        "precision": 0.9380842256641467,
+        "recall": 0.8374130423468591,
+        "f1": 0.8848945921173235
+      },
+      "note": {
+        "onset_precision": 0.9699898270600203,
+        "onset_recall": 0.9033633349123638,
+        "onset_f1": 0.9354917831739022,
+        "onset_offset_precision": 0.8118006103763988,
+        "onset_offset_recall": 0.7560397915679773,
+        "onset_offset_f1": 0.7829286239882266
+      }
+    },
+    {
+      "stem": "MIDI-Unprocessed_SMF_02_R1_2004_01-05_ORIG_MID--AUDIO_02_R1_2004_08_Track08_wav",
+      "frame": {
+        "precision": 0.9071317228467508,
+        "recall": 0.9079704461963924,
+        "f1": 0.9075508907427119
+      },
+      "note": {
+        "onset_precision": 0.9361867704280156,
+        "onset_recall": 0.8442105263157895,
+        "onset_f1": 0.8878228782287823,
+        "onset_offset_precision": 0.7731517509727627,
+        "onset_offset_recall": 0.6971929824561404,
+        "onset_offset_f1": 0.733210332103321
+      }
+    },
+    {
+      "stem": "MIDI-Unprocessed_04_R3_2008_01-07_ORIG_MID--AUDIO_04_R3_2008_wav--3",
+      "frame": {
+        "precision": 0.9274367787871348,
+        "recall": 0.8899110666116968,
+        "f1": 0.908286495747047
+      },
+      "note": {
+        "onset_precision": 0.9648268398268398,
+        "onset_recall": 0.9330193615907901,
+        "onset_f1": 0.9486565575951049,
+        "onset_offset_precision": 0.795995670995671,
+        "onset_offset_recall": 0.7697540554683412,
+        "onset_offset_f1": 0.7826549614259111
+      }
+    },
+    {
+      "stem": "MIDI-Unprocessed_03_R1_2008_01-04_ORIG_MID--AUDIO_03_R1_2008_wav--1",
+      "frame": {
+        "precision": 0.9207371820114988,
+        "recall": 0.8631953571481312,
+        "f1": 0.8910382463681957
+      },
+      "note": {
+        "onset_precision": 0.995850622406639,
+        "onset_recall": 0.9779286926994907,
+        "onset_f1": 0.9868082919307865,
+        "onset_offset_precision": 0.7869986168741355,
+        "onset_offset_recall": 0.7728353140916808,
+        "onset_offset_f1": 0.7798526640397465
+      }
+    },
+    {
+      "stem": "MIDI-Unprocessed_059_PIANO059_MID--AUDIO-split_07-07-17_Piano-e_2-03_wav--4",
+      "frame": {
+        "precision": 0.9368749085918076,
+        "recall": 0.925016522912698,
+        "f1": 0.9309079527257587
+      },
+      "note": {
+        "onset_precision": 0.9779232447696059,
+        "onset_recall": 0.9205025975595023,
+        "onset_f1": 0.9483445357231765,
+        "onset_offset_precision": 0.9003978950070595,
+        "onset_offset_recall": 0.8475292980548508,
+        "onset_offset_f1": 0.8731640527757032
+      }
+    },
+    {
+      "stem": "MIDI-UNPROCESSED_04-05_R1_2014_MID--AUDIO_04_R1_2014_wav--5",
+      "frame": {
+        "precision": 0.9036613741304689,
+        "recall": 0.8565421094732031,
+        "f1": 0.8794710689499404
+      },
+      "note": {
+        "onset_precision": 0.9353194825558604,
+        "onset_recall": 0.7805037618580307,
+        "onset_f1": 0.8509272467902994,
+        "onset_offset_precision": 0.751078008624069,
+        "onset_offset_recall": 0.6267582597317631,
+        "onset_offset_f1": 0.6833095577746078
+      }
+    },
+    {
+      "stem": "ORIG-MIDI_01_7_6_13_Group__MID--AUDIO_04_R1_2013_wav--3",
+      "frame": {
+        "precision": 0.8312718599797853,
+        "recall": 0.8763635806112827,
+        "f1": 0.8532223756390642
+      },
+      "note": {
+        "onset_precision": 0.8571860816944025,
+        "onset_recall": 0.7177603242969344,
+        "onset_f1": 0.7813017098731385,
+        "onset_offset_precision": 0.6529500756429653,
+        "onset_offset_recall": 0.5467443628071953,
+        "onset_offset_f1": 0.595146166574738
+      }
+    },
+    {
+      "stem": "MIDI-Unprocessed_04_R1_2011_MID--AUDIO_R1-D2_03_Track03_wav",
+      "frame": {
+        "precision": 0.9269900830876441,
+        "recall": 0.8690823198311388,
+        "f1": 0.8971026898036469
+      },
+      "note": {
+        "onset_precision": 0.9945419103313841,
+        "onset_recall": 0.9729214340198322,
+        "onset_f1": 0.9836128783497204,
+        "onset_offset_precision": 0.8970760233918129,
+        "onset_offset_recall": 0.8775743707093822,
+        "onset_offset_f1": 0.8872180451127819
+      }
+    },
+    {
+      "stem": "MIDI-Unprocessed_R1_D2-13-20_mid--AUDIO-from_mp3_17_R1_2015_wav--3",
+      "frame": {
+        "precision": 0.9181454061447683,
+        "recall": 0.9178695380238162,
+        "f1": 0.9180074513591832
+      },
+      "note": {
+        "onset_precision": 0.9299679019550627,
+        "onset_recall": 0.7979469203805708,
+        "onset_f1": 0.8589138930063333,
+        "onset_offset_precision": 0.7686022760431864,
+        "onset_offset_recall": 0.6594892338507762,
+        "onset_offset_f1": 0.709877375016844
+      }
+    },
+    {
+      "stem": "MIDI-Unprocessed_Recital17-19_MID--AUDIO_18_R1_2018_wav--3",
+      "frame": {
+        "precision": 0.8947888978178896,
+        "recall": 0.8596626677752702,
+        "f1": 0.8768741481144934
+      },
+      "note": {
+        "onset_precision": 0.9783393501805054,
+        "onset_recall": 0.9387990762124712,
+        "onset_f1": 0.9581614614024749,
+        "onset_offset_precision": 0.8868832731648616,
+        "onset_offset_recall": 0.851039260969977,
+        "onset_offset_f1": 0.8685916322922805
+      }
+    },
+    {
+      "stem": "MIDI-Unprocessed_12_R1_2008_01-04_ORIG_MID--AUDIO_12_R1_2008_wav--4",
+      "frame": {
+        "precision": 0.9191948933407321,
+        "recall": 0.9078920386119677,
+        "f1": 0.9135085047156716
+      },
+      "note": {
+        "onset_precision": 0.9507899037588524,
+        "onset_recall": 0.8720852764823451,
+        "onset_f1": 0.9097385109894883,
+        "onset_offset_precision": 0.7615761757762848,
+        "onset_offset_recall": 0.6985343104596935,
+        "onset_offset_f1": 0.7286942924159499
+      }
+    },
+    {
+      "stem": "MIDI-UNPROCESSED_11-13_R1_2014_MID--AUDIO_13_R1_2014_wav--4",
+      "frame": {
+        "precision": 0.8442816263639508,
+        "recall": 0.8013610213629614,
+        "f1": 0.8222616099011948
+      },
+      "note": {
+        "onset_precision": 0.9298737727910238,
+        "onset_recall": 0.8020808129687879,
+        "onset_f1": 0.8612626656274356,
+        "onset_offset_precision": 0.641374474053296,
+        "onset_offset_recall": 0.5532300992015485,
+        "onset_offset_f1": 0.5940504027020005
+      }
+    },
+    {
+      "stem": "MIDI-Unprocessed_R1_D1-1-8_mid--AUDIO-from_mp3_02_R1_2015_wav--1",
+      "frame": {
+        "precision": 0.9611824144098912,
+        "recall": 0.93001366327615,
+        "f1": 0.9453411931730503
+      },
+      "note": {
+        "onset_precision": 0.9977029096477795,
+        "onset_recall": 0.9916286149162862,
+        "onset_f1": 0.9946564885496183,
+        "onset_offset_precision": 0.9226646248085758,
+        "onset_offset_recall": 0.9170471841704718,
+        "onset_offset_f1": 0.9198473282442748
+      }
+    },
+    {
+      "stem": "MIDI-Unprocessed_19_R1_2011_MID--AUDIO_R1-D7_15_Track15_wav",
+      "frame": {
+        "precision": 0.9189633037338183,
+        "recall": 0.9219173450824026,
+        "f1": 0.9204379542489437
+      },
+      "note": {
+        "onset_precision": 0.9826600609756098,
+        "onset_recall": 0.9384895359417652,
+        "onset_f1": 0.9600670203853673,
+        "onset_offset_precision": 0.8279344512195121,
+        "onset_offset_recall": 0.7907188353048226,
+        "onset_offset_f1": 0.8088988178348692
+      }
+    },
+    {
+      "stem": "MIDI-Unprocessed_24_R1_2006_01-05_ORIG_MID--AUDIO_24_R1_2006_03_Track03_wav",
+      "frame": {
+        "precision": 0.8871691341408704,
+        "recall": 0.8637312522079841,
+        "f1": 0.8752933212262048
+      },
+      "note": {
+        "onset_precision": 0.9331889885555212,
+        "onset_recall": 0.7779783393501805,
+        "onset_f1": 0.8485445085079453,
+        "onset_offset_precision": 0.7417259511289823,
+        "onset_offset_recall": 0.6183599793708097,
+        "onset_offset_f1": 0.6744480382505975
+      }
+    },
+    {
+      "stem": "MIDI-UNPROCESSED_14-15_R1_2014_MID--AUDIO_15_R1_2014_wav--2",
+      "frame": {
+        "precision": 0.8464021748364625,
+        "recall": 0.8240694789081886,
+        "f1": 0.8350865428942625
+      },
+      "note": {
+        "onset_precision": 0.959915164369035,
+        "onset_recall": 0.8030518097941802,
+        "onset_f1": 0.8745048787556757,
+        "onset_offset_precision": 0.7951219512195122,
+        "onset_offset_recall": 0.6651880766501065,
+        "onset_offset_f1": 0.7243744565742439
+      }
+    },
+    {
+      "stem": "MIDI-Unprocessed_XP_19_R1_2004_01-02_ORIG_MID--AUDIO_19_R1_2004_02_Track02_wav",
+      "frame": {
+        "precision": 0.9496370235934665,
+        "recall": 0.8636483676096788,
+        "f1": 0.904603841432844
+      },
+      "note": {
+        "onset_precision": 0.9911560328490209,
+        "onset_recall": 0.9800124921923797,
+        "onset_f1": 0.9855527638190955,
+        "onset_offset_precision": 0.8136449778900822,
+        "onset_offset_recall": 0.8044971892567145,
+        "onset_offset_f1": 0.8090452261306533
+      }
+    },
+    {
+      "stem": "MIDI-Unprocessed_080_PIANO080_MID--AUDIO-split_07-09-17_Piano-e_1-06_wav--3",
+      "frame": {
+        "precision": 0.9294494852441911,
+        "recall": 0.9154173874874125,
+        "f1": 0.9223800721446849
+      },
+      "note": {
+        "onset_precision": 0.9681944444444445,
+        "onset_recall": 0.8801767676767677,
+        "onset_f1": 0.9220899470899471,
+        "onset_offset_precision": 0.8534027777777777,
+        "onset_offset_recall": 0.775820707070707,
+        "onset_offset_f1": 0.8127645502645503
+      }
+    },
+    {
+      "stem": "MIDI-Unprocessed_056_PIANO056_MID--AUDIO-split_07-07-17_Piano-e_1-05_wav--1",
+      "frame": {
+        "precision": 0.9369777740641712,
+        "recall": 0.8664284334556693,
+        "f1": 0.9003231569017082
+      },
+      "note": {
+        "onset_precision": 0.9897209985315712,
+        "onset_recall": 0.986100950987564,
+        "onset_f1": 0.9879076584829609,
+        "onset_offset_precision": 0.7900146842878121,
+        "onset_offset_recall": 0.787125091441112,
+        "onset_offset_f1": 0.7885672407475266
+      }
+    },
+    {
+      "stem": "MIDI-Unprocessed_02_R1_2009_03-06_ORIG_MID--AUDIO_02_R1_2009_02_R1_2009_03_WAV",
+      "frame": {
+        "precision": 0.959045787640975,
+        "recall": 0.8740999891728021,
+        "f1": 0.9146047446922252
+      },
+      "note": {
+        "onset_precision": 0.9872727272727273,
+        "onset_recall": 0.917617237008872,
+        "onset_f1": 0.9511714473396102,
+        "onset_offset_precision": 0.8004545454545454,
+        "onset_offset_recall": 0.743979721166033,
+        "onset_offset_f1": 0.7711845850667834
+      }
+    },
+    {
+      "stem": "MIDI-Unprocessed_23_R2_2011_MID--AUDIO_R2-D6_03_Track03_wav",
+      "frame": {
+        "precision": 0.9219520745173648,
+        "recall": 0.9182731875202633,
+        "f1": 0.9201089536946796
+      },
+      "note": {
+        "onset_precision": 0.9808068938503721,
+        "onset_recall": 0.9539047619047619,
+        "onset_f1": 0.9671687910390112,
+        "onset_offset_precision": 0.8229533881707795,
+        "onset_offset_recall": 0.8003809523809524,
+        "onset_offset_f1": 0.8115102356122055
+      }
+    },
+    {
+      "stem": "MIDI-Unprocessed_XP_08_R1_2004_04-06_ORIG_MID--AUDIO_08_R1_2004_05_Track05_wav--1",
+      "frame": {
+        "precision": 0.8883605224715324,
+        "recall": 0.8480141897765927,
+        "f1": 0.8677186132454523
+      },
+      "note": {
+        "onset_precision": 0.9388185654008439,
+        "onset_recall": 0.8424839076107535,
+        "onset_f1": 0.888046298144083,
+        "onset_offset_precision": 0.7438818565400844,
+        "onset_offset_recall": 0.6675501703900037,
+        "onset_offset_f1": 0.7036519656755139
+      }
+    },
+    {
+      "stem": "MIDI-Unprocessed_16_R2_2009_01_ORIG_MID--AUDIO_16_R2_2009_16_R2_2009_02_WAV",
+      "frame": {
+        "precision": 0.8942676026211912,
+        "recall": 0.9167281280523053,
+        "f1": 0.9053585841683564
+      },
+      "note": {
+        "onset_precision": 0.9788711137941443,
+        "onset_recall": 0.9086578873634071,
+        "onset_f1": 0.942458587619878,
+        "onset_offset_precision": 0.8074252942952007,
+        "onset_offset_recall": 0.7495096665732698,
+        "onset_offset_f1": 0.7773902935193258
+      }
+    },
+    {
+      "stem": "MIDI-UNPROCESSED_01-03_R1_2014_MID--AUDIO_03_R1_2014_wav--4",
+      "frame": {
+        "precision": 0.9516963136660429,
+        "recall": 0.9287233222898529,
+        "f1": 0.9400694880423636
+      },
+      "note": {
+        "onset_precision": 0.9827050997782705,
+        "onset_recall": 0.9229487713452728,
+        "onset_f1": 0.9518900343642612,
+        "onset_offset_precision": 0.8439024390243902,
+        "onset_offset_recall": 0.7925864223240316,
+        "onset_offset_f1": 0.8174398625429553
+      }
+    },
+    {
+      "stem": "MIDI-UNPROCESSED_01-03_R1_2014_MID--AUDIO_01_R1_2014_wav--1",
+      "frame": {
+        "precision": 0.9106326219512195,
+        "recall": 0.8258640552995392,
+        "f1": 0.8661793136781053
+      },
+      "note": {
+        "onset_precision": 0.9932483120780196,
+        "onset_recall": 0.9622093023255814,
+        "onset_f1": 0.9774824658545589,
+        "onset_offset_precision": 0.8394598649662416,
+        "onset_offset_recall": 0.8132267441860465,
+        "onset_offset_f1": 0.8261351052048727
+      }
+    },
+    {
+      "stem": "MIDI-Unprocessed_083_PIANO083_MID--AUDIO-split_07-09-17_Piano-e_2_-06_wav--1",
+      "frame": {
+        "precision": 0.9515627855967831,
+        "recall": 0.913253223401456,
+        "f1": 0.9320145011860539
+      },
+      "note": {
+        "onset_precision": 1.0,
+        "onset_recall": 0.9911426040744021,
+        "onset_f1": 0.9955516014234876,
+        "onset_offset_precision": 0.8659517426273459,
+        "onset_offset_recall": 0.858281665190434,
+        "onset_offset_f1": 0.8620996441281139
+      }
+    },
+    {
+      "stem": "MIDI-Unprocessed_Recital13-15_MID--AUDIO_15_R1_2018_wav--1",
+      "frame": {
+        "precision": 0.8923812397757414,
+        "recall": 0.8719499262861133,
+        "f1": 0.8820472836495693
+      },
+      "note": {
+        "onset_precision": 0.9640221402214022,
+        "onset_recall": 0.8629232039636664,
+        "onset_f1": 0.9106753812636165,
+        "onset_offset_precision": 0.7481549815498155,
+        "onset_offset_recall": 0.6696944673823286,
+        "onset_offset_f1": 0.7067538126361654
+      }
+    },
+    {
+      "stem": "MIDI-Unprocessed_R2_D1-2-3-6-7-8-11_mid--AUDIO-from_mp3_03_R2_2015_wav--1",
+      "frame": {
+        "precision": 0.9175679088884297,
+        "recall": 0.9640539432100552,
+        "f1": 0.9402367003129338
+      },
+      "note": {
+        "onset_precision": 0.9749768303985171,
+        "onset_recall": 0.9477477477477477,
+        "onset_f1": 0.9611694837825492,
+        "onset_offset_precision": 0.881371640407785,
+        "onset_offset_recall": 0.8567567567567568,
+        "onset_offset_f1": 0.8688899040657835
+      }
+    },
+    {
+      "stem": "MIDI-Unprocessed_065_PIANO065_MID--AUDIO-split_07-07-17_Piano-e_3-01_wav--3",
+      "frame": {
+        "precision": 0.9297404802328402,
+        "recall": 0.8797102912692657,
+        "f1": 0.9040337339395884
+      },
+      "note": {
+        "onset_precision": 0.9793046357615894,
+        "onset_recall": 0.8666666666666667,
+        "onset_f1": 0.9195491643995336,
+        "onset_offset_precision": 0.8741721854304636,
+        "onset_offset_recall": 0.7736263736263737,
+        "onset_offset_f1": 0.8208317139525846
+      }
+    },
+    {
+      "stem": "MIDI-Unprocessed_R2_D2-12-13-15_mid--AUDIO-from_mp3_12_R2_2015_wav--3",
+      "frame": {
+        "precision": 0.9379986117164673,
+        "recall": 0.8862867479950093,
+        "f1": 0.9114097581022114
+      },
+      "note": {
+        "onset_precision": 0.9700924415443176,
+        "onset_recall": 0.8561487702459508,
+        "onset_f1": 0.9095659932445351,
+        "onset_offset_precision": 0.8497824904839587,
+        "onset_offset_recall": 0.7499700059988003,
+        "onset_offset_f1": 0.7967624753043147
+      }
+    },
+    {
+      "stem": "MIDI-Unprocessed_R1_D1-9-12_mid--AUDIO-from_mp3_11_R1_2015_wav--2",
+      "frame": {
+        "precision": 0.9681245944192083,
+        "recall": 0.8519186843307446,
+        "f1": 0.9063118887066399
+      },
+      "note": {
+        "onset_precision": 0.998,
+        "onset_recall": 0.9871414441147379,
+        "onset_f1": 0.9925410243659871,
+        "onset_offset_precision": 0.928,
+        "onset_offset_recall": 0.9179030662710188,
+        "onset_offset_f1": 0.9229239184485332
+      }
+    },
+    {
+      "stem": "MIDI-Unprocessed_07_R1_2006_01-04_ORIG_MID--AUDIO_07_R1_2006_04_Track04_wav",
+      "frame": {
+        "precision": 0.8734296880598413,
+        "recall": 0.7979729814798494,
+        "f1": 0.8339980604267849
+      },
+      "note": {
+        "onset_precision": 0.9419551160136934,
+        "onset_recall": 0.7298125663090888,
+        "onset_f1": 0.822423698980439,
+        "onset_offset_precision": 0.7691137314568277,
+        "onset_offset_recall": 0.5958976777083579,
+        "onset_offset_f1": 0.6715153930457308
+      }
+    },
+    {
+      "stem": "MIDI-Unprocessed_R1_D1-9-12_mid--AUDIO-from_mp3_11_R1_2015_wav--3",
+      "frame": {
+        "precision": 0.9355642653261194,
+        "recall": 0.8171500865132375,
+        "f1": 0.8723571180296936
+      },
+      "note": {
+        "onset_precision": 0.9808488612836439,
+        "onset_recall": 0.9071325993298229,
+        "onset_f1": 0.9425516040785874,
+        "onset_offset_precision": 0.8390269151138716,
+        "onset_offset_recall": 0.7759693633317377,
+        "onset_offset_f1": 0.8062670977368813
+      }
+    },
+    {
+      "stem": "MIDI-Unprocessed_10_R1_2006_01-04_ORIG_MID--AUDIO_10_R1_2006_03_Track03_wav",
+      "frame": {
+        "precision": 0.8803009749035726,
+        "recall": 0.8957532835436518,
+        "f1": 0.8879599089117405
+      },
+      "note": {
+        "onset_precision": 0.9659621957173746,
+        "onset_recall": 0.8802517002478866,
+        "onset_f1": 0.9211173927502494,
+        "onset_offset_precision": 0.7625026156099602,
+        "onset_offset_recall": 0.6948452297718172,
+        "onset_offset_f1": 0.7271034253408712
+      }
+    },
+    {
+      "stem": "ORIG-MIDI_01_7_6_13_Group__MID--AUDIO_04_R1_2013_wav--4",
+      "frame": {
+        "precision": 0.9243962852431217,
+        "recall": 0.9104700405071282,
+        "f1": 0.9173803142589274
+      },
+      "note": {
+        "onset_precision": 0.9759511137394047,
+        "onset_recall": 0.8961085972850679,
+        "onset_f1": 0.9343272315531232,
+        "onset_offset_precision": 0.8673368815296668,
+        "onset_offset_recall": 0.7963800904977375,
+        "onset_offset_f1": 0.8303453481789016
+      }
+    },
+    {
+      "stem": "ORIG-MIDI_03_7_6_13_Group__MID--AUDIO_09_R1_2013_wav--3",
+      "frame": {
+        "precision": 0.9300438427813245,
+        "recall": 0.8657811828726908,
+        "f1": 0.8967627099788631
+      },
+      "note": {
+        "onset_precision": 0.9926428975664969,
+        "onset_recall": 0.9574235807860262,
+        "onset_f1": 0.9747151986662963,
+        "onset_offset_precision": 0.9139784946236559,
+        "onset_offset_recall": 0.8815502183406113,
+        "onset_offset_f1": 0.8974715198666297
+      }
+    },
+    {
+      "stem": "MIDI-Unprocessed_22_R2_2011_MID--AUDIO_R2-D5_11_Track11_wav",
+      "frame": {
+        "precision": 0.8747812560762201,
+        "recall": 0.8242554606339018,
+        "f1": 0.8487670926584543
+      },
+      "note": {
+        "onset_precision": 0.9550920706501316,
+        "onset_recall": 0.8097817428707982,
+        "onset_f1": 0.876454866798862,
+        "onset_offset_precision": 0.7639984968057122,
+        "onset_offset_recall": 0.6477616695873825,
+        "onset_offset_f1": 0.7010949219760324
+      }
+    },
+    {
+      "stem": "MIDI-Unprocessed_05_R1_2008_01-04_ORIG_MID--AUDIO_05_R1_2008_wav--4",
+      "frame": {
+        "precision": 0.8865940516742289,
+        "recall": 0.8568863210493441,
+        "f1": 0.8714870865068388
+      },
+      "note": {
+        "onset_precision": 0.8776119402985074,
+        "onset_recall": 0.7454361054766734,
+        "onset_f1": 0.8061420345489443,
+        "onset_offset_precision": 0.662089552238806,
+        "onset_offset_recall": 0.5623732251521298,
+        "onset_offset_f1": 0.6081710995338634
+      }
+    }
+  ],
+  "ci": {
+    "frame_f1": {
+      "mean": 0.8929305022062771,
+      "lo": 0.8882313155028607,
+      "hi": 0.8979759278538295,
+      "n": 177
+    },
+    "note_onset_f1": {
+      "mean": 0.9273233976938485,
+      "lo": 0.9200205992012365,
+      "hi": 0.9346482224490301,
+      "n": 177
+    },
+    "note_onset_offset_f1": {
+      "mean": 0.7748538170180249,
+      "lo": 0.7629198436574162,
+      "hi": 0.7868837929243309,
+      "n": 177
+    }
+  },
+  "checkpoint": "/kaggle/input/notebooks/prayagmane/amt-train-run4/run4/best.pt",
+  "epoch": 9,
+  "frame_thr": 0.5,
+  "onset_thr": 0.9,
+  "min_frames": 3,
+  "onset_head": true,
+  "dir": "/kaggle/input/datasets/prayagmane/amt-maestro-cache/maestro/test",
+  "tune_metric": "onset_offset_f1",
+  "tuning": [
+    {
+      "frame_thr": 0.2,
+      "onset_thr": 0.5,
+      "onset_offset_f1": 0.729195684870333
+    },
+    {
+      "frame_thr": 0.2,
+      "onset_thr": 0.6,
+      "onset_offset_f1": 0.743423851669331
+    },
+    {
+      "frame_thr": 0.2,
+      "onset_thr": 0.7,
+      "onset_offset_f1": 0.7551830988767074
+    },
+    {
+      "frame_thr": 0.2,
+      "onset_thr": 0.8,
+      "onset_offset_f1": 0.7633715258577117
+    },
+    {
+      "frame_thr": 0.2,
+      "onset_thr": 0.85,
+      "onset_offset_f1": 0.7662571702403355
+    },
+    {
+      "frame_thr": 0.2,
+      "onset_thr": 0.9,
+      "onset_offset_f1": 0.7660855438118901
+    },
+    {
+      "frame_thr": 0.2,
+      "onset_thr": 0.93,
+      "onset_offset_f1": 0.7630882499899556
+    },
+    {
+      "frame_thr": 0.2,
+      "onset_thr": 0.95,
+      "onset_offset_f1": 0.7583055675198082
+    },
+    {
+      "frame_thr": 0.2,
+      "onset_thr": 0.97,
+      "onset_offset_f1": 0.7472329617212013
+    },
+    {
+      "frame_thr": 0.3,
+      "onset_thr": 0.5,
+      "onset_offset_f1": 0.7511496330602236
+    },
+    {
+      "frame_thr": 0.3,
+      "onset_thr": 0.6,
+      "onset_offset_f1": 0.7651366932046884
+    },
+    {
+      "frame_thr": 0.3,
+      "onset_thr": 0.7,
+      "onset_offset_f1": 0.776631348192166
+    },
+    {
+      "frame_thr": 0.3,
+      "onset_thr": 0.8,
+      "onset_offset_f1": 0.7843623078912644
+    },
+    {
+      "frame_thr": 0.3,
+      "onset_thr": 0.85,
+      "onset_offset_f1": 0.7868977113215126
+    },
+    {
+      "frame_thr": 0.3,
+      "onset_thr": 0.9,
+      "onset_offset_f1": 0.7871357598419708
+    },
+    {
+      "frame_thr": 0.3,
+      "onset_thr": 0.93,
+      "onset_offset_f1": 0.7843994780606197
+    },
+    {
+      "frame_thr": 0.3,
+      "onset_thr": 0.95,
+      "onset_offset_f1": 0.7796083316074537
+    },
+    {
+      "frame_thr": 0.3,
+      "onset_thr": 0.97,
+      "onset_offset_f1": 0.7688128480125659
+    },
+    {
+      "frame_thr": 0.4,
+      "onset_thr": 0.5,
+      "onset_offset_f1": 0.7615764816394682
+    },
+    {
+      "frame_thr": 0.4,
+      "onset_thr": 0.6,
+      "onset_offset_f1": 0.7753698739058467
+    },
+    {
+      "frame_thr": 0.4,
+      "onset_thr": 0.7,
+      "onset_offset_f1": 0.786680889931343
+    },
+    {
+      "frame_thr": 0.4,
+      "onset_thr": 0.8,
+      "onset_offset_f1": 0.7942112311009847
+    },
+    {
+      "frame_thr": 0.4,
+      "onset_thr": 0.85,
+      "onset_offset_f1": 0.7965968746735986
+    },
+    {
+      "frame_thr": 0.4,
+      "onset_thr": 0.9,
+      "onset_offset_f1": 0.7971261832064718
+    },
+    {
+      "frame_thr": 0.4,
+      "onset_thr": 0.93,
+      "onset_offset_f1": 0.7947582746923674
+    },
+    {
+      "frame_thr": 0.4,
+      "onset_thr": 0.95,
+      "onset_offset_f1": 0.7903509469241926
+    },
+    {
+      "frame_thr": 0.4,
+      "onset_thr": 0.97,
+      "onset_offset_f1": 0.7801152974670654
+    },
+    {
+      "frame_thr": 0.5,
+      "onset_thr": 0.5,
+      "onset_offset_f1": 0.7641583000485976
+    },
+    {
+      "frame_thr": 0.5,
+      "onset_thr": 0.6,
+      "onset_offset_f1": 0.777713287830743
+    },
+    {
+      "frame_thr": 0.5,
+      "onset_thr": 0.7,
+      "onset_offset_f1": 0.7890976551594298
+    },
+    {
+      "frame_thr": 0.5,
+      "onset_thr": 0.8,
+      "onset_offset_f1": 0.7965748614679181
+    },
+    {
+      "frame_thr": 0.5,
+      "onset_thr": 0.85,
+      "onset_offset_f1": 0.7991168348095498
+    },
+    {
+      "frame_thr": 0.5,
+      "onset_thr": 0.9,
+      "onset_offset_f1": 0.7996516953807206
+    },
+    {
+      "frame_thr": 0.5,
+      "onset_thr": 0.93,
+      "onset_offset_f1": 0.7977087456295339
+    },
+    {
+      "frame_thr": 0.5,
+      "onset_thr": 0.95,
+      "onset_offset_f1": 0.7940004650378025
+    },
+    {
+      "frame_thr": 0.5,
+      "onset_thr": 0.97,
+      "onset_offset_f1": 0.7843139399644201
+    },
+    {
+      "frame_thr": 0.6,
+      "onset_thr": 0.5,
+      "onset_offset_f1": 0.7594880237983013
+    },
+    {
+      "frame_thr": 0.6,
+      "onset_thr": 0.6,
+      "onset_offset_f1": 0.7727393446160882
+    },
+    {
+      "frame_thr": 0.6,
+      "onset_thr": 0.7,
+      "onset_offset_f1": 0.7839976273100735
+    },
+    {
+      "frame_thr": 0.6,
+      "onset_thr": 0.8,
+      "onset_offset_f1": 0.7914059360375352
+    },
+    {
+      "frame_thr": 0.6,
+      "onset_thr": 0.85,
+      "onset_offset_f1": 0.7940178203864195
+    },
+    {
+      "frame_thr": 0.6,
+      "onset_thr": 0.9,
+      "onset_offset_f1": 0.7944493558210727
+    },
+    {
+      "frame_thr": 0.6,
+      "onset_thr": 0.93,
+      "onset_offset_f1": 0.7926829942933254
+    },
+    {
+      "frame_thr": 0.6,
+      "onset_thr": 0.95,
+      "onset_offset_f1": 0.7895764840960169
+    },
+    {
+      "frame_thr": 0.6,
+      "onset_thr": 0.97,
+      "onset_offset_f1": 0.7810651565181442
+    },
+    {
+      "frame_thr": 0.7,
+      "onset_thr": 0.5,
+      "onset_offset_f1": 0.7469674754387565
+    },
+    {
+      "frame_thr": 0.7,
+      "onset_thr": 0.6,
+      "onset_offset_f1": 0.7596985818105683
+    },
+    {
+      "frame_thr": 0.7,
+      "onset_thr": 0.7,
+      "onset_offset_f1": 0.7703854565310567
+    },
+    {
+      "frame_thr": 0.7,
+      "onset_thr": 0.8,
+      "onset_offset_f1": 0.777600552038562
+    },
+    {
+      "frame_thr": 0.7,
+      "onset_thr": 0.85,
+      "onset_offset_f1": 0.7801767050559993
+    },
+    {
+      "frame_thr": 0.7,
+      "onset_thr": 0.9,
+      "onset_offset_f1": 0.780641662792914
+    },
+    {
+      "frame_thr": 0.7,
+      "onset_thr": 0.93,
+      "onset_offset_f1": 0.7790398927234069
+    },
+    {
+      "frame_thr": 0.7,
+      "onset_thr": 0.95,
+      "onset_offset_f1": 0.7762556784512733
+    },
+    {
+      "frame_thr": 0.7,
+      "onset_thr": 0.97,
+      "onset_offset_f1": 0.7688342397038417
+    }
+  ]
+}
