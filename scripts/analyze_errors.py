@@ -88,9 +88,17 @@ def main() -> None:
         if pedal is not None:
             m["by_pedal"] = breakdown(pooled["pedal_extended"].astype(float), hits, [0, 0.5, 1.5],
                                       ["not extended", "pedal-extended"])
+            # pedal-extended notes are also longer: split each duration bin by pedal
+            # status so the two effects can be told apart
+            for flag, tag in ((False, "not_extended"), (True, "pedal_extended")):
+                sel = pooled["pedal_extended"] == flag
+                m[f"by_duration_{tag}"] = breakdown(pooled["duration"][sel],
+                                                    {k: v[sel] for k, v in hits.items()},
+                                                    DURATION_BINS, DUR_LABELS)
         result["models"][name] = m
         print(f"\n== {name} (frame_thr {thr['frame_thr']}, onset_thr {thr['onset_thr']}) ==")
-        for title in ("by_duration", "by_register", "by_polyphony", "by_pedal"):
+        for title in ("by_duration", "by_register", "by_polyphony", "by_pedal",
+                      "by_duration_not_extended", "by_duration_pedal_extended"):
             if title not in m:
                 continue
             print(f"  {title}:")

@@ -1,0 +1,523 @@
+{
+  "dir": "data/processed/smd",
+  "n_pieces": 50,
+  "n_notes": 147886,
+  "models": {
+    "run2": {
+      "thresholds": {
+        "frame_thr": 0.3,
+        "onset_thr": 0.8
+      },
+      "overall": {
+        "onset_recall": 0.849120268314783,
+        "onset_offset_recall": 0.5750037190809136
+      },
+      "by_duration": [
+        {
+          "bin": "<0.25 s",
+          "n": 67909,
+          "onset_recall": 0.8317159728460145,
+          "onset_offset_recall": 0.6267946811173777
+        },
+        {
+          "bin": "0.25-0.5 s",
+          "n": 32215,
+          "onset_recall": 0.8518081638988049,
+          "onset_offset_recall": 0.6103057581871799
+        },
+        {
+          "bin": "0.5-1 s",
+          "n": 26884,
+          "onset_recall": 0.8676908198184794,
+          "onset_offset_recall": 0.5685165897931855
+        },
+        {
+          "bin": "1-2 s",
+          "n": 14132,
+          "onset_recall": 0.8766628927257288,
+          "onset_offset_recall": 0.410699122558732
+        },
+        {
+          "bin": ">=2 s",
+          "n": 6744,
+          "onset_recall": 0.8800415183867141,
+          "onset_offset_recall": 0.25518979833926453
+        }
+      ],
+      "by_register": [
+        {
+          "bin": "low (A0-B2)",
+          "n": 19541,
+          "onset_recall": 0.8021595619466763,
+          "onset_offset_recall": 0.5152755744332429
+        },
+        {
+          "bin": "mid (C3-B4)",
+          "n": 83529,
+          "onset_recall": 0.8305259251277999,
+          "onset_offset_recall": 0.6056938308850818
+        },
+        {
+          "bin": "high (C5-C8)",
+          "n": 44816,
+          "onset_recall": 0.9042529453766512,
+          "onset_offset_recall": 0.5438459478757587
+        }
+      ],
+      "by_polyphony": [
+        {
+          "bin": "1-2",
+          "n": 35105,
+          "onset_recall": 0.9043725964962256,
+          "onset_offset_recall": 0.6887907705455063
+        },
+        {
+          "bin": "3-4",
+          "n": 36444,
+          "onset_recall": 0.8749862803204917,
+          "onset_offset_recall": 0.6085501042695642
+        },
+        {
+          "bin": "5-6",
+          "n": 28261,
+          "onset_recall": 0.8548883620537135,
+          "onset_offset_recall": 0.5648773928735713
+        },
+        {
+          "bin": "7+",
+          "n": 48076,
+          "onset_recall": 0.7857766869123887,
+          "onset_offset_recall": 0.4724394708378401
+        }
+      ],
+      "offset_errors": {
+        "n_onset_matched": 125573,
+        "too_early": 0.19696909367459564,
+        "too_late": 0.12645234246215348,
+        "median_error_s": 0.0009166666666544643
+      },
+      "by_pedal": [
+        {
+          "bin": "not extended",
+          "n": 52219,
+          "onset_recall": 0.8768647427181677,
+          "onset_offset_recall": 0.654397824546621
+        },
+        {
+          "bin": "pedal-extended",
+          "n": 95667,
+          "onset_recall": 0.833976188236278,
+          "onset_offset_recall": 0.5316671370483029
+        }
+      ],
+      "by_duration_not_extended": [
+        {
+          "bin": "<0.25 s",
+          "n": 43208,
+          "onset_recall": 0.8631271986669136,
+          "onset_offset_recall": 0.6630485095352713
+        },
+        {
+          "bin": "0.25-0.5 s",
+          "n": 4615,
+          "onset_recall": 0.9447453954496208,
+          "onset_offset_recall": 0.6481040086673889
+        },
+        {
+          "bin": "0.5-1 s",
+          "n": 2678,
+          "onset_recall": 0.9432412247946228,
+          "onset_offset_recall": 0.6635548917102315
+        },
+        {
+          "bin": "1-2 s",
+          "n": 1264,
+          "onset_recall": 0.9359177215189873,
+          "onset_offset_recall": 0.4810126582278481
+        },
+        {
+          "bin": ">=2 s",
+          "n": 454,
+          "onset_recall": 0.9383259911894273,
+          "onset_offset_recall": 0.3237885462555066
+        }
+      ],
+      "by_duration_pedal_extended": [
+        {
+          "bin": "<0.25 s",
+          "n": 24701,
+          "onset_recall": 0.7767701712481276,
+          "onset_offset_recall": 0.5633780008906522
+        },
+        {
+          "bin": "0.25-0.5 s",
+          "n": 27600,
+          "onset_recall": 0.836268115942029,
+          "onset_offset_recall": 0.6039855072463768
+        },
+        {
+          "bin": "0.5-1 s",
+          "n": 24206,
+          "onset_recall": 0.8593323969263819,
+          "onset_offset_recall": 0.5580021482277121
+        },
+        {
+          "bin": "1-2 s",
+          "n": 12868,
+          "onset_recall": 0.8708423997513212,
+          "onset_offset_recall": 0.4037923531240286
+        },
+        {
+          "bin": ">=2 s",
+          "n": 6290,
+          "onset_recall": 0.8758346581875993,
+          "onset_offset_recall": 0.25023847376788555
+        }
+      ]
+    },
+    "run3": {
+      "thresholds": {
+        "frame_thr": 0.5,
+        "onset_thr": 0.9
+      },
+      "overall": {
+        "onset_recall": 0.8831735255534668,
+        "onset_offset_recall": 0.7262688827880935
+      },
+      "by_duration": [
+        {
+          "bin": "<0.25 s",
+          "n": 67909,
+          "onset_recall": 0.8692662239173011,
+          "onset_offset_recall": 0.7133222400565462
+        },
+        {
+          "bin": "0.25-0.5 s",
+          "n": 32215,
+          "onset_recall": 0.8912307931088003,
+          "onset_offset_recall": 0.7479435045786125
+        },
+        {
+          "bin": "0.5-1 s",
+          "n": 26884,
+          "onset_recall": 0.8954396667162624,
+          "onset_offset_recall": 0.7616426127064425
+        },
+        {
+          "bin": "1-2 s",
+          "n": 14132,
+          "onset_recall": 0.8985989244268328,
+          "onset_offset_recall": 0.7195726011887914
+        },
+        {
+          "bin": ">=2 s",
+          "n": 6744,
+          "onset_recall": 0.9037663107947805,
+          "onset_offset_recall": 0.6263345195729537
+        }
+      ],
+      "by_register": [
+        {
+          "bin": "low (A0-B2)",
+          "n": 19541,
+          "onset_recall": 0.8395680876106647,
+          "onset_offset_recall": 0.6421370451870426
+        },
+        {
+          "bin": "mid (C3-B4)",
+          "n": 83529,
+          "onset_recall": 0.875336709406314,
+          "onset_offset_recall": 0.7435381723712723
+        },
+        {
+          "bin": "high (C5-C8)",
+          "n": 44816,
+          "onset_recall": 0.916793109603713,
+          "onset_offset_recall": 0.730765797929311
+        }
+      ],
+      "by_polyphony": [
+        {
+          "bin": "1-2",
+          "n": 35105,
+          "onset_recall": 0.9355362483976641,
+          "onset_offset_recall": 0.7919099843327161
+        },
+        {
+          "bin": "3-4",
+          "n": 36444,
+          "onset_recall": 0.9067610580616837,
+          "onset_offset_recall": 0.7422072220392931
+        },
+        {
+          "bin": "5-6",
+          "n": 28261,
+          "onset_recall": 0.8884328226177418,
+          "onset_offset_recall": 0.7271504900746611
+        },
+        {
+          "bin": "7+",
+          "n": 48076,
+          "onset_recall": 0.823966220151427,
+          "onset_offset_recall": 0.6657375821615775
+        }
+      ],
+      "offset_errors": {
+        "n_onset_matched": 130609,
+        "too_early": 0.07858570236354309,
+        "too_late": 0.09923512162255281,
+        "median_error_s": 0.0020833333333314386
+      },
+      "by_pedal": [
+        {
+          "bin": "not extended",
+          "n": 52219,
+          "onset_recall": 0.9061261226756545,
+          "onset_offset_recall": 0.7413202091192861
+        },
+        {
+          "bin": "pedal-extended",
+          "n": 95667,
+          "onset_recall": 0.8706450500172473,
+          "onset_offset_recall": 0.7180532472012293
+        }
+      ],
+      "by_duration_not_extended": [
+        {
+          "bin": "<0.25 s",
+          "n": 43208,
+          "onset_recall": 0.8944871320125902,
+          "onset_offset_recall": 0.7451166450657286
+        },
+        {
+          "bin": "0.25-0.5 s",
+          "n": 4615,
+          "onset_recall": 0.9644637053087757,
+          "onset_offset_recall": 0.7456121343445287
+        },
+        {
+          "bin": "0.5-1 s",
+          "n": 2678,
+          "onset_recall": 0.9607916355489171,
+          "onset_offset_recall": 0.7255414488424197
+        },
+        {
+          "bin": "1-2 s",
+          "n": 1264,
+          "onset_recall": 0.9549050632911392,
+          "onset_offset_recall": 0.6677215189873418
+        },
+        {
+          "bin": ">=2 s",
+          "n": 454,
+          "onset_recall": 0.9625550660792952,
+          "onset_offset_recall": 0.6343612334801763
+        }
+      ],
+      "by_duration_pedal_extended": [
+        {
+          "bin": "<0.25 s",
+          "n": 24701,
+          "onset_recall": 0.8251487794016437,
+          "onset_offset_recall": 0.6577061657422777
+        },
+        {
+          "bin": "0.25-0.5 s",
+          "n": 27600,
+          "onset_recall": 0.8789855072463768,
+          "onset_offset_recall": 0.7483333333333333
+        },
+        {
+          "bin": "0.5-1 s",
+          "n": 24206,
+          "onset_recall": 0.8882095348260762,
+          "onset_offset_recall": 0.7656366190200776
+        },
+        {
+          "bin": "1-2 s",
+          "n": 12868,
+          "onset_recall": 0.8930680758470625,
+          "onset_offset_recall": 0.7246658377370221
+        },
+        {
+          "bin": ">=2 s",
+          "n": 6290,
+          "onset_recall": 0.8995230524642289,
+          "onset_offset_recall": 0.6257551669316376
+        }
+      ]
+    },
+    "run4": {
+      "thresholds": {
+        "frame_thr": 0.5,
+        "onset_thr": 0.9
+      },
+      "overall": {
+        "onset_recall": 0.8910038813680808,
+        "onset_offset_recall": 0.7399415766198287
+      },
+      "by_duration": [
+        {
+          "bin": "<0.25 s",
+          "n": 67909,
+          "onset_recall": 0.8775714559189504,
+          "onset_offset_recall": 0.7345270877203316
+        },
+        {
+          "bin": "0.25-0.5 s",
+          "n": 32215,
+          "onset_recall": 0.8963836722023902,
+          "onset_offset_recall": 0.7494334937141084
+        },
+        {
+          "bin": "0.5-1 s",
+          "n": 26884,
+          "onset_recall": 0.9039949412289838,
+          "onset_offset_recall": 0.768524029162327
+        },
+        {
+          "bin": "1-2 s",
+          "n": 14132,
+          "onset_recall": 0.9073025757146901,
+          "onset_offset_recall": 0.7329465043872063
+        },
+        {
+          "bin": ">=2 s",
+          "n": 6744,
+          "onset_recall": 0.9148873072360617,
+          "onset_offset_recall": 0.6500593119810202
+        }
+      ],
+      "by_register": [
+        {
+          "bin": "low (A0-B2)",
+          "n": 19541,
+          "onset_recall": 0.8527199222148304,
+          "onset_offset_recall": 0.6564147177728877
+        },
+        {
+          "bin": "mid (C3-B4)",
+          "n": 83529,
+          "onset_recall": 0.882352236947647,
+          "onset_offset_recall": 0.7557255563935878
+        },
+        {
+          "bin": "high (C5-C8)",
+          "n": 44816,
+          "onset_recall": 0.9238218493395216,
+          "onset_offset_recall": 0.7469430560514102
+        }
+      ],
+      "by_polyphony": [
+        {
+          "bin": "1-2",
+          "n": 35105,
+          "onset_recall": 0.9407206950576841,
+          "onset_offset_recall": 0.8062953995157385
+        },
+        {
+          "bin": "3-4",
+          "n": 36444,
+          "onset_recall": 0.914005048842059,
+          "onset_offset_recall": 0.7565305674459445
+        },
+        {
+          "bin": "5-6",
+          "n": 28261,
+          "onset_recall": 0.8940943349492233,
+          "onset_offset_recall": 0.7397827394642794
+        },
+        {
+          "bin": "7+",
+          "n": 48076,
+          "onset_recall": 0.8354480406023795,
+          "onset_offset_recall": 0.6790082369581496
+        }
+      ],
+      "offset_errors": {
+        "n_onset_matched": 131767,
+        "too_early": 0.08018699674425311,
+        "too_late": 0.0895975471855624,
+        "median_error_s": 0.0021666666666533274
+      },
+      "by_pedal": [
+        {
+          "bin": "not extended",
+          "n": 52219,
+          "onset_recall": 0.913518068136119,
+          "onset_offset_recall": 0.7658323598690132
+        },
+        {
+          "bin": "pedal-extended",
+          "n": 95667,
+          "onset_recall": 0.8787147083111209,
+          "onset_offset_recall": 0.7258093177375688
+        }
+      ],
+      "by_duration_not_extended": [
+        {
+          "bin": "<0.25 s",
+          "n": 43208,
+          "onset_recall": 0.9026569153860396,
+          "onset_offset_recall": 0.7703897426402518
+        },
+        {
+          "bin": "0.25-0.5 s",
+          "n": 4615,
+          "onset_recall": 0.9666305525460455,
+          "onset_offset_recall": 0.7601300108342361
+        },
+        {
+          "bin": "0.5-1 s",
+          "n": 2678,
+          "onset_recall": 0.9648991784914115,
+          "onset_offset_recall": 0.7561613144137416
+        },
+        {
+          "bin": "1-2 s",
+          "n": 1264,
+          "onset_recall": 0.9651898734177216,
+          "onset_offset_recall": 0.696993670886076
+        },
+        {
+          "bin": ">=2 s",
+          "n": 454,
+          "onset_recall": 0.960352422907489,
+          "onset_offset_recall": 0.6387665198237885
+        }
+      ],
+      "by_duration_pedal_extended": [
+        {
+          "bin": "<0.25 s",
+          "n": 24701,
+          "onset_recall": 0.8336909436864904,
+          "onset_offset_recall": 0.6717946641836363
+        },
+        {
+          "bin": "0.25-0.5 s",
+          "n": 27600,
+          "onset_recall": 0.8846376811594203,
+          "onset_offset_recall": 0.7476449275362319
+        },
+        {
+          "bin": "0.5-1 s",
+          "n": 24206,
+          "onset_recall": 0.897256878459886,
+          "onset_offset_recall": 0.7698917623729654
+        },
+        {
+          "bin": "1-2 s",
+          "n": 12868,
+          "onset_recall": 0.901616412806963,
+          "onset_offset_recall": 0.736478085172521
+        },
+        {
+          "bin": ">=2 s",
+          "n": 6290,
+          "onset_recall": 0.9116057233704292,
+          "onset_offset_recall": 0.6508744038155803
+        }
+      ]
+    }
+  }
+}
