@@ -76,7 +76,11 @@ def test_transcribe_file_end_to_end(tmp_path, onset_head):
     assert len(load_notes(str(mid))) == len(notes)
 
 
-def test_default_thresholds_cover_both_model_types():
-    assert set(DEFAULT_THRESHOLDS) == {True, False}
+def test_default_thresholds_cover_every_released_model_type():
+    from amt.inference import default_thresholds
+    from amt.models.cnn import FrameCNN
+    assert default_thresholds(FrameCNN(onset_head=False)) == {"frame_thr": 0.5, "onset_thr": 0.5}
+    assert default_thresholds(FrameCNN(onset_head=True)) == {"frame_thr": 0.3, "onset_thr": 0.8}
+    assert default_thresholds(FrameCNN(onset_head=True, temporal="bigru")) == {"frame_thr": 0.5, "onset_thr": 0.9}
     for d in DEFAULT_THRESHOLDS.values():
         assert 0 < d["frame_thr"] < 1 and 0 < d["onset_thr"] < 1

@@ -11,8 +11,8 @@ The checkpoint carries its config and the input normalization (as model
 buffers), so nothing else has to be passed in.
 
 Thresholds are decoding choices, not part of the model. The defaults are
-the ones picked on MAESTRO validation by onset+offset F1
-(see results/*_offs.json).
+the ones picked on MAESTRO validation by onset+offset F1 for each model
+family (see results/*_ci.json).
 """
 from __future__ import annotations
 
@@ -31,11 +31,20 @@ from amt.features.cqt import compute_log_cqt, frame_rate
 from amt.models.cnn import build_model, predict_piece
 from amt.training.loop import pick_device
 
-# Tuned on MAESTRO validation (onset+offset F1).
+# Tuned on MAESTRO validation (onset+offset F1), per model family:
+# key = (has onset head, temporal model).
 DEFAULT_THRESHOLDS = {
-    True: {"frame_thr": 0.3, "onset_thr": 0.8},    # model with an onset head (run2)
-    False: {"frame_thr": 0.5, "onset_thr": 0.5},   # frame-only model (run1)
+    (False, "none"): {"frame_thr": 0.5, "onset_thr": 0.5},   # frame-only CNN (run1)
+    (True, "none"): {"frame_thr": 0.3, "onset_thr": 0.8},    # CNN + onset head (run2)
+    (True, "bigru"): {"frame_thr": 0.5, "onset_thr": 0.9},   # + per-pitch GRU (run3, run4)
 }
+
+
+def default_thresholds(model) -> dict:
+    key = (model.onset_out is not None, getattr(model, "temporal", "none"))
+    if key not in DEFAULT_THRESHOLDS:
+        raise ValueError(f"no tuned thresholds for model type {key}; pass frame_thr/onset_thr")
+    return DEFAULT_THRESHOLDS[key]
 
 
 def config_from_dict(d: dict) -> Config:
@@ -71,7 +80,7 @@ def transcribe_audio(
     min_frames: int = 3,
 ) -> list[Note]:
     """audio must already be mono at sr == cfg.audio.sample_rate."""
-    defaults = DEFAULT_THRESHOLDS[model.onset_out is not None]
+    defaults = default_thresholds(model)
     frame_thr = defaults["frame_thr"] if frame_thr is None else frame_thr
     onset_thr = defaults["onset_thr"] if onset_thr is None else onset_thr
     cqt = audio_to_cqt(audio, sr, cfg)
