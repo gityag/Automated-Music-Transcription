@@ -1,0 +1,289 @@
+{
+  "dir": "/kaggle/input/datasets/prayagmane/amt-maestro-cache/maestro/test",
+  "n_pieces": 177,
+  "n_notes": 741410,
+  "models": {
+    "run2": {
+      "thresholds": {
+        "frame_thr": 0.3,
+        "onset_thr": 0.8
+      },
+      "overall": {
+        "onset_recall": 0.8209910845551045,
+        "onset_offset_recall": 0.5483956245532162
+      },
+      "by_duration": [
+        {
+          "bin": "<0.25 s",
+          "n": 360376,
+          "onset_recall": 0.7895226097187382,
+          "onset_offset_recall": 0.5543154927076165
+        },
+        {
+          "bin": "0.25-0.5 s",
+          "n": 172560,
+          "onset_recall": 0.836833565136764,
+          "onset_offset_recall": 0.5752086230876217
+        },
+        {
+          "bin": "0.5-1 s",
+          "n": 128673,
+          "onset_recall": 0.8599084501021971,
+          "onset_offset_recall": 0.5895564726088612
+        },
+        {
+          "bin": "1-2 s",
+          "n": 58365,
+          "onset_recall": 0.8632399554527542,
+          "onset_offset_recall": 0.4455067249207573
+        },
+        {
+          "bin": ">=2 s",
+          "n": 21352,
+          "onset_recall": 0.8738759835144249,
+          "onset_offset_recall": 0.2637223679280629
+        }
+      ],
+      "by_register": [
+        {
+          "bin": "low (A0-B2)",
+          "n": 91501,
+          "onset_recall": 0.801422935268467,
+          "onset_offset_recall": 0.5402673194828472
+        },
+        {
+          "bin": "mid (C3-B4)",
+          "n": 426385,
+          "onset_recall": 0.8304396261594569,
+          "onset_offset_recall": 0.5913270870222921
+        },
+        {
+          "bin": "high (C5-C8)",
+          "n": 223524,
+          "onset_recall": 0.8109777920939139,
+          "onset_offset_recall": 0.4698287432222043
+        }
+      ],
+      "by_polyphony": [
+        {
+          "bin": "1-2",
+          "n": 168966,
+          "onset_recall": 0.8761821904998639,
+          "onset_offset_recall": 0.6399808245445829
+        },
+        {
+          "bin": "3-4",
+          "n": 180216,
+          "onset_recall": 0.8421949216495761,
+          "onset_offset_recall": 0.565299418475607
+        },
+        {
+          "bin": "5-6",
+          "n": 144304,
+          "onset_recall": 0.8213770928040802,
+          "onset_offset_recall": 0.5427292382747533
+        },
+        {
+          "bin": "7+",
+          "n": 247924,
+          "onset_recall": 0.7677393072070473,
+          "onset_offset_recall": 0.4769889159581162
+        }
+      ],
+      "offset_errors": {
+        "n_onset_matched": 608691,
+        "too_early": 0.15383174714263886,
+        "too_late": 0.17946051444821756,
+        "median_error_s": 0.007000000000005002
+      }
+    },
+    "run3": {
+      "thresholds": {
+        "frame_thr": 0.5,
+        "onset_thr": 0.9
+      },
+      "overall": {
+        "onset_recall": 0.8601070932412566,
+        "onset_offset_recall": 0.7081412443856975
+      },
+      "by_duration": [
+        {
+          "bin": "<0.25 s",
+          "n": 360376,
+          "onset_recall": 0.8348391679801097,
+          "onset_offset_recall": 0.6774396741181433
+        },
+        {
+          "bin": "0.25-0.5 s",
+          "n": 172560,
+          "onset_recall": 0.8740611961057023,
+          "onset_offset_recall": 0.7265356977283264
+        },
+        {
+          "bin": "0.5-1 s",
+          "n": 128673,
+          "onset_recall": 0.8905287045456312,
+          "onset_offset_recall": 0.7625142803851623
+        },
+        {
+          "bin": "1-2 s",
+          "n": 58365,
+          "onset_recall": 0.8933950141351837,
+          "onset_offset_recall": 0.7397241497472801
+        },
+        {
+          "bin": ">=2 s",
+          "n": 21352,
+          "onset_recall": 0.8992131884600975,
+          "onset_offset_recall": 0.6627950543274634
+        }
+      ],
+      "by_register": [
+        {
+          "bin": "low (A0-B2)",
+          "n": 91501,
+          "onset_recall": 0.8465153386301789,
+          "onset_offset_recall": 0.6851837684834046
+        },
+        {
+          "bin": "mid (C3-B4)",
+          "n": 426385,
+          "onset_recall": 0.870068130914549,
+          "onset_offset_recall": 0.733358349848142
+        },
+        {
+          "bin": "high (C5-C8)",
+          "n": 223524,
+          "onset_recall": 0.8466697088455826,
+          "onset_offset_recall": 0.6694359442386499
+        }
+      ],
+      "by_polyphony": [
+        {
+          "bin": "1-2",
+          "n": 168966,
+          "onset_recall": 0.9212267556786572,
+          "onset_offset_recall": 0.782145520400554
+        },
+        {
+          "bin": "3-4",
+          "n": 180216,
+          "onset_recall": 0.8761708172415323,
+          "onset_offset_recall": 0.7106083810538465
+        },
+        {
+          "bin": "5-6",
+          "n": 144304,
+          "onset_recall": 0.8543006430868167,
+          "onset_offset_recall": 0.7014635768932254
+        },
+        {
+          "bin": "7+",
+          "n": 247924,
+          "onset_recall": 0.8101555315338571,
+          "onset_offset_recall": 0.6597989706522966
+        }
+      ],
+      "offset_errors": {
+        "n_onset_matched": 637692,
+        "too_early": 0.06334562766978416,
+        "too_late": 0.11360186422285366,
+        "median_error_s": 0.0030833333333362134
+      }
+    },
+    "run4": {
+      "thresholds": {
+        "frame_thr": 0.5,
+        "onset_thr": 0.9
+      },
+      "overall": {
+        "onset_recall": 0.8685922768778409,
+        "onset_offset_recall": 0.7206768184944903
+      },
+      "by_duration": [
+        {
+          "bin": "<0.25 s",
+          "n": 360376,
+          "onset_recall": 0.8450063267254201,
+          "onset_offset_recall": 0.6978655626345817
+        },
+        {
+          "bin": "0.25-0.5 s",
+          "n": 172560,
+          "onset_recall": 0.8793579044969866,
+          "onset_offset_recall": 0.7307081594807603
+        },
+        {
+          "bin": "0.5-1 s",
+          "n": 128673,
+          "onset_recall": 0.8986500664475064,
+          "onset_offset_recall": 0.7699206515741454
+        },
+        {
+          "bin": "1-2 s",
+          "n": 58365,
+          "onset_recall": 0.9011393814786259,
+          "onset_offset_recall": 0.7425340529426883
+        },
+        {
+          "bin": ">=2 s",
+          "n": 21352,
+          "onset_recall": 0.9092356687898089,
+          "onset_offset_recall": 0.6671974522292994
+        }
+      ],
+      "by_register": [
+        {
+          "bin": "low (A0-B2)",
+          "n": 91501,
+          "onset_recall": 0.853422366968667,
+          "onset_offset_recall": 0.6906154031103485
+        },
+        {
+          "bin": "mid (C3-B4)",
+          "n": 426385,
+          "onset_recall": 0.8777724357095114,
+          "onset_offset_recall": 0.7448057506713416
+        },
+        {
+          "bin": "high (C5-C8)",
+          "n": 223524,
+          "onset_recall": 0.8572904922961293,
+          "onset_offset_recall": 0.6869553157602764
+        }
+      ],
+      "by_polyphony": [
+        {
+          "bin": "1-2",
+          "n": 168966,
+          "onset_recall": 0.9280210219807535,
+          "onset_offset_recall": 0.7924907969650699
+        },
+        {
+          "bin": "3-4",
+          "n": 180216,
+          "onset_recall": 0.8867636613841169,
+          "onset_offset_recall": 0.7269221378789896
+        },
+        {
+          "bin": "5-6",
+          "n": 144304,
+          "onset_recall": 0.8616393169974498,
+          "onset_offset_recall": 0.7125512806297816
+        },
+        {
+          "bin": "7+",
+          "n": 247924,
+          "onset_recall": 0.8189283812781336,
+          "onset_offset_recall": 0.671923654023007
+        }
+      ],
+      "offset_errors": {
+        "n_onset_matched": 643983,
+        "too_early": 0.06949872900371594,
+        "too_late": 0.10106788533237679,
+        "median_error_s": 0.0018333333333373503
+      }
+    }
+  }
+}
