@@ -79,6 +79,8 @@ with learning rate 1e-3 and cosine decay to 5%, mixed precision. The onset loss
 weights positives 10x and widens each onset target by +-1 frame. About 2.4 h on
 one Kaggle T4 GPU.
 
+![Reference notes vs the model's notes on a 15 s excerpt of an SMD recording](figures/fig4_pianoroll.png)
+
 **Decoding.** A note starts at a local maximum of the onset probability above
 the onset threshold and ends where the frame probability falls below the frame
 threshold; notes shorter than 3 frames are dropped.
@@ -94,6 +96,8 @@ threshold; notes shorter than 3 frames are dropped.
 | run3 | + per-pitch BiGRU | 89.2 | 92.3 | 76.5 |
 | **run4** | **+ harmonic dilated conv** | **89.3** [88.8, 89.8] | **92.7** [92.0, 93.5] | **77.5** [76.3, 78.7] |
 | run4, 20 epochs | train twice as long | 89.2 | 92.8 | 77.5 |
+
+![Note and note+offset F1 for run1-run4 on MAESTRO and SMD](figures/fig1_ablation.png)
 
 - Seed noise, measured by retraining run2 with another seed: +0.2 note F1 and
   +0.9 note+offset F1. The run3 gain is about 20x larger; the run4 gain over run3
@@ -113,6 +117,8 @@ threshold; notes shorter than 3 frames are dropped.
 | 0.5-1 s | 0.590 -> 0.770 | 0.569 -> 0.769 |
 | 1-2 s | 0.446 -> 0.743 | 0.411 -> 0.733 |
 | >= 2 s | 0.264 -> 0.667 | 0.255 -> 0.650 |
+
+![Note+offset recall by note length, run2 vs run4](figures/fig2_offsets.png)
 
 - The length effect holds both for notes held by the sustain pedal (65% of SMD
   notes) and for notes without it. At equal length, the GRU removes most of
@@ -134,6 +140,8 @@ threshold; notes shorter than 3 frames are dropped.
 | Detune +25 cents | 86.2 (-6.7) | 72.9 (-23.7) |
 | Detune -25 cents | 91.3 (-1.6) | 92.7 (-3.9) |
 | Detune +50 cents | 46.0 | 21.7 |
+
+![Change in note F1 under each degradation](figures/fig3_robustness.png)
 
 The SMD recordings are about +7.5 cents sharp already (median over the 50
 pieces), so "+25 cents" is about +32 cents from standard pitch and "-25" about
@@ -182,7 +190,9 @@ python scripts/eval_kong_smd.py --audio-dir data/smd/wav_22050_mono --cache-dir 
 python scripts/benchmark_speed.py some_piece.wav --ckpt runs/run4/best.pt --seconds 60 --kong
 ```
 
-Every number measured in this repo is stored as JSON in `results/`.
+Every number measured in this repo is stored as JSON in `results/`; the figures are
+built from those files with `python scripts/make_figures.py --ckpt models/run4_best.pt`
+(needs `pip install matplotlib`).
 
 Tests: `pip install -e ".[train,dev]" && pytest` (model tests are skipped
 without torch).
