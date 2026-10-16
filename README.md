@@ -184,7 +184,7 @@ python scripts/analyze_errors.py --dir data/processed/smd --midi-dir data/smd/mi
 # robustness and Kong et al. reference (needs SMD audio and piano_transcription_inference)
 python scripts/robustness.py --audio-dir data/smd/wav_22050_mono --cache-dir data/processed/smd \
     --ckpt runs/run4/best.pt --out-dir results/robustness
-python scripts/eval_kong_smd.py --audio-dir data/smd/wav_22050_mono --cache-dir data/processed/smd \
+python scripts/eval_kong.py --audio-dir data/smd/wav_22050_mono --cache-dir data/processed/smd \
     --out results/model_smd_kong_ci.json
 # CPU speed
 python scripts/benchmark_speed.py some_piece.wav --ckpt runs/run4/best.pt --seconds 60 --kong
