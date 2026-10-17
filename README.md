@@ -7,11 +7,13 @@ a MIDI file at about 70x real time on a laptop CPU, with 3.8M parameters.
 | Model | Params | MAESTRO v3 test (177 pieces)<br>frame / note / note+offset F1 | SMD (50 pieces, real audio, never used for training or tuning)<br>frame / note / note+offset F1 | CPU real-time factor |
 |---|---|---|---|---|
 | **This repo (run4)** | **3.8M** | 89.3 / 92.7 / 77.5 | 88.3 / 92.9 / 78.0 | **0.014** |
-| Kong et al. 2021, released checkpoint | 42.9M (notes + pedal) | 90.1 / 96.8 / 83.2 * | 90.2 / 96.6 / 83.4 | 0.302 |
+| Kong et al. 2021, released checkpoint | 42.9M (notes + pedal) | 90.9 / 96.8 / 84.7 | 90.2 / 96.6 / 83.4 | 0.302 |
 
-All scores are F1 in %, averaged per piece. SMD scores for both systems were
-computed with this repo's evaluation code. * MAESTRO row for Kong et al. as
-published (Toyama et al. 2023, Table 2); we did not run it on MAESTRO.
+All scores are F1 in %, averaged per piece, and every number in the table was
+computed with this repo's evaluation code on the same pieces and labels.
+Kong et al.'s checkpoint was trained on MAESTRO v2, whose test split has the same
+performances as v3, so there is no train/test overlap. Under the original
+protocol they report 96.8 note / 83.2 note+offset F1 (Toyama et al. 2023, Table 2).
 Speed: 60 s of audio, Apple M3, 4 CPU threads.
 
 **Findings**
