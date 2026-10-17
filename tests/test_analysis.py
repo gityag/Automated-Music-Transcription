@@ -80,3 +80,74 @@ def test_robustness_reference_scaling_keeps_labels_aligned():
     est = [Note(60, 0.5, 0.75, 100), Note(64, 1.0, 1.5, 100)]   # notes at the sped-up times
     r = score_external_notes(est, sp)
     assert r["note"]["onset_offset_f1"] == pytest.approx(1.0) and r["frame"]["f1"] == pytest.approx(1.0)
+
+
+# ------------------------------------------------------- piece-level bootstrap
+
+from amt.evaluation.analysis import (bootstrap_breakdown, bootstrap_group_gap,  # noqa: E402
+                                     bootstrap_paired_diff, resample_weights)
+
+
+def _toy(seed=0, n_pieces=30, per_piece=40):
+    rng = np.random.default_rng(seed)
+    pid = np.repeat(np.arange(n_pieces), per_piece)
+    dur = rng.uniform(0, 3, size=len(pid))
+    # long notes are harder; each piece has its own difficulty
+    p_hit = np.clip(0.9 - 0.15 * dur + rng.normal(0, 0.1, n_pieces)[pid], 0, 1)
+    hit = rng.random(len(pid)) < p_hit
+    return pid, dur, hit
+
+
+def test_resample_weights_draw_each_resample_once_per_piece():
+    w = resample_weights(7, n_resamples=50, seed=1)
+    assert w.shape == (50, 7) and np.all(w.sum(axis=1) == 7)
+
+
+def test_bootstrap_breakdown_matches_point_breakdown_and_brackets_it():
+    pid, dur, hit = _toy()
+    bins = [0, 1, 2, np.inf]
+    plain = breakdown(dur, {"r": hit}, bins)
+    boot = bootstrap_breakdown(dur, pid, {"r": hit}, bins, n_resamples=500)
+    for a, b in zip(plain, boot):
+        assert a["n"] == b["n"] and b["r"] == pytest.approx(a["r"])
+        assert b["r_lo"] < b["r"] < b["r_hi"]
+
+
+def test_bootstrap_breakdown_is_wider_when_pieces_disagree():
+    # same pooled recall (0.5), but in one case whole pieces hit or miss together
+    pid = np.repeat(np.arange(20), 10)
+    vals = np.zeros(len(pid))
+    mixed = np.tile([True, False], 100)
+    clustered = pid % 2 == 0
+    w_mixed = bootstrap_breakdown(vals, pid, {"r": mixed}, [0, 1], n_resamples=500)[0]
+    w_clust = bootstrap_breakdown(vals, pid, {"r": clustered}, [0, 1], n_resamples=500)[0]
+    assert w_mixed["r"] == w_clust["r"] == pytest.approx(0.5)
+    assert w_mixed["r_hi"] - w_mixed["r_lo"] == pytest.approx(0.0)
+    assert w_clust["r_hi"] - w_clust["r_lo"] > 0.2
+
+
+def test_bootstrap_breakdown_respects_mask_and_empty_bins():
+    pid, dur, hit = _toy()
+    mask = dur < 1.0
+    rows = bootstrap_breakdown(dur, pid, {"r": hit}, [0, 1, 2, np.inf], mask=mask, n_resamples=200)
+    assert rows[0]["n"] == int(mask.sum())
+    assert rows[1]["n"] == 0 and rows[1]["r"] is None and rows[1]["r_lo"] is None
+
+
+def test_paired_diff_is_zero_for_identical_systems_and_positive_for_a_better_one():
+    pid, dur, hit = _toy()
+    bins = [0, 1, 2, np.inf]
+    same = bootstrap_paired_diff(dur, pid, hit, hit, bins, n_resamples=300)
+    assert all(r["diff"] == 0 and r["lo"] == 0 and r["hi"] == 0 for r in same)
+    better = hit | (np.random.default_rng(3).random(len(hit)) < 0.5)
+    rows = bootstrap_paired_diff(dur, pid, hit, better, bins, n_resamples=300)
+    assert all(r["diff"] > 0 and r["lo"] > 0 and r["p_le_zero"] == 0 for r in rows)
+
+
+def test_group_gap_sign_and_counts():
+    pid, dur, _ = _toy()
+    group = np.arange(len(pid)) % 3 == 0          # "pedal-extended"
+    hit = ~group                                  # group notes always missed, others always hit
+    rows = bootstrap_group_gap(dur, pid, hit, group, [0, 1, 2, np.inf], n_resamples=200)
+    for r in rows:
+        assert r["diff"] == pytest.approx(1.0) and r["n"] == r["n_group"] + r["n_rest"]

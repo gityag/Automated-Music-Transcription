@@ -3,11 +3,19 @@ Note-level error analysis: which reference notes a system gets right,
 broken down by note properties (duration, register, polyphony, sustain
 pedal). Pure NumPy + mir_eval, same matching rules as note_metrics.
 
+Uncertainty: notes within a piece are not independent, so the intervals
+here resample PIECES (cluster bootstrap) and recompute the pooled recall of
+each bin from the resampled pieces' note counts. All bootstrap helpers use
+the same resampling for a given (n_pieces, n_resamples, seed), so intervals
+for different models and differences between them are paired.
+
 Everything here is recall-side: each REFERENCE note is labelled hit or
 miss, so a breakdown by a property of the reference note is well defined
 (precision-side breakdowns would need a property of the estimated note).
 """
 from __future__ import annotations
+
+import warnings
 
 import mir_eval
 import numpy as np
@@ -110,3 +118,119 @@ def offset_error_summary(offset_err: np.ndarray, durations: np.ndarray, offset_r
             "too_early": float(np.mean(err < -tol)) if m.any() else None,
             "too_late": float(np.mean(err > tol)) if m.any() else None,
             "median_error_s": float(np.median(err)) if m.any() else None}
+
+
+# ---------------------------------------------------------------- uncertainty
+
+def _bin_index(values: np.ndarray, bins) -> np.ndarray:
+    """Bin of each value (left-closed, right-open); -1 outside all bins."""
+    b = np.digitize(np.asarray(values, dtype=float), bins) - 1
+    b[(b < 0) | (b >= len(bins) - 1)] = -1
+    return b
+
+
+def _piece_counts(values, piece_ids, n_pieces: int, bins, hit, mask=None):
+    """(hits, n): per-piece, per-bin counts, each of shape (n_pieces, n_bins)."""
+    b = _bin_index(values, bins)
+    keep = b >= 0
+    if mask is not None:
+        keep &= np.asarray(mask, dtype=bool)
+    hits = np.zeros((n_pieces, len(bins) - 1))
+    n = np.zeros_like(hits)
+    np.add.at(n, (piece_ids[keep], b[keep]), 1.0)
+    np.add.at(hits, (piece_ids[keep], b[keep]), np.asarray(hit, dtype=float)[keep])
+    return hits, n
+
+
+def resample_weights(n_pieces: int, n_resamples: int = 2000, seed: int = 0) -> np.ndarray:
+    """(n_resamples, n_pieces): how often each piece is drawn in each resample."""
+    rng = np.random.default_rng(seed)
+    idx = rng.integers(0, n_pieces, size=(n_resamples, n_pieces))
+    w = np.zeros((n_resamples, n_pieces))
+    np.add.at(w, (np.repeat(np.arange(n_resamples), n_pieces), idx.ravel()), 1.0)
+    return w
+
+
+def _ratio(w, hits, n):
+    with np.errstate(invalid="ignore", divide="ignore"):
+        return (w @ hits) / (w @ n)            # (n_resamples, n_bins), NaN if a bin is empty
+
+
+def _interval(samples: np.ndarray, alpha: float):
+    with warnings.catch_warnings():          # an empty bin is all-NaN; it is reported as None
+        warnings.simplefilter("ignore", RuntimeWarning)
+        lo, hi = np.nanquantile(samples, [alpha / 2, 1 - alpha / 2], axis=0)
+    return lo, hi
+
+
+def bootstrap_breakdown(values, piece_ids, hits: dict[str, np.ndarray], bins, labels=None,
+                        mask=None, n_resamples: int = 2000, alpha: float = 0.05,
+                        seed: int = 0) -> list[dict]:
+    """Like breakdown(), plus a 95% piece-level interval for each recall:
+    keys <name>, <name>_lo, <name>_hi. Notes outside `mask` are ignored."""
+    piece_ids = np.asarray(piece_ids)
+    n_pieces = int(piece_ids.max()) + 1
+    w = resample_weights(n_pieces, n_resamples, seed)
+    rows = None
+    for name, hit in hits.items():
+        h, n = _piece_counts(values, piece_ids, n_pieces, bins, hit, mask)
+        point = h.sum(0) / np.maximum(n.sum(0), 1)
+        lo, hi = _interval(_ratio(w, h, n), alpha)
+        if rows is None:
+            rows = [{"bin": labels[k] if labels else f"[{bins[k]}, {bins[k + 1]})",
+                     "n": int(n[:, k].sum())} for k in range(len(bins) - 1)]
+        for k, r in enumerate(rows):
+            empty = r["n"] == 0
+            r[name] = None if empty else float(point[k])
+            r[f"{name}_lo"] = None if empty else float(lo[k])
+            r[f"{name}_hi"] = None if empty else float(hi[k])
+    return rows
+
+
+def _diff_rows(est_a, est_b, w, bins, labels, alpha, n_counts):
+    (ha, na), (hb, nb) = est_a, est_b
+    point = hb.sum(0) / np.maximum(nb.sum(0), 1) - ha.sum(0) / np.maximum(na.sum(0), 1)
+    samples = _ratio(w, hb, nb) - _ratio(w, ha, na)
+    lo, hi = _interval(samples, alpha)
+    rows = []
+    for k in range(len(bins) - 1):
+        empty = n_counts[k] == 0
+        col = samples[:, k]
+        col = col[~np.isnan(col)]
+        rows.append({"bin": labels[k] if labels else f"[{bins[k]}, {bins[k + 1]})",
+                     "n": int(n_counts[k]),
+                     "diff": None if empty else float(point[k]),
+                     "lo": None if empty else float(lo[k]),
+                     "hi": None if empty else float(hi[k]),
+                     "p_le_zero": None if empty or not len(col) else float(np.mean(col <= 0))})
+    return rows
+
+
+def bootstrap_paired_diff(values, piece_ids, hit_a, hit_b, bins, labels=None,
+                          n_resamples: int = 2000, alpha: float = 0.05, seed: int = 0) -> list[dict]:
+    """Per bin: recall(b) - recall(a) for two systems on the SAME reference
+    notes, with a paired piece-level interval and p_le_zero (the share of
+    resamples where b is not better)."""
+    piece_ids = np.asarray(piece_ids)
+    n_pieces = int(piece_ids.max()) + 1
+    w = resample_weights(n_pieces, n_resamples, seed)
+    a = _piece_counts(values, piece_ids, n_pieces, bins, hit_a)
+    b = _piece_counts(values, piece_ids, n_pieces, bins, hit_b)
+    return _diff_rows(a, b, w, bins, labels, alpha, a[1].sum(0))
+
+
+def bootstrap_group_gap(values, piece_ids, hit, group, bins, labels=None,
+                        n_resamples: int = 2000, alpha: float = 0.05, seed: int = 0) -> list[dict]:
+    """Per bin: recall(notes NOT in group) - recall(notes in group) for one
+    system, e.g. the pedal penalty within each duration bin."""
+    piece_ids = np.asarray(piece_ids)
+    group = np.asarray(group, dtype=bool)
+    n_pieces = int(piece_ids.max()) + 1
+    w = resample_weights(n_pieces, n_resamples, seed)
+    inside = _piece_counts(values, piece_ids, n_pieces, bins, hit, group)
+    outside = _piece_counts(values, piece_ids, n_pieces, bins, hit, ~group)
+    n_in, n_out = inside[1].sum(0), outside[1].sum(0)
+    rows = _diff_rows(inside, outside, w, bins, labels, alpha, np.minimum(n_in, n_out))
+    for k, r in enumerate(rows):
+        r["n"], r["n_group"], r["n_rest"] = int(n_in[k] + n_out[k]), int(n_in[k]), int(n_out[k])
+    return rows

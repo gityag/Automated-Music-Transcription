@@ -93,6 +93,10 @@ def fig_offsets(res: Path, out: Path) -> None:
             rows = d["models"][run]["by_duration"]
             y = [r["onset_offset_recall"] * 100 for r in rows]
             ax.plot(range(len(rows)), y, color=color, linewidth=2, marker="o", markersize=5, label=label)
+            if rows[0].get("onset_offset_recall_lo") is not None:   # 95% CI over pieces, if computed
+                ax.fill_between(range(len(rows)), [r["onset_offset_recall_lo"] * 100 for r in rows],
+                                [r["onset_offset_recall_hi"] * 100 for r in rows],
+                                color=color, alpha=0.18, linewidth=0)
             ax.annotate(f"{y[-1]:.0f}", (len(rows) - 1, y[-1]), xytext=(6, 0), textcoords="offset points",
                         va="center", fontsize=8, color=INK2)
         labels = [r["bin"].replace(" s", "").replace(">=", "≥") for r in rows]
@@ -104,6 +108,9 @@ def fig_offsets(res: Path, out: Path) -> None:
         ax.grid(axis="x", visible=False)
     axes[0].set_ylabel("Note+offset recall (%)")
     axes[0].legend(loc="lower left")
+    if d["models"]["run4"]["by_duration"][0].get("onset_offset_recall_lo") is not None:
+        axes[1].text(0.98, 0.04, "Shaded: 95% CI, bootstrap over pieces", transform=axes[1].transAxes,
+                     ha="right", va="bottom", fontsize=8, color=INK2)
     fig.suptitle("Without memory over time, long notes lose their endings; the GRU recovers them",
                  x=0.06, ha="left", fontsize=12, color=INK)
     save(fig, out, "fig2_offsets")
