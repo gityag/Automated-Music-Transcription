@@ -80,9 +80,10 @@ def transcribe_audio(
     min_frames: int = 3,
 ) -> list[Note]:
     """audio must already be mono at sr == cfg.audio.sample_rate."""
-    defaults = default_thresholds(model)
-    frame_thr = defaults["frame_thr"] if frame_thr is None else frame_thr
-    onset_thr = defaults["onset_thr"] if onset_thr is None else onset_thr
+    if frame_thr is None or onset_thr is None:   # only look up defaults when needed
+        defaults = default_thresholds(model)
+        frame_thr = defaults["frame_thr"] if frame_thr is None else frame_thr
+        onset_thr = defaults["onset_thr"] if onset_thr is None else onset_thr
     cqt = audio_to_cqt(audio, sr, cfg)
     frame_probs, onset_probs = predict_piece(model, cqt, device=device)
     return decode_notes(

@@ -1,0 +1,17 @@
+cff-version: 1.2.0
+message: "If you use this software or its results, please cite it as below."
+title: "Automated Music Transcription: compact piano audio-to-MIDI"
+type: software
+authors:
+  - family-names: Mane
+    given-names: Prayag
+version: 1.0.0
+date-released: 2026-10-16
+license: MIT
+repository-code: "https://github.com/gityag/Automated-Music-Transcription"
+keywords:
+  - automatic music transcription
+  - piano
+  - MIDI
+  - constant-Q transform
+  - convolutional neural network

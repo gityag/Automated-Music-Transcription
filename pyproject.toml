@@ -1,8 +1,11 @@
 [project]
 name = "amt"
-version = "0.1.0"
+version = "1.0.0"
 description = "Automated piano music transcription: CQT front end + CNN, evaluated with note-level metrics."
 requires-python = ">=3.10"
+license = { text = "MIT" }
+authors = [{ name = "Prayag Mane" }]
+readme = "README.md"
 dependencies = [
     "numpy>=1.24",
     "scipy>=1.10",
@@ -11,12 +14,13 @@ dependencies = [
     "soundfile>=0.12",
     "mir_eval>=0.7",
     "PyYAML>=6.0",
-    "mir_eval>=0.7"
 ]
 
 [project.optional-dependencies]
 dev = ["pytest>=7.0", "pytest-cov"]
 train = ["torch>=2.1"]
+demo = ["gradio>=4.0", "matplotlib>=3.7"]
+figures = ["matplotlib>=3.7"]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
